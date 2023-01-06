@@ -124,7 +124,7 @@ of these cycle will play a major role in showing the following theorem.
 where 
 \begin{equation}\label{eq:PT}
 P_{\alpha,T}=
-	\sum_{\ell=1}^k (-1)^{k-\ell} \sum_{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T} \prod_{j=1}^\ell 
+	\sum_{\ell=|T|}^k (-1)^{k-\ell} \sum_{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T} \prod_{j=1}^\ell 
 	      \Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)\,.
 \end{equation}
 We show that $P_{\alpha,T}(\sigma)=0$ for all $T$. If $T=\emptyset$ there is nothing to show as $P_{\alpha,\emptyset}=0$. 
@@ -173,12 +173,23 @@ In this case remark that $z_{j_i,\epsilon_i}=a_{j_i}=z_{j'_i,\epsilon'_i}$ and $
 \noindent{\bf Case $\bf |T|>1$}: 
 When we have more than one cycle involved, let $T=\{t_1,t_2,\ldots,t_r\}$ and we assume (without lost of generality) that $C=C_{t_1}$
 is a cycle that do not contain (in the non-crossing sense) any nested cycles among $C_{t_j}$ for $j>1$. The fact that the cycles of $\sigma$ are non-crossing guaranties the existence of such $C$
-for any given $T$.  We now partition the terms of Equation~\eqref{eq:PT} according to the intersection of $ i_1<i_2<\cdots < i_\ell$ with the $C_{t_j}$ for $j>1$.
-We will show that the portion of the terms intersecting $C$ will be a vanishing polynomials as in the case $|T|=1$. 
-For this, let $CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap C_{t_j}$.  Given $Q=(Q_2,\ldots,Q_r)$ where $Q_j\subset C_{t_j}$ we have $\displaystyle P_{\alpha,T}=\sum_Q P_{\alpha,T,Q}$ where
+for any given $T$.  We now partition the terms of Equation~\eqref{eq:PT} according to the intersection of $ i_1<i_2<\cdots < i_\ell$ with the $C_{t_j}$ for $j>1$ and the corresponding possible choices of $f_j$'s.
+We  show that the portion of the terms intersecting $C$ is a vanishing polynomials as in the case $|T|=1$. Let $c=\min(C)$ and $d=\max(C)$.
+Assume we have $C(\{ i_1,i_2,\ldots , i_\ell\})=T$ and let 
+ 	$$CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap C_{t_j}\not= \emptyset\,.$$ 
+From our choice of $C=C_{t_1}$, we have $CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap \{i: c\le i\le d\}$. Outside the range $[c,d]=\{i: c\le i\le d\}$, we fix all the other parameters involved in the terms
+$P_{\alpha,T}$ in Equation~\eqref{eq:PT}.
+Fix $Q=(Q_2,\ldots,Q_r)$ where $\emptyset\not= Q_j\subset C_{t_j}$ such that 
+	$$\bigcup_{j=2}^r Q_j = \{\underline{i}_1,\underline{i}_2,\ldots,\underline{i}_p\} \cup  \{\overline{i}_1,\overline{i}_2,\ldots,\overline{i}_q\}$$
+where $p+q<k$ and 
+	$$\underline{i}_1<\underline{i}_2<\cdots<\underline{i}_p<c\le d<\overline{i}_1<\overline{i}_2<\cdots<\overline{i}_q\,.$$
+We also fix $F=\{\underline{f}_1,\underline{f}_2,\ldots,\underline{f}_p,\underline{f}_{p+1},\overline{f}_1,\overline{f}_2,\ldots,\overline{f}_q,\overline{f}_{q+1}\}$. where
+	$$1=\underline{f}_1<\underline{f}_2<\cdots<\underline{f}_p<\underline{f}_{p+1}<\overline{f}_1<\overline{f}_2<\cdots<\overline{f}_q<\overline{f}_{q+1}=k+1\,.$$
+For any term of the sum in  Equation~\eqref{eq:PT}, we have a unique corresponding $Q$ and $F$. 
+In particular, we have $\displaystyle P_{\alpha,T}=\sum_Q P_{\alpha,T,Q,F}$ where
 \begin{equation}\label{eq:PTQ}
 P_{\alpha,T,Q}=
-	\sum_{\ell=1}^k (-1)^{k-\ell} \sum_{{{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T}\atop CQ_1(\{ i_1,i_2,\ldots , i_\ell\})\not=\emptyset }
+	\sum_{\ell=r}^k (-1)^{k-\ell} \sum_{{{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T}\atop CQ_1(\{ i_1,i_2,\ldots , i_\ell\})\not=\emptyset }
 								\atop CQ_j(\{ i_1,i_2,\ldots , i_\ell\})=Q_j \text{ for } 2\le j\le r}
 		\prod_{j=1}^\ell 
 	     	\Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)\,.
