@@ -120,7 +120,7 @@ of these cycle will play a major role in showing the following theorem.
  Let $\sigma=C_1C_2\cdots C_r$  the decomposition of $\sigma$ into disjoint cycle. We include the fix points a 1-cycles.
  Given a set on indices $1\le i_1<i_2<\cdots < i_\ell\le n$ we say that the cycle support of $S=\{ i_1,i_2,\ldots , i_\ell\}$
  is $C(S)=\{j : S\cap C_j \not= \emptyset \}$. We have
- 	$P_\alpha=\sum_{T\subseteq [r]} P_{\alpha,T},$
+ 	$\displaystyle P_\alpha=\sum_{T\subseteq [r]} P_{\alpha,T},$
 where 
 \begin{equation}\label{eq:PT}
 P_{\alpha,T}=
@@ -170,11 +170,22 @@ In this case remark that $z_{j_i,\epsilon_i}=a_{j_i}=z_{j'_i,\epsilon'_i}$ and $
 
 
 \medskip 
-\noindent{\bf Case $\bf |T|>1$}: \nantel{I am not done this part. need to add much more details}
+\noindent{\bf Case $\bf |T|>1$}: 
 When we have more than one cycle involved, let $T=\{t_1,t_2,\ldots,t_r\}$ and we assume (without lost of generality) that $C=C_{t_1}$
-is a cycle that do not contain (in the non-crossing sense) any nested other cycles of the $C_{t_i}$ for $i>1$. The fact that the cycles of $\sigma$ are non-crossing guaranties the existence of such $C$
-for any given $T$.  We now partition the terms of Equation~\eqref{eq:PT} according to the intersection of $ i_1<i_2<\cdots < i_\ell$ with the $C_{t_i}$ for $i>1$.
-We will see that the portion of the terms intersecting $C$ will be a vanishing polynomials as in the case $|T|=1$.
+is a cycle that do not contain (in the non-crossing sense) any nested cycles among $C_{t_j}$ for $j>1$. The fact that the cycles of $\sigma$ are non-crossing guaranties the existence of such $C$
+for any given $T$.  We now partition the terms of Equation~\eqref{eq:PT} according to the intersection of $ i_1<i_2<\cdots < i_\ell$ with the $C_{t_j}$ for $j>1$.
+We will show that the portion of the terms intersecting $C$ will be a vanishing polynomials as in the case $|T|=1$. 
+For this, let $CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap C_{t_j}$.  Given $Q=(Q_2,\ldots,Q_r)$ where $Q_j\subset C_{t_j}$ we have $\displaystyle P_{\alpha,T}=\sum_Q P_{\alpha,T,Q}$ where
+\begin{equation}\label{eq:PTQ}
+P_{\alpha,T,Q}=
+	\sum_{\ell=1}^k (-1)^{k-\ell} \sum_{{{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T}\atop CQ_1(\{ i_1,i_2,\ldots , i_\ell\})\not=\emptyset }
+								\atop CQ_j(\{ i_1,i_2,\ldots , i_\ell\})=Q_j \text{ for } 2\le j\le r}
+		\prod_{j=1}^\ell 
+	     	\Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)\,.
+\end{equation}
+From our choice of $C=C_{t_1}$ the sum above is really over the indices given by the entries of $C$ and no indices by entries of $C_{t_j}$ for $j>1$ falls in between.
+The rest of the indices are fixed and form a fixed monomial outside the range of $C$. 
+
 
 \end{proof}
 
