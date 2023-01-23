@@ -1,0 +1,1073 @@
+\documentclass[12pt]{article}
+% add [leqno] to move equation numbers to left side
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%    Packages    %%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%   Formatting Packages    %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{showframe} % draw boxes around body, etc. to detect broken margins
+%\pdfpkresolution=1200
+\usepackage{fancyhdr}
+\usepackage{enumitem} % Better Lists
+\newlist{condenum}{enumerate}{1}
+%\usepackage{nicematrix} % Better matrices
+\usepackage{xcolor} % Better colors
+\usepackage{graphicx} % Better layout control
+\usepackage{hyperref} % Better \refs and \cites
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%    Math Packages    %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\allowdisplaybreaks
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{mathabx}
+\usepackage{bbm}
+\usepackage{shuffle}
+\usepackage[mathscr]{eucal}
+%\usepackage{mathrsfs}
+\usepackage{stmaryrd} % Includes \mapsfrom
+\usepackage{makecell}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%    TikZ Packages    %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{patterns, arrows, matrix, positioning, calc}
+\usepackage{tikz-cd}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%    Page setup    %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\evensidemargin}{1in}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\oddsidemargin}{1in}
+\addtolength{\oddsidemargin}{-1in}
+\setlength{\topmargin}{1in}
+\addtolength{\topmargin}{-1.5in}
+%
+\setlength{\textwidth}{16.5cm}
+\setlength{\textheight}{23cm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%     Bibliography     %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[
+%	backend = biber,
+%	style=numeric,
+%	natbib=false,
+%	isbn=false, 
+%	url = false,
+%	isbn=false, 
+%	doi=false]{biblatex}
+%\addbibresource{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%     Macros - General     %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%
+% Theorem Environments
+%%%%%%%%%%%
+\newtheorem{thm}[equation]{Theorem}
+\newtheorem{conj}[equation]{Conjecture}
+\newtheorem{openproblem}[equation]{Open Problem}
+\newtheorem{question}[equation]{Question}
+\newtheorem{prop}[equation]{Proposition}
+\newtheorem{lem}[equation]{Lemma}
+\newtheorem{cor}[equation]{Corollary}
+\theoremstyle{definition}
+\newtheorem{ex}[equation]{Example}
+\theoremstyle{remark}
+\newtheorem{rem}[equation]{Remark}
+\newtheorem{rems}[equation]{Remarks}
+%
+\numberwithin{equation}{section}
+%
+
+%%%%%%%%%%%
+% Letter Macros
+%%%%%%%%%%%
+% Blackboard Letters
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\KK}{\mathbb{K}}
+% Calligraphic - Triple Capital Letters
+\def\mydefb#1{\expandafter\def\csname #1#1#1\endcsname{\mathcal{#1}}}
+\def\mydefallb#1{\ifx#1\mydefallb\else\mydefb#1\expandafter\mydefallb\fi}
+\mydefallb ABCDEFGHIJKLMNOPQRSTUVWXYZ\mydefallb
+
+%%%%%%%%%%%
+% Nicening Macros
+%%%%%%%%%%%
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\spanning}{\operatorname{-span}}
+\renewcommand{\hom}{\operatorname{Hom}}
+\renewcommand{\setminus}{-}
+
+%%%%%%%%%%%
+% Width Adjustment
+%%%%%%%%%%%
+% For sufficiently new LaTeX installations:
+\NewCommandCopy{\narrowhat}{\hat}
+\renewcommand{\hat}{\widehat}
+\NewCommandCopy{\shortto}{\to}
+\renewcommand{\to}{\longrightarrow}
+\NewCommandCopy{\shortmapsto}{\mapsto}
+\renewcommand{\mapsto}{\longmapsto}
+\NewCommandCopy{\shortmapsfrom}{\mapsfrom}
+\renewcommand{\mapsfrom}{\longmapsfrom}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%     Macros - Paper     %%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\TL}{\mathsf{TL}}
+
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\QSym}{\mathrm{QSym}}
+\newcommand{\QSV}{\mathrm{QSV}}
+\newcommand{\NCP}{\mathrm{NCP}}
+
+\newcommand{\EP}{E_{pos}}
+\newcommand{\EV}{E_{val}}
+
+%%%%%Tikz Paper Macros
+%% Black edge
+\newcommand{\edge}[2]{\tikz[scale = 0.75, baseline = -0.2cm]{
+\draw (0.1, 0) node[inner sep = 0ex] (a) {};
+\node[left, xshift = 0.1cm, yshift = -0.1cm] at (a) {$\scriptstyle #1$};
+\draw (0.9, 0)  node[inner sep = 0ex] (b) {};
+\node[right, xshift = -0.1cm, yshift = -0.1cm] at (b) {$\scriptstyle #2$};
+\draw[thick] (a) to[out = 35, in = 145] (b);}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%     Page Details     %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+%\fancyhf{}
+\lhead{}
+\chead{}
+\rhead{}
+\cfoot{\thepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{The excedance quotient of the Bruhat order}
+\author{Lucas and Nantel}
+%\date{\today}
+\maketitle
+%\begin{abstract}
+%\end{abstract}
+%\keywords{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%
+\subsection{Noncrossing partitions}
+\label{sec:ncp}
+%%%%%%%%%%
+
+%For $n \ge 0$, let $[n]$ denote the set comprising the first $n$ positive integers.
+
+A \emph{noncrossing partition} of size $n$ is a diagram $\lambda$ consisting of:
+\begin{enumerate}
+\item the first $n$ positive integers $1, \ldots, n$, placed from left to right along a horizontal axis; and
+
+\item a set of left-to-right arcs $ (i, j) = \edge{i}{j}$, $i < j$ drawn above the axis with no intersections or coterminal points: $\lambda$ contains no pair $\edge{i}{k}, \edge{j}{l}$ with $i \le j < k \le l$.
+
+\end{enumerate}
+For example,
+\begin{equation}
+\label{eq:noncrossingpartitionexample}
+\lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 7}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+%\foreach \x in {1, ..., 7}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {5/6, 3/5,2/7}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}
+\end{equation}
+is a noncrossing partition of size $7$ containing the arcs $\edge{2}{7}$, $\edge{3}{5}$, and $\edge{5}{6}$.
+
+Considering a noncrossing partition $\lambda$ as an (undirected) graph, the connected components of $\lambda$ give a partition of the set $[n] = \{1, \ldots, n\}$, which is the origin of the term.  For example, the noncrossing partition shown in Equation~\eqref{eq:noncrossingpartitionexample} corresponds to the set partition $\{ \{1\}, \{3, 5, 6\}, \{2, 7\}, \{4\}  \}$.  Let
+\[
+\NCP_{n} = \{ \text{noncrossing partitions of size $n$} \}.
+\]
+The number of noncrossing partitions of size $n$ is the $n$th Catalan number, $C_{n} = \frac{1}{n+1}\binom{2n}{n}$.
+
+Given an arc $ \edge{i}{j} \in \lambda$, say that $i$ is the \emph{left endpoint} and $j$ is the \emph{right endpoint}, and let
+\[
+\lambda^{+} = \{ i \in [n] \;|\; \text{$i$ is a left endpoint in $\lambda$} \}
+\]
+and
+\[
+\lambda^{-} = \{ i \in [n] \;|\; \text{$i$ is a right endpoint in $\lambda$} \}
+\]
+For example, with the noncrossing partition $\lambda$ in~\eqref{eq:noncrossingpartitionexample}, $\lambda^{+} = \{2, 3, 5\}$ and $\lambda^{-} = \{5, 6, 7\}$.  The arcs in $\lambda$ give a bijection between the sets $\lambda^{+}$ and $\lambda^{-}$, so that
+\[
+|\lambda^{+}| = |\lambda^{-}|.
+\]
+
+%Each noncrossing partition $\lambda$ is uniquely determined by its sets $\lambda^{+}$ and $\lambda^{-}$ of left and right neighbors.
+\begin{lem}
+\label{lem:noncrossingpartitionproperty}
+Each noncrossing partition $\lambda$ of size $n$ is uniquely determined by the sets $\lambda^{+}$ and $\lambda^{-}$.  Moreover, given two subsets $L$ and $R$ of $[n]$ with equal size, the inequalities
+\[
+|[k-1] \cap L| \ge |[k] \cap R| \qquad\text{for $k \ge 1$}
+\]
+hold if and only if we have $L = \lambda^{+}$ and $R = \lambda^{-}$ for some noncrossing partition $\lambda$ of size $n$.
+\end{lem}
+\begin{proof}
+Given $L$ and $R$, draw the elements of $[n]$ along the horizontal axis, increasing from left to right, and draw a half-arc starting at each vertex in $L$ and and half-arc ending at each vertex in $R$.  For example, with $n = 8$, $L = \{2, 4, 7\}$, and $R = \{5, 6, 8\}$, the resulting diagram is
+\[
+\begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 8}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/6, 4/5, 7/8}{
+	\draw[thick, -latex] (\i) to[out = 35, in = 215] ($ (\i) + (0.4, 0.3) $);
+	\draw[thick, -latex] ($ (\j) + (-0.4, 0.3) $) to[out = -35, in = 145] (\j);}
+\end{tikzpicture}.
+\]
+These half-arcs determine a unique noncrossing partition, which can be obtained by recursively connecting pairs of half-edges which have no incomplete edges between them.  Continuing the preceding example, this successively gives the  diagrams
+\[
+\begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 8}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/6}{
+	\draw[thick, -latex] (\i) to[out = 35, in = 215] ($ (\i) + (0.4, 0.3) $);
+	\draw[thick, -latex] ($ (\j) + (-0.4, 0.3) $) to[out = -35, in = 145] (\j);}
+\foreach \i\j in {4/5, 7/8}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}
+\qquad\text{and then}\qquad
+\begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 8}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/6, 4/5, 7/8}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}.
+\]
+
+For the converse, if $L = \lambda^{+}$ and $R = \lambda^{-}$ for a nonnesting partition $\lambda$, the given inequalities must hold: the left endpoint of each arc must be strictly less than the right endpoint.
+\end{proof}
+
+
+%%%%%%%%%%
+\subsection{Permutations and the Bruhat order}
+\label{sec:bruhat}
+%%%%%%%%%%
+
+The Bruhat ordering of $S_{n}$ is generated by the covering relation 
+\[
+v \lessdot w \quad\text{if $wv^{-1}$ is a reflection and $\ell(v) < \ell(w)$}.
+\]
+This definition above is somewhat unwieldy, so the following \emph{tableau criterion} will be used.  For $w \in S_{n}$, let $\TTT(w)$ be the diagram whose $n-k$th row $\TTT_{k}(w)$ consists of the elements $w_{1}, w_{2}, \ldots, w_{k}$ appearing in increasing order.  For example,
+\[
+\TTT(52314) = 
+\begin{array}{ccccc} 
+1 & 2 & 3 & 4 & 5 \\ 
+1 & 2 & 3 & 5 \\ 
+2 & 3 & 5 \\ 
+2 & 5 \\ 
+5
+\end{array}
+\qquad\text{and}\qquad
+\TTT(41235) = \begin{array}{ccccc} 
+1 & 2 & 3 & 4 & 5 \\ 
+1 & 2 & 3 & 4 \\ 
+1 & 2 & 4 \\ 
+1 & 4 \\ 
+4
+\end{array}.
+\]
+
+\begin{prop}[{\cite[Theorem 2.6.3]{BjornerBrenti}}]
+\label{TableauCriterion}
+For $v, w \in S_{n}$, we have $v \le w$  if and only if each entry of $\TTT(v)$ is less than or equal to to corresponding entry of $\TTT(w)$.
+\end{prop}
+
+For example, with $w = 52314$ and $v = 41235$ and $\TTT(v)$, $\TTT(w)$ shown above, the Tableau criterion shows that $v \le w$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The set $\QSV_{n}$}
+\label{sec:QSV}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section will define the set $\QSV_{n}$ and establish its elementary properties.  Section~\ref{sec:bruhatballot} recalls the description of the restriction of the Bruhat order to $\QSV_{n}$ given in~\cite{GobetWilliams}.
+
+
+Let $\lambda$ be a noncrossing partition of size $n$ and recall the sets $\lambda^{+}$ and $\lambda^{-}$ from Section~\ref{sec:ncp}.  
+%, and write each part of $\lambda$ as 
+%\[
+%\lambda_{r} = \{c_{r, 1} < c_{r, 2} < \dots < c_{r, |\lambda_{r}|}\}.
+%\]
+Define a permutation $Q_{\lambda} \in S_{n}$ by 
+%the product of disjoint cycles:
+%\[
+%Q_{\lambda} = \prod_{\lambda_{r} \in \lambda} (c_{r, 1} c_{r, 2} \dots c_{r, |\lambda_{r}|}).
+%\]
+%Since the parts of $\lambda$ are disjoint, the above product can be taken in any order.  The permutation $Q_{\lambda}$ can also be described using the noncrossing partition diagram of $\lambda$: 
+\[
+Q_{\lambda}(j) = \begin{cases} i & \text{if $j \in \lambda^{-}$ and $ \edge{i}{j} \in \lambda$} \\
+k & \text{if $j \notin \lambda^{-}$ and $k$ is the largest element connected to $i$ in $\lambda$}
+\end{cases}
+\]
+Thus, $Q_{\lambda}$ sends $j \in [n]$ to its leftward neighbor in $\lambda$, if such a neighbor exists, and otherwise sends $j$ to the rightmost element of its connected component.  
+
+Let
+\[
+\QSV_{n} = \{Q_{\lambda} \;|\; \lambda \in \NCP_{n} \}.
+\]
+For example, the elements of $\QSV_{3}$ are:
+\[
+Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = 321, \qquad
+Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2, 2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{312\}, \qquad
+Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = 213, 
+\]
+\[
+Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = 132, \qquad\text{and}\qquad
+Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+%\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = 123.
+\]
+%The following well-known characterization of $\QSV_{n}$ will be used in Section~\ref{}.%; a proof is included for compelteness.
+
+The follow
+
+\begin{lem}
+\label{lem:QSVcycles}
+
+Let $\lambda$ be a noncrossing partition of size $n$ with connected components $C_{1}, C_{2}, \ldots, C_{s}$, and enumerate each $C_{r}$, $1 \le r \le s$ in increasing order as $\{c_{r, 1} < c_{r, 2} < \cdots < c_{r, |C_{r}|}\}$. 
+We then have the disjoint cycle decomposition
+\[
+Q_{\lambda} = \prod_{r = 1}^{s} (c_{r, 1} c_{r, |C_{r}|} \cdots c_{r, 2}).
+\]
+\end{lem}
+\begin{proof}
+The statement follows directly from the definition given above: $[n] \setminus \lambda^{-} = \{c_1 \;|\; 1 \le r \le s\}$, so $Q_{\lambda}(c_{r, 1}) =  c_{r, |C_{r}|}$ for each $r$, and for $1 < i \le |C_{r}|$, we have $c_{r, i} = c_{r, i-1}$.
+\end{proof}
+
+For example, when $\lambda$ has a single connected component, $Q_{\lambda}$ is a single cycle: with
+\[
+\lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 7}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2, 2/3, 3/4, 4/5, 5/6, 6/7}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}
+\qquad\text{we have}\qquad
+Q_{\lambda} = (1765432) = 7123456.
+%\stackrel{1}{7} \stackrel{2}{1} \stackrel{3}{2} \stackrel{4}{3} \stackrel5{4} \stackrel{6}{5} \stackrel{7}{6}
+\]
+Considering the noncrossing partition shown in Equation~\eqref{eq:noncrossingpartitionexample} gives a more complicated example: with
+\[
+\lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 7}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {5/6, 3/5,2/7}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}
+\qquad\text{we have}\qquad
+Q_{\lambda} = (1)(27)(365)(4) = 1764352.
+%\stackrel{1}{1} \stackrel{2}{7} \stackrel{3}{6} \stackrel{4}{4} \stackrel{5}{3} \stackrel{6}{5} \stackrel{7}{2}.
+\]
+
+\begin{rem}
+\label{rem:QSVnoncrossing}
+The set $\QSV_{n}$ is a particular case of a more general phenomenon involving non-crossing partitions and permutations.  
+Given any $n$-cycle $c \in S_{n}$,~\cite{Baine} gives a bijection between $\NCP_{n}$ and the interval between the identity and $c$ in the absolute order on $S_{n}$, and our construction realizes this bijection for $c = (1n\cdots 2)$.  
+\end{rem}
+
+%%%%%%%%%%%%%%%
+\subsection{The Bruhat order on $\QSV_{n}$}
+\label{sec:bruhatballot}
+%%%%%%%%%%%%%%%
+
+The Bruhat order restricts to a partial order on the set $\QSV_{n}$.
+This turns out to be a very natural order, as is described in the paper~\cite{GobetWilliams}.  
+This section will recall the description from this source for use in later sections.
+
+For $n \ge 0$, define a partial order $\preceq$ on the set $\NCP_{n}$ of noncrossing partitions as the extension of the covering relation: $\lambda$ is covered by $\mu$ if and only if $\lambda$ is obtained from $\mu$ in one of the following ways:
+\begin{enumerate}
+\item removing an arc of the form $ \edge{i}{i+1}$ from $\mu$, or
+
+\item replacing any arc $ \edge{i}{k}$ in $\mu$ with two arcs $ \edge{i}{j}$ and $ \edge{j}{k}$ for some $i < j < k$ which do not intersect or share a left or right endpoint with any other arc in $\mu$.
+
+\end{enumerate}
+
+It is difficult to describe the non-covering relations of $\preceq$ on $\NCP_{n}$---and of the Bruhat order on $\QSV_{n}$---in a direct and intuitive manner.  Instead, these relations are best understood through an intermediary object.  A \emph{ballot sequence} of length $2n$ is a sequence $b \in \{\pm1\}^{2n}$ for which each partial sum of $b$ is nonnegative and the final sum is $0$.  A well-known bijection between noncrossing partitions is used in~\cite[Section~5.1]{GobetWilliams}: for $\lambda \in \NCP_{n}$ define a ballot sequence $b^{\lambda} = (b^{\lambda}_{1}, b^{\lambda}_{2}, \ldots, b^{\lambda}_{2n})$  by
+\[
+b^{\lambda}_{2 k - 1} = \begin{cases} 1 & \text{if $k \notin \lambda^{-}$} \\ -1 & \text{if $k \in \lambda^{-}$} \end{cases}
+\qquad
+\text{and}
+\qquad
+b^{\lambda}_{2 k} = \begin{cases} 1 & \text{if $k \in \lambda^{+}$} \\ -1 & \text{if $k \notin \lambda^{+}$,} \end{cases}
+\]
+for each $1 \le k \le n$.
+
+\begin{prop}[{\cite[Theorem 1.1 and Corollary 7.5]{GobetWilliams}}]
+\label{prop:QSVorderbijection}
+Let $\lambda$ and $\mu$ be noncrossing partitions of size $n$.  The following are equivalent:
+\begin{enumerate}
+\item $\lambda \preceq \mu$, 
+
+\item $Q_{\lambda} \le Q_{\mu}$ in the Bruhat order, and
+
+\item for all $1 \le k \le 2n$, $\sum_{i = 1}^{k} b^{\lambda}_{k} \le \sum_{i = 1}^{k} b^{\mu}_{k}$.
+
+\end{enumerate}
+\end{prop}
+
+As an example, for $n = 3$ the (isomorphic) orders on $\QSV_{n}$, $\NCP_{n}$, and ballot sequences are shown in Figure~\ref{fig:Hassediagrams}.
+
+\begin{figure}
+\begin{center}
+\begin{tikzpicture}
+\node at (0, 4.5) (13b2) {$321$};
+\node at (0, 3) (123) {$312$};
+\node at (1.5, 1.5) (1b23) {$132$};
+\node at (-1.5, 1.5) (12b3) {$213$};
+\node at (0, 0) (1b2b3) {$123$};
+\draw[thick] (1b2b3) -- (1b23);
+\draw[thick] (1b2b3) -- (12b3);
+\draw[thick] (1b23) -- (123);
+\draw[thick] (12b3) -- (123);
+\draw[thick] (123) -- (13b2);
+\end{tikzpicture}
+\hspace{0.75cm}
+\begin{tikzpicture}
+\node at (0, 4.5) (13b2) {\tikz[scale = 0.75, baseline = 0.75*-0.2]{
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}}};
+\node at (0, 3) (123) {\tikz[scale = 0.75, baseline = 0.75*-0.2]{
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2, 2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}}};
+\node at (1.5, 1.5) (1b23) {\tikz[scale = 0.75, baseline = 0.75*-0.2]{
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}}};
+\node at (-1.5, 1.5) (12b3) {\tikz[scale = 0.75, baseline = 0.75*-0.2]{
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}}};
+\node at (0, 0) (1b2b3) {\tikz[scale = 0.75, baseline = 0.75*-0.2]{
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}}};
+\draw[thick] (1b2b3) -- (1b23);
+\draw[thick] (1b2b3) -- (12b3);
+\draw[thick] (1b23) -- (123);
+\draw[thick] (12b3) -- (123);
+\draw[thick] (123) -- (13b2);
+\end{tikzpicture}
+\hspace{0.75cm}
+\begin{tikzpicture}
+\node at (0, 4.5) (13b2) {$111---$};
+\node at (0, 3) (123) {$11-1--$};
+\node at (1.5, 1.5) (1b23) {$1-11--$};
+\node at (-1.5, 1.5) (12b3) {$11--1-$};
+\node at (0, 0) (1b2b3) {$1-1-1-$};
+\draw[thick] (1b2b3) -- (1b23);
+\draw[thick] (1b2b3) -- (12b3);
+\draw[thick] (1b23) -- (123);
+\draw[thick] (12b3) -- (123);
+\draw[thick] (123) -- (13b2);
+\end{tikzpicture}
+\end{center}
+\caption{The Hasse diagrams of: $\QSV_{3}$ with the Bruhat order; $\NCP_{3}$ with $\preceq$; and ballot sequences (for which each $-1$ is represented as $-$) with the term-wise order on partial sums.}
+\label{fig:Hassediagrams}
+\end{figure}
+
+\begin{rem}
+There are two superficial differences between our presentation and that of~\cite{GobetWilliams}.
+\begin{enumerate}
+\item The results of~\cite{GobetWilliams} describe the Bruhat ordering of the set $\{w^{-1} \;|\; w \in \QSV_{n}\}$, rather than $\QSV_{n}$.  
+In the terminology of Remark~\ref{rem:QSVnoncrossing}, these are the noncrossing partitions associated to the cycle $(12\ldots n)$ rather than $(1n\ldots 2)$.  
+Inversion give an automorphism of the Bruhat order, so the results are equivalent.
+
+\item The results of~\cite{GobetWilliams} use Dyck paths rather than ballot sequences for item 3.~in Propostition~\ref{prop:QSVorderbijection}.  
+One can translate between the two by interchanging each $1$ in a ballot sequence with an up step in a Dyck path, and likewise each $-1$ with a down step.
+
+\end{enumerate}
+%
+%
+%Strictly speaking, the paper~\cite{GobetWilliams} phrases the above result in terms of  Dyck paths ordered by containment rather than ballot sequences ordered by partial sum.  In this context it is readily seen that the partial orders in Propostition~\ref{prop:QSVorderbijection} are graded, distributive lattices.  
+%One can easily translate between ballot sequences and Dyck paths by replacing each $1$ in a ballot sequence with an up step in a Dyck path, and similarly each $-1$ with a down step.  
+\end{rem}
+
+The final result of the section follows easily from the results of~\cite{GobetWilliams}, but is not stated explicitly.  For the sake of completeness, a proof is included.
+
+\begin{cor}
+\label{cor:bruhatncphelper}
+Let $\lambda$ and $\mu$ be noncrossing partitions of size $n$.  Then $\lambda \preceq \mu$ if and only if 
+\[
+|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k-1]| - |\mu^{-} \cap [k]|
+\]
+and
+\[
+|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k]| - |\mu^{-} \cap [k]| 
+\]
+for all $1 \le k \le n$.
+\end{cor}
+\begin{proof}
+By Proposition~\ref{prop:QSVorderbijection}, it is sufficient to show that for $1 \le k \le n$,
+\[
+\sum_{i = 1}^{2k - 1} b^{\lambda}_{i}  = 1 + 2|\lambda^{+} \cap [k-1]| - 2|\lambda^{-} \cap [k]|
+\qquad\text{and}\qquad
+\sum_{i = 1}^{2k} b^{\lambda}_{i}  = 2|\lambda^{+} \cap [k]| - 2|\lambda^{-} \cap [k]|.
+\] 
+This can be established inductively: for $k = 1$ both equations clearly hold, and for $k > 1$, we consider the differences between the $k-1$st expression and the $k$th: 
+\[
+(1 + 2|\lambda^{+} \cap [k-1]| - 2|\lambda^{-} \cap [k]|) - (2|\lambda^{+} \cap [k-1]| + 2|\lambda^{-} \cap [k-1]|)
+= 1 - 2|\lambda^{-} \cap \{k\}|,
+\]
+which is $b^{\lambda}_{2k-1}$, and 
+\[
+(2|\lambda^{+} \cap [k]| - 2|\lambda^{-} \cap [k]|) - (1 + 2|\lambda^{+} \cap [k-1]| + 2|\lambda^{-} \cap [k]|) = 2|\lambda^{+} \cap \{k\}| - 1,
+\]
+which is $b^{\lambda}_{2k}$.
+\end{proof}
+
+%
+%\newpage
+%
+%
+%%This section will describe that order combinatorially.
+%
+% and accordingly, induces a partial order on the set $\NCP_{n}$, 
+%
+%
+%
+%.  Define a partial order $\preceq$ on the set of noncrossing partitions by
+%\[
+%\lambda \preceq \mu 
+%\qquad\text{if and only if}\qquad
+%Q_{\lambda} \le Q_{\mu}.
+%\]
+%
+%\begin{prop}
+%\label{prop:ncpcovering}
+%Let $n \ge 0$ and take $\lambda, \mu \in \NCP$.  Then $\mu$ covers $\lambda$ in $\preceq$ if and only if $\lambda$ is obtained from $\mu$ by one of the following procedures:
+%\begin{enumerate}
+%\item removing one arc of the form $\edge{i}{i+1}$ from $\mu$, or
+%
+%\item replacing an arc $\edge{i}{k}$ in $\mu$ with two arcs $\edge{i}{j}, \edge{j}{k}$ for some $i < j < k$ such that the resulting arcs do not intersect any others in $\mu$.
+%
+%\end{enumerate}
+%\end{prop}
+%
+%The proof of Proposition~\ref{prop:ncpcovering} follows some explanatory remarks.  As an example of the result, the Hasse diagram for $\preceq$ on $\NCP_{3}$ is:
+%
+%
+%The proof of the proposition involves encoding elements of $\QSV_{n}$ and $\NCP_{n}$ as a third Catalan object known as a \emph{ballot sequence}: a sequence $b \in \{\pm 1\}^{2n}$ which sums to $0$, and for which each partial sum $b_{1} + b_{2} + \cdots + b_{k}$ is nonnegative.  Ballot sequences are ordered by
+%\[
+%b \preceq c \qquad\text{if and only if}\qquad \sum_{i=1}^{k} b_{i} \le \sum_{i = 1}^{k} c_{i} \;\text{for all $1 \le k \le 2n$},
+%\]
+%for which the downward covering relation given by replacing a sequential subsequence $(-1, 1)$ by $(1, -1)$, provided that the result is still a ballot sequence.  
+%
+%Given a noncrossing partition $\lambda \in \NCP_{n}$, define a ballot sequence $b^{\lambda} = (b^{\lambda}_{1}, b^{\lambda}_{2}, \ldots, b^{\lambda}_{2n})$ by
+%\[
+%b^{\lambda}_{2 k - 1} = \begin{cases} 1 & \text{if $k \notin \lambda^{-}$} \\ -1 & \text{if $k \in \lambda^{-}$} \end{cases}
+%\qquad
+%\text{and}
+%\qquad
+%b^{\lambda}_{2 k} = \begin{cases} 1 & \text{if $k \in \lambda^{+}$} \\ -1 & \text{if $k \notin \lambda^{+}$,} \end{cases}
+%\]
+%%\[
+%%(b^{\lambda}_{2 k - 1}, b^{\lambda}_{2 k}) = \begin{cases}
+%%(1, 1) & \text{$k \in \lambda^{+}$ and $k \notin \lambda^{-}$} \\
+%%(1, -1) & \text{$k \notin \lambda^{+}$ and $k \notin \lambda^{-}$}  \\
+%%(-1, 1) & \text{$k \in \lambda^{+}$ and $k \in \lambda^{-}$}  \\
+%%(-1, -1) & \text{$k \notin \lambda^{+}$ and $k \in \lambda^{-}$} 
+%%\end{cases}
+%%\]
+%for each $1 \le k \le n$. Thus,
+%\[
+%\sum_{i = 1}^{2k - 1} b_{k}^{\lambda} = 1 + 2(|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|)
+%\qquad\text{and}\qquad
+%\sum_{i = 1}^{2k} b_{k}^{\lambda} = 2(|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k]|).
+%\]
+%
+%\begin{lem}
+%\label{lem:ballotbijection}
+%The map $\lambda \shortmapsto b^{\lambda}$ is a bijection, and the covering relations on ballot sequences correspond to the covering relations in described in Proposition~\ref{prop:ncpcovering}.
+%\end{lem}
+%\begin{proof}
+%Lemma~\ref{lem:noncrossingpartitionproperty} and case-checking.
+%\end{proof}
+%
+%Thus, it is sufficient to check that $Q_{\lambda} \le Q_{\mu}$ if and only if $b^{\lambda} \preceq b^{\mu}$.
+%
+%\begin{lem}
+%\label{lem:ballotimpliesbruhat}
+%Let $\lambda$ and $\mu$ be noncrossing partitions of size $n$ for which $b^{\lambda}$ is covered by $b^{\mu}$ in $\prec$.  Then $Q_{\lambda} \le Q_{\mu}$ in the Bruhat order.
+%\end{lem}
+%\begin{proof}
+%Check using characterization in Proposition~\ref{prop:ncpcovering} and Lemma~\ref{lem:ballotbijection} above.  Covering relation type 1.~is simply removing a simple transposition $(i, i+1)$, and covering relation type 2. is replacing a (non-simple) transposition $(i, k)$ with the product $(i, j)(j, k)$, which is a subword. 
+%\end{proof}
+%
+%In the remaining results, recall the Tableau $\TTT(w)$ for $w \in S_{n}$ as in Section~\ref{sec:bruhat}, whose $n-k$th row is denoted by $\TTT_{k}(w)$.
+%
+%
+%\begin{lem}
+%\label{lem:tableautoballot}
+%Let $\lambda \in \NCP_{n}$.  Then for $1 \le k \le n$,
+%\[
+%\sum_{i = 1}^{2k - 1} b_{k}^{\lambda} = 1 + 2 |\{j \in [n] \setminus \TTT_{k}(Q_{\lambda}) \;|\; j < k \}|
+%\qquad\text{and}\qquad
+%\sum_{i = 1}^{2k} b_{k}^{\lambda} = 2 |\{j \in \TTT_{k}(Q_{\lambda}) \;|\; j > k \}|.
+%\]
+%\end{lem}
+%\begin{proof}
+%It is sufficient to show that
+%\[
+%|\{j \in [n] \setminus \TTT_{k}(Q_{\lambda}) \;|\; j < k \}| = |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|
+%\]
+%and
+%\[
+% |\{j \in \TTT_{k}(Q_{\lambda}) \;|\; j > k \}| =  |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k]|.
+%\]
+%Both sides of the first equation count arcs crossing from $[k-1]$ and $[n] \setminus [k]$, and the both sides of the second count arcs between $[k]$ and $[n] \setminus [k]$.
+%\end{proof}
+%
+%The next result is stated in slightly greater generality than needed in this section, so as to be applied in later sections as well.
+%
+%\begin{prop}
+%\label{prop:bruhatimpliesballot}
+%Let $\lambda \in \NCP_{n}$.  For any permutation $w \in S_{n}$ which precedes $Q_{\lambda}$ in the Bruhat order (so $w \le Q_{\lambda}$), we have:
+%\[
+%|\{j \in [n] \setminus \TTT_{k}(w) \;|\; j < k \}| \le |\{j \in [n] \setminus \TTT_{k}(Q_{\lambda}) \;|\; j < k \}|
+%\]
+%and 
+%\[
+%|\{j \in \TTT_{k}(w) \;|\; j > k \}| \le |\{j \in \TTT_{k}(Q_{\lambda}) \;|\; j > k \}|.
+%\]
+%\end{prop}
+%\begin{proof}
+%Follows from Tableau Criterion.
+%\end{proof}
+%
+%\begin{proof}[Proof of Proposition~\ref{prop:ncpcovering}]
+%By Lemma~\ref{lem:ballotbijection}, is is sufficient to show that $Q_{\lambda} \le Q_{\mu}$ if and only if $b^{\lambda} \preceq b^{\mu}$.  The ``if'' follows from Lemma~\ref{lem:ballotimpliesbruhat}, while the ``only if'' follows from Proposition~\ref{prop:bruhatimpliesballot}.
+%\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The excedance quotient of the Bruhat order}
+\label{sec:excedance}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This section will describe a quotient of the Bruhat order on $S_{n}$ under an equivalence relation defined by the weak excedances of a permutation.  
+This quotient order has a number of desirable properties, which are also explored in the section.  
+One particularly noteworthy result is that each equivalence class contains a unique element of the set $\QSV_{n}$ defined in Section~\ref{sec:QSV}, so the construction of this order can be seen as dual to the results of~\cite{GobetWilliams} described in Section~\ref{sec:bruhatballot}.  
+
+Given a permutation $w \in S_{n}$, a \emph{weak excedance} of $w$ is a pair $(i, w_{i})$ for which $i \le w_{i}$.  Disaggregating, define the \emph{excedance values} $\EV(w)$ and \emph{excedance positions} $\EP(w)$ to be
+\begin{align*}
+\EV(w) &= \{ w_{i} \;|\; \text{$(i, w_{i})$ is a weak excedance of $w$}\},\;\text{and} \\[0.5em]
+\EP(w) &= \{ i  \;|\; \text{$(i, w_{i})$ is a weak excedance of $w$}\}.
+\end{align*}
+Excedances and the sets $\EV(w)$ and $\EP(w)$ are easiest seen using two-line notation for permutations.  For example, marking non-excedancs in red,
+\[
+w = \overset{1}{3} \overset{2}{5} {\color{red} \overset{3}{1}} \overset{4}{4} {\color{red} \overset{5}{2}} \overset{6}{6} {\color{red} \overset{7}{5}} \overset{8}{8},
+\qquad
+\EP(w) = \{1, 2, 4, 6, 8\},\qquad\text{and}\qquad
+\EV(w) = \{3, 4, 5, 6, 8\}.
+\]
+We define the \emph{excedance relation} $\sim$ on $S_{n}$ by:
+\begin{equation}
+\label{eq:excednacerel}
+v \sim w \qquad\text{if and only if} \qquad \text{$\EV(v) = \EV(w)$ and $\EP(v) = \EP(w)$},
+\end{equation}
+and say that each equivalence class of $S_{n}/\sim$ is an \emph{excedance class}.
+
+This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  Each noncrossing partition $\lambda$ of size $n$ determines an excedance class: recall the sets $\lambda^{+}$ and $\lambda^{-}$ defined in Section~\ref{sec:ncp}, and let
+\[
+\CCC_{\lambda} = \{ w \in S_{n} \;|\;  \text{$\EV(w) = [n] \setminus \lambda^{+}$ and $\EP(w) = [n] \setminus \lambda^{-}$}  \}.
+\]
+In Section~\ref{sec:ex1}, it is shown that every  excedance class of $S_{n}$ is of the form $\CCC_{\lambda}$ for some noncrossing partition.  As an example, the are five excedance classes of $S_{3}$ are given below:
+\[
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{ \stackrel{1}{3}  \stackrel{2}{2} \color{red} \stackrel{3}{1} \color{black}, \stackrel{1}{2}\stackrel{2}{3} \color{red} \stackrel{3}{1} \color{black} \}, \qquad
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2, 2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{ \stackrel{1}{3} \color{red} \stackrel{2}{1} \stackrel{3}{2}  \color{black} \}, \qquad
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/2}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{\stackrel{1}{2}  \color{red} \stackrel{2}{1} \color{black}  \stackrel{3}{3}\}, 
+\]
+\[
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{\stackrel{1}{1} \stackrel{2}{3}  \color{red} \stackrel{3}{2} \color{black} \}, \qquad\text{and}\qquad
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 3}{\node[below] at (\x) {$\scriptstyle \x$};}
+%\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{\stackrel{1}{1} \stackrel{2}{2} \stackrel{3}{3} \}.
+\]
+The Bruhat order descends to a relation on excedance classes, and we show that this relation is a partial order; in particular Section~\ref{sec:ex3} proves the following result.  Recall the order $\preceq$ from Section~\ref{sec:bruhatballot}.
+
+\begin{thm}
+\label{thm:excedancequotient}
+Writing $\le$ for the partial order on excedance classes $S_{n}/\sim$ induced by the Bruhat order, $\CCC_{\lambda} \le \CCC_{\mu}$ if and only if $\lambda \preceq \mu$.
+\end{thm}
+
+Two important intermediate results stated in Section~\ref{sec:ex2} show that each excedance class $\CCC_{\lambda}$ contains a unique minimal and maximal elements, which are respectively a $321$-avoiding permutation and the element $Q_{\lambda} \in \QSV_{n}$.  Combined with Theorem~\ref{thm:excedancequotient}, this gives the following corollary.  
+
+\begin{cor}
+Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}$ and lower bound given by a $321$-avoiding permutation.
+\end{cor}
+
+%%%%%%%%%%%%%%%
+\subsection{Excedance classes and noncrossing partitions}
+\label{sec:ex1}
+%%%%%%%%%%%%%%%
+
+This section will establish some basic results which relate excedance classes to noncrossing partitions.  
+
+\begin{prop}
+For $n \ge 0$, the map
+\[
+\begin{array}{ccc}
+\NCP_{n} & \to & S_{n}/\sim \\
+\lambda & \mapsto & \CCC_{\lambda}
+\end{array}
+\]
+is a bijection.
+\end{prop}
+\begin{proof}
+We will first show that every excedance class of $S_{n}$ has the form $\CCC_{\lambda}$ for some $\lambda \in \NCP_{n}$.  
+This is equivalent to showing that for any $w \in S_{n}$, the criterion of Lemma~\ref{lem:noncrossingpartitionproperty} holds:
+\[
+|\{i \in [k-1] \;|\; i \notin \EV(w)\}| \ge |\{ j \in [k] \;|\; j \notin \EP(w)\}| \qquad\text{for all $1 \le k \le n$}.
+\]
+We will establish the above inequality directly.  Fix $1 \le k \le n$ and suppose that $i \in [k]$ is not an excedance position, so that that $i > w_{i}$.  By assumption, $w_{i} < k$ and $w_{i}$ is not an excedance value.  Thus, 
+\[
+\{w_{i} \;|\; \text{$i \in [k-1]$ and $i \notin \EV(w)$} \} \subseteq \{j \in [k] \;|\; j \notin \EP(w)\},
+\]
+giving the claim.  Now, we must show that each $\CCC_{\lambda}$ is nonempty.  This is established by Lemma~\ref{lem:QSVexcedance} below, which completes the proof.
+\end{proof}
+
+
+\begin{lem}
+\label{lem:QSVexcedance}
+For any noncrossing partition $\lambda$, $Q_{\lambda} \in \CCC_{\lambda}$.  In particular, if $Q_{\lambda} \in S_{n}$, 
+\[
+\EV(Q_{\lambda}) = [n] \setminus \lambda^{+}
+\qquad\text{and}\qquad
+\EP(Q_{\lambda}) = [n] \setminus \lambda^{-}.
+\]
+\end{lem}
+\begin{proof}
+By definition, $Q_{\lambda}(j) < j$ if and only if the arc $ \edge{Q_{\lambda}(j)}{j}$ appears in $\lambda$, in which case $j \in \lambda^{-}$ and $Q_{\lambda}(j) \in \lambda^{+}$; this establishes the claim.
+\end{proof}
+
+The final result relates certain properties of the elements of $\CCC_{\lambda}$ to the partial sums of the ballot sequence $b^{\lambda}$ defined in Section~\ref{sec:bruhatballot}, by way of Corollary~\ref{cor:bruhatncphelper}.  This will be key to a number of arguments in subsequent sections.
+
+
+\begin{lem}
+\label{lem:tableautobruhat}
+Let $\lambda$ be a noncrossing partition of size $n \ge 0$ and take $w \in \CCC_{\lambda}$.  For all $1 \le k \le n$, 
+\[
+|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$}\}|
+%|\{j \in [n] \setminus \TTT_{k}(w) \;|\; j < k \}| 
+= |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|
+\]
+and 
+\[
+|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|
+%|\{j \in \TTT_{k}(w) \;|\; j > k \}| 
+= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] |.
+\]
+\end{lem}
+\begin{proof}
+To show the first equation, note that by definition
+\[
+|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| = |\{j \in [k-1] \;|\; j \notin \EV(w)\}| - |\{i \in [k] \;|\; i \notin \EP(w)\}|.
+\]
+For $i \in [k]$ with $i \notin \EP(w)$, it must be the case that $w_{i} < i$ and so $w_{i} \in [k-1]$ with $w_{i} \notin \EV(w)$.  
+Therefore, the equation above counts the $w_{i} \in [k-1]$ for which $w_{i} \notin \EV(w)$ and $i \notin [k]$; this is exactly $\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$}\}$.
+
+The second equation follows from a similar but somewhat more complicated argument.  We begin by manipulating the right side into a more suitable form:
+\begin{align*}
+|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] | &=  (k - |\lambda^{-} \cap [k] |) - (k - |\lambda^{+} \cap [k]|) \\
+&= |\EP(w) \cap [k]| - |\EV(w) \cap [k]|.
+\end{align*}
+Now, for $j \in \EV(w) \cap [k]$, we have $j = w_{i}$ for some $i \le j$, so that $i \in \EP(w) \cap [k]$.  Since $i \in \EP(w) \cap [k]$ implies that $w_{i} \in \EV(w)$, the equation above counts the positions $i \in \EP(w) \cap [k]$ for which $w_{i} \notin [k]$; this set is equinumerous to $\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}$.
+\end{proof}
+
+%%%%%%%%%%%%%%%
+\subsection{Minimal and maximal elements}%Excedance classes are Bruhat intervals}
+\label{sec:minmax}
+\label{sec:ex2}
+%%%%%%%%%%%%%%%
+
+This section will show that each excedance class contains a unique Bruhat minimum and maximum.  
+This is a key intermediate step to showing that excedance classes are Bruhat intervals with a well-defined quotient order.  
+%This section will show that each excedance class is an interval in the Bruhat order, and in doing so explicitly specify the maximal and minimal elements.  
+We will begin with the maximal elements, which are the elements of $\QSV_{n}$, while the minimal ($321$-avoiding) elements are discussed in Subsection~\ref{sec:ex2.1}
+
+\begin{prop}
+\label{prop:QSVinterval}
+For all noncrossing partitions $\lambda$, $Q_{\lambda}$ is the Bruhat maximum element of $\CCC_{\lambda}$.  
+%In particular $w \le Q_{\lambda}$ for all $w \in \CCC_{\lambda}$.
+\end{prop}
+\begin{proof}
+Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we need only show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that $\TTT_{k}(w)$ is entry-wise less than or equal to $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
+
+The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this hinges on the fact that these collections of entires have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
+\begin{align*}
+|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|
+&= |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}| \\
+&= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] |,
+\end{align*}
+and consequently $|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}| = |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}|$.
+
+We begin with the first part.  Enumerate the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are greater than $k$ in increasing order as $x_{1} < x_{2} < \cdots <  x_{r}$ and $q_{1} < q_{2} < \ldots < q_{r}$.  We aim to show that $x_{i} \le q_{i}$ for each $1 \le i \le r$.  
+Fixing one such $i$, Lemma~\ref{lem:tableautobruhat} gives that
+\[
+|\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}| = |\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|.
+\]
+%and each of $x_{1}, x_{2}, \ldots, x_{r}$ is contained in the set on the left.  
+It is sufficient to show that the above quantity is equal to $r - i$, as this implies that each of $x_{1}, \ldots x_{i}$ must be less than $q_{i}$.
+
+Let $C_{i}$ denote the connected component of $\lambda$ containing $y_{i}$.  
+From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C_{i}$,  and $Q_{\lambda}^{-1}(q_{i})$ the minimal element.  
+Combinatorially, the difference $|\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with left endpoint in $[q_{i}]$ and right endpoint in $[n] \setminus [q_{i}]$, and as $q_{i} \in \EV(w)$, this is the number of arcs in $\lambda$ which are above $q_{i}$.  
+Every arc in $\lambda$ which lies above $q_{i}$ must fully contain $C_{i}$ between its left and right endpoints, and so in particular, the left endpoint of such an arc is contained in $[k]$, and the right endpoint is greater than $q_{i}$.  
+Thus, each such arc belongs to the connected component of one of the elements $q_{i+1}, \ldots, q_{r}$; there are precisely $r - i$ such connected components.
+
+For the second part of the argument, we aim to show that the entries of $\TTT_{k}(w)$ which are at most $k$ are entry-wise less than or equal to the analogous entries of $\TTT_{k}(Q_{\lambda})$, and we establish this in an indirect manner described below.  
+Writing $s = |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|$, Lemma~\ref{lem:tableautobruhat} states that there are exactly $s$ elements of $[k]$ which do not appear in $\TTT_{k}(w)$, and likewise for $\TTT_{k}(Q_{\lambda})$.  
+Respectively enumerate these elements in increasing order as $x_{1} < x_{2} < \cdots < x_{s}$ and $q_{1} < q_{2} < \cdots < q_{s}$.  
+We will show that $q_{i} \le x_{i}$ for each $1 \le i \le s$, as this implies the opposite comparison for the remaining elements of $[k] \setminus \{q_{1}, q_{2}, \ldots, q_{s}\}$ and $[k] \setminus \{x_{1}, x_{2}, \ldots, x_{s}\}$ as desired.  
+
+Fixing $1 \le i \le s$, Lemma~\ref{lem:tableautobruhat} gives that
+\[
+|\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < q_{i}$} \}| = |\lambda^{+} \cap [q_{i} - 1]| - |\lambda^{-} \cap [q_{i}]|.
+\]
+It is therefore sufficient to show that the above quantity $i-1$, so that $q_{i}$ is bounded above by each of $x_{i}, x_{i+1}, \ldots, x_{s}$.
+
+Combinatorially, the difference $|\lambda^{+} \cap [q_{i} - 1]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with a left endpoint $[q_{i} -1]$ and a right endpoint in $[n] \setminus [q_{i}]$, or equivalently, the arcs above $q_{i}$ in $\lambda$.  
+Writing $C_{i}$ for the connected component containing $q_{i}$, each such arc must contain $C_{i}$ between its left and right endpoints, so the left endpoint is less that $q_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
+Thus, each such arc must belong to the connected component of one of $q_{1}, q_{2}, \ldots, q_{i-1}$, and there are $i-1$ such connected components.
+\end{proof}
+
+%%%%%%%%%%%%%%%
+\subsubsection{The minimal element of an excedance class}
+\label{sec:ex2.1}
+%%%%%%%%%%%%%%%
+
+We now turn to the minimal element of each excedance class described in Theorem~\ref{thm:excedancequotient}.  For a noncrossing partition $\lambda$ of size $n$, write 
+\[
+\lambda^{+} = \{a_{1} < a_{2} < \cdots < a_{s}\},
+\qquad
+\lambda^{-} = \{b_{1} < b_{2} < \cdots < b_{s}\},
+\]
+\[
+[n] \setminus \lambda^{+} = \{x_{1} < x_{2} < \cdots < x_{n-s}\},
+\qquad\text{and}\qquad
+[n] \setminus \lambda^{-} = \{y_{1} < y_{2} < \cdots < y_{n-s}\},
+\]
+so that the elements of each set are enumerated in increasing order.  Let $T_{\lambda} \in S_{n}$ be the permutation with
+\[
+T_{\lambda}(i) = \begin{cases} a_{s} & \text{if $i = b_{s}$} \\ x_{s} & \text{if $i = y_{s}$.}  \end{cases}
+\]
+Thus, the one-line notation for $T_{\lambda}$ can be obtained by placing the elements of $\lambda^{+}$ in increasing left-to-right order in the positions $\lambda^{-}$, and placing the remaining elements of $[n]$ in the remaining positions in the same manner.  For example, with $n = 8$ and 
+\[
+\lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
+\foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/5, 2/3, 5/7}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}
+\]
+we have $\lambda^{+} = \{1, 2, 5\}$ and $\lambda^{-} = \{3, 5, 7\}$, $[8] \setminus \lambda^{+} = \{3, 4, 6, 7, 8\}$, and $[8] \setminus \lambda^{-} = \{1, 2, 4, 6, 8\}$, and consequently
+\[
+T_{\lambda} = \overset{1}{3} \overset{2}{4} {\color{red} \overset{3}{1}} \overset{4}{6} {\color{red} \overset{5}{2}} \overset{6}{6} {\color{red} \overset{7}{5}} \overset{8}{8},
+\]
+where non-excedances are marked in red, as at the beginning of Section~\ref{sec:excedance}.
+
+\begin{prop}
+\label{prop:321avoid}
+For all noncrossing partitions $\lambda$, $T_{\lambda} \in \CCC_{\lambda}$, and this is the Bruhat-minimum element of $\CCC_{\lambda}$.
+\end{prop}
+\begin{proof}
+To see that $T_{\lambda} \in \CCC_{\lambda}$, recall the elements $a_{i}, b_{i}, x_{i}$, and $y_{i}$ defined above for $\lambda$. For $1 \le r \le s$,
+\[
+a_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{+}| \}
+\qquad\text{and}\qquad
+b_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{-}| \}.
+\]
+By Lemma~\ref{lem:noncrossingpartitionproperty}, it is always the case that $|[k] \cap \lambda^{-}| \le |[k-1] \cap \lambda^{+}|$, and so $b_{r} < a_{r}$.  Thus the $(b_{r}, a_{r})$ is not a weak excedence of $T_{\lambda}$.  
+A similar argument shows that every pair $(y_{r}, x_{r})$ is a weak excedance, so that 
+\[
+\lambda^{+} = [n] \setminus \EV(T_{\lambda})
+\qquad\text{and}\qquad
+\lambda^{-} =  [n] \setminus \EP(T_{\lambda}).
+\]
+
+To see that $T_{\lambda} \le w$ for all $w \in \CCC_{\lambda}$, recall the Tableau Criterion, Proposition~\ref{TableauCriterion}.  
+For $1 \le k \le n$, the row $\TTT_{k}(T_{\lambda})$ will consist of the $|[k] \cap \lambda^{-}|$ smallest elements of $\EV(w)$ along with the $k - |[k] \cap \lambda^{-}|$ smallest elements of $[n] \setminus \EV(w)$.  
+For $w$,  the row $\TTT_{k}(w)$ will also consist of $|[k] \cap \lambda^{-}|$ elements of $\EV(w)$ and $k - |[k] \cap \lambda^{-}|$ elements of $[n] \setminus \EV(w)$, but these elements need not be the minimal ones.  
+Thus, by assumption of minimality, $\TTT_{k}(T_{\lambda})$ is entry-wise less than or equal to $\TTT_{k}(w)$.
+\end{proof}
+
+For the next result, recall that a permutation $w \in S_{n}$ is \emph{$321$-avoiding} if there do not exist indices $i < j < k$ for which $w_{i} > w_{j} > w_{k}$.  The number of $321$-avoiding permutations is known to be the $n$th Catalan number, so the following result establishes that each excedance class contains a unique $321$-avoiding permutation.
+
+\begin{prop}
+For all noncrossing partitions $\lambda$, the permutation $T_{\lambda}$ is $321$-avoiding.
+\end{prop}
+\begin{proof}
+Let $i, j, k\in [n]$ and assume without loss of generality that $i < j < k$.  Since any element of $[n]$ must be contained in either $\lambda^{+}$ or its complement, we must have two elements of $\{i, j, k\}$ which belong to one of $\lambda^{-}$ or $[n] \setminus \lambda^{-}$.  Since $T_{\lambda}$ restricts to an order-preserving bijection from $\lambda^{+}$ to $\lambda^{-}$, and from $[n] \setminus \lambda^{+}$ to $[n] \setminus \lambda^{-}$, this implies that no $321$-pattern can exist in $T_{\lambda}$, giving the first claim.
+\end{proof}
+
+%%%%%%%%%%%%%%%
+\subsection{Comparing excedance classes}
+\label{sec:ex3}
+%%%%%%%%%%%%%%%
+
+This section will prove Theorem~\ref{thm:excedancequotient}, following an intermediate result.
+
+To begin, recall the order $\preceq$ on noncrossing partitions defined in Section~\ref{sec:bruhatballot}
+
+\begin{prop}
+\label{prop:Qdominates}
+Let $\mu$ be a noncrossing partition of size $n$.  Then
+\[
+\{w \in S_{n} \;|\; w \le Q_{\mu}\} = \bigsqcup_{\lambda \preceq \mu} \CCC_{\lambda}.
+\]
+\end{prop}
+\begin{proof}
+To begin, assume that $\lambda \preceq \mu$, so that by Proposition~\ref{prop:QSVorderbijection}, $Q_{\lambda} \le Q_{\mu}$.  By Proposition~\ref{prop:QSVinterval}, we have $w \le Q_{\lambda}$ for any $w \in C_{\lambda}$, so we have
+\[
+\{w \in S_{n} \;|\; w \le Q_{\mu}\} \supseteq \bigsqcup_{\lambda \preceq \mu} \CCC_{\lambda}.
+\]
+
+To see the opposite containment, suppose that $w$ is a permutation with $w \le Q_{\mu}$ and let $\lambda$ be the unique noncrossing partition for which $w \in \CCC_{\lambda}$.  
+By way of Corollary~\ref{cor:bruhatncphelper}, $\lambda \preceq \mu$ is equivalent to the inequalities
+\[
+|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k-1]| - |\mu^{-} \cap [k]|
+\]
+and
+\[
+|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k]| - |\mu^{-} \cap [k]|
+\]
+for all $1 \le k \le n$.  
+We will establish this equivalent formulation of our claim using the characterization of each side given in Lemma~\ref{lem:tableautobruhat}.  
+From the assumption that $w \le Q_{\mu}$, the tableau criterion (Proposition~\ref{TableauCriterion}) states that the tableau $\TTT(w)$ is entry-wise less than or equal to $\TTT(Q_{\mu})$.  
+Thus, for each $1 \le k \le n$, 
+\[
+|\{w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$} \}|
+\le
+|\{Q_{\mu}(i) \;|\; \text{$1 \le i \le k$ and $Q_{\mu}(i) > k$} \}|,
+\]
+since each entry of $\TTT_{k}(w)$ is bounded above by the corresponding entry of $\TTT_{k}(Q_{\mu})$, and likewise
+\[
+|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$} \}| 
+\le
+|\{ Q_{\mu}(i) \;|\; \text{$n \ge i > k$ and $Q_{\mu}(i) < k$} \}|,
+\]
+since each entry of $\TTT_{k}(Q_{\mu})$ is bounded below by the corresponding entry of $\TTT_{k}(w)$.  This completes the proof.
+\end{proof}
+
+We now prove Theorem~\ref{thm:excedancequotient}.  Recall the elements $T_{\lambda}$ defined in Section~\ref{sec:ex2.1}.
+
+\begin{proof}[Proof of Theorem~\ref{thm:excedancequotient}]
+Define a relation on excedance classes:
+\[
+\CCC_{\lambda} \le \CCC_{\mu}
+\qquad\text{if and only if}\qquad
+\text{$v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$}.
+\]
+As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for each noncrossing partition $\lambda$, Proposition~\ref{prop:QSVorderbijection} implies that $\CCC_{\lambda} \le \CCC_{\mu}$ whenever $\lambda \preceq \mu$.  It is therefore sufficient to show the converse: $\CCC_{\lambda} \le \CCC_{\mu}$ only if $\lambda \preceq \mu$.  To this end, suppose that $\CCC_{\lambda} \le \CCC_{\mu}$, so that $v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$.  With Proposition~\ref{prop:QSVinterval}, this implies that $v \le Q_{\lambda}$.  Then by Proposition~\ref{prop:Qdominates}, we have that $\lambda \preceq \mu$, completing the proof.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Bases for the Temperley--Lieb Algebra $\TL_{n}(2)$}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Temperley--Lieb algebra $\TL_{n}(2)$ is the $\CC$-algebra generated by elements $e_{1}, \ldots, e_{n-1}$ subject to the following relations for each $1 \le i \le n$
+\[
+\begin{array}{rlr}
+e_{i}^{2} &= 2 e_{i} \\
+e_{i}e_{j} &= e_{j}e_{i} & \text{if $|i - j| > 1$} \\
+e_{i} e_{i + 1} e_{i} &= e_{i}.
+\end{array}
+\]
+There is a subjective algebra morphism from the symmetric group algebra $\CC S_{n}$ to $\TL_{n}(2)$ given by 
+\[
+\begin{array}{rcl}
+\phi: \CC S_{n} & \to & \TL_{n}(2) \\
+s_{i} & \mapsto & 1 - e_{i}.
+\end{array}
+\]
+
+It is well-known that the images of all $321$-avoiding permutations under $\phi$ forms a basis for $\TL_{n}(2)$.  
+Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ using the combinatorics of noncrossing partitions described in Remark~\ref{rem:QSVnoncrossing}.  This basis is precisely the set $\{\phi(w^{-1}) \;|\; w \in \QSV_{n}\}$.  Since the kernel
+\[
+\ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle
+\]
+is invariant under the $\CC$-linear map $w \shortmapsto w^{-1}$, the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
+
+\begin{thm}
+\label{thm:TLbasis}
+For all $n \ge 0$, the set $\phi(\QSV_{n})$ is a basis for $\TL_{n}(2)$.
+\end{thm}
+
+\begin{rem}
+Theorem~\ref{thm:TLbasis} also follows from the results of Gobet and Williams in~\cite{GobetWilliams} as a special case of a much stronger result which gives a basis for $\TL_{n}(2)$ for each Coxeter element of $S_{n}$.  
+However,~\cite{GobetWilliams} does not provide an explicit statement of this result, so it is easier to deduce the theorem as a consequence of Zinno's work directly.
+\end{rem}
+
+
+\begin{thebibliography}{99}
+\bibitem{Baine}  Philippe Biane.  \textit{Some properties of crossings and partitions}. Discrete Mathamatics {\bf 175} (1997) 41-53.
+
+\bibitem{BjornerBrenti}  Francesco Brenti and Anders Bj\"{o}rner.  Combinatorics of Coxeter Groups. Germany: Springer Berlin Heidelberg, 2010.
+
+\bibitem{GobetWilliams}  Thomas Gobet and Nathan Williams.  \textit{Noncrossing partitions and Bruhat order}. European Journal of Combinatorics {\bf 53} (2016) 8-34.
+
+\bibitem{Zinno}  Matthew Zinno.  \textit{A Temperley--Lieb basis coming from the Braid group}. Journal of Knot Theory and Its Ramifications 11, {\bf 4} (2002) 575-599.
+
+\end{thebibliography}
+
+
+
+\end{document}
+
+
