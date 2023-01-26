@@ -86,6 +86,7 @@
 \newtheorem{cor}[equation]{Corollary}
 \theoremstyle{definition}
 \newtheorem{ex}[equation]{Example}
+\newtheorem{definition}[equation]{Definition}
 \theoremstyle{remark}
 \newtheorem{rem}[equation]{Remark}
 \newtheorem{rems}[equation]{Remarks}
@@ -121,14 +122,14 @@
 % Width Adjustment
 %%%%%%%%%%%
 % For sufficiently new LaTeX installations:
-\NewCommandCopy{\narrowhat}{\hat}
-\renewcommand{\hat}{\widehat}
-\NewCommandCopy{\shortto}{\to}
-\renewcommand{\to}{\longrightarrow}
-\NewCommandCopy{\shortmapsto}{\mapsto}
-\renewcommand{\mapsto}{\longmapsto}
-\NewCommandCopy{\shortmapsfrom}{\mapsfrom}
-\renewcommand{\mapsfrom}{\longmapsfrom}
+%\NewCommandCopy{\narrowhat}{\hat}
+%\renewcommand{\hat}{\widehat}
+%\NewCommandCopy{\shortto}{\to}
+%\renewcommand{\to}{\longrightarrow}
+%\NewCommandCopy{\shortmapsto}{\mapsto}
+%\renewcommand{\mapsto}{\longmapsto}
+%\NewCommandCopy{\shortmapsfrom}{\mapsfrom}
+%\renewcommand{\mapsfrom}{\longmapsfrom}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%     Macros - Paper     %%%%%%%%%%%%
@@ -166,13 +167,13 @@
 
 \begin{document}
 
-\title{The excedance quotient of the Bruhat order}
+\title{The excedance quotient of the Bruhat order, Quasisymmetric Varieties and Temperley-Lieb algebras}
 \author{Lucas and Nantel}
-%\date{\today}
+%\date{\day}
 \maketitle
 %\begin{abstract}
 %\end{abstract}
-%\keywords{}
+%\keywords{Noncrossing partitions, Quasisymmetric polynomials, Varieties of points}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
@@ -191,7 +192,7 @@
 
 A \emph{noncrossing partition} of size $n$ is a diagram $\lambda$ consisting of:
 \begin{enumerate}
-\item the first $n$ positive integers $1, \ldots, n$, placed from left to right along a horizontal axis; and
+\item the positive integers $1, \ldots, n$, placed from left to right along a horizontal axis; and
 
 \item a set of left-to-right arcs $ (i, j) = \edge{i}{j}$, $i < j$ drawn above the axis with no intersections or coterminal points: $\lambda$ contains no pair $\edge{i}{k}, \edge{j}{l}$ with $i \le j < k \le l$.
 
@@ -211,7 +212,7 @@ Considering a noncrossing partition $\lambda$ as an (undirected) graph, the conn
 \[
 \NCP_{n} = \{ \text{noncrossing partitions of size $n$} \}.
 \]
-The number of noncrossing partitions of size $n$ is the $n$th Catalan number, $C_{n} = \frac{1}{n+1}\binom{2n}{n}$ (see Stanley).
+The number of noncrossing partitions of size $n$ is the $n$th Catalan number, $C_{n} = \frac{1}{n+1}\binom{2n}{n}$ (see~\cite{Stanley}).
 
 Given an arc $ \edge{i}{j} \in \lambda$, say that $i$ is the \emph{left endpoint} and $j$ is the \emph{right endpoint}, and let
 \[
@@ -226,6 +227,7 @@ For example, with the noncrossing partition $\lambda$ in~\eqref{eq:noncrossingpa
 |\lambda^{+}| = |\lambda^{-}|.
 \]
 
+The following lemma is classic in the literature about non-crossing partitions (for example, see~\cite{Stanley}). We include a proof for the sake of exposition and the way we will use it in the following.
 %Each noncrossing partition $\lambda$ is uniquely determined by its sets $\lambda^{+}$ and $\lambda^{-}$ of left and right neighbors.
 \begin{lem}
 \label{lem:noncrossingpartitionproperty}
@@ -246,7 +248,11 @@ Given $L$ and $R$, draw the elements of $[n]$ along the horizontal axis, increas
 	\draw[thick, -latex] ($ (\j) + (-0.4, 0.3) $) to[out = -35, in = 145] (\j);}
 \end{tikzpicture}.
 \]
-These half-arcs determine a unique noncrossing partition, which can be obtained by recursively connecting pairs of half-edges which have no incomplete edges between them.  Continuing the preceding example, this successively gives the  diagrams
+These half-arcs determine a unique noncrossing partition, which can be obtained by recursively connecting pairs of half-edges which have no incomplete edges between them. 
+This is the same process as matching open and closed parenthesis, the difference here is that there are displayed in prescribe positions. The condition on $L$ and $R$ guaranties 
+that there is always a starting half-arc in $L$ available to match any ending half-arc in $R$. The non-crossing condition follows from the choosing process: a crossing would contradict a choice we 
+made earlier.
+Continuing the preceding example, this successively gives the  diagrams
 \[
 \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
 \foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
@@ -264,7 +270,7 @@ These half-arcs determine a unique noncrossing partition, which can be obtained 
 \end{tikzpicture}.
 \]
 
-For the converse, if $L = \lambda^{+}$ and $R = \lambda^{-}$ for a nonnesting partition $\lambda$, the given inequalities must hold: the left endpoint of each arc must be strictly less than the right endpoint.
+For the converse, if $L = \lambda^{+}$ and $R = \lambda^{-}$ for a nonnesting partition $\lambda$, the given inequalities must hold: the left endpoint of each arc must be in a position strictly less than the right endpoint.
 \end{proof}
 
 
@@ -273,6 +279,7 @@ For the converse, if $L = \lambda^{+}$ and $R = \lambda^{-}$ for a nonnesting pa
 \label{sec:bruhat}
 %%%%%%%%%%
 
+Let $S_n$ denote the set of permutations of $[n]$ and for $w\in S_n$ we denote by $\ell(w)$ the length of $w$, that is the number of inversions $i<j$ where $w_i>w_j$.
 The Bruhat ordering of $S_{n}$ is generated by the covering relation 
 \[
 v \lessdot w \quad\text{if $wv^{-1}$ is a reflection and $\ell(v) < \ell(w)$}.
@@ -309,7 +316,7 @@ For example, with $w = 52314$ and $v = 41235$ and $\TTT(v)$, $\TTT(w)$ shown abo
 \label{sec:QSV}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section will define the set $\QSV_{n}$ and establish its elementary properties.  Section~\ref{sec:bruhatballot} recalls the description of the restriction of the Bruhat order to $\QSV_{n}$ given in~\cite{GobetWilliams}.
+This section will define the set $\QSV_{n}\subseteq S_n$ and establish its elementary properties.  Section~\ref{sec:bruhatballot} recalls the description of the restriction of the Bruhat order to $\QSV_{n}$ given in~\cite{GobetWilliams}.
 
 
 Let $\lambda$ be a noncrossing partition of size $n$ and recall the sets $\lambda^{+}$ and $\lambda^{-}$ from Section~\ref{sec:ncp}.  
@@ -365,8 +372,6 @@ Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
 \end{tikzpicture}} = 123.
 \]
 %The following well-known characterization of $\QSV_{n}$ will be used in Section~\ref{}.%; a proof is included for compelteness.
-
-The follow
 
 \begin{lem}
 \label{lem:QSVcycles}
@@ -764,8 +769,8 @@ This section will establish some basic results which relate excedance classes to
 For $n \ge 0$, the map
 \[
 \begin{array}{ccc}
-\NCP_{n} & \to & S_{n}/\sim \\
-\lambda & \mapsto & \CCC_{\lambda}
+\NCP_{n} & \longrightarrow & S_{n}/\sim \\
+\lambda & \longmapsto & \CCC_{\lambda}
 \end{array}
 \]
 is a bijection.
@@ -1032,8 +1037,8 @@ e_{i} e_{j} e_{i} &= e_{i} & \text{if $|i - j| = 1$}.
 There is a subjective algebra morphism from the symmetric group algebra $\CC S_{n}$ to $\TL_{n}(2)$ given by 
 \[
 \begin{array}{rcl}
-\phi: \CC S_{n} & \to & \TL_{n}(2) \\
-s_{i} & \mapsto & 1 - e_{i}.
+\phi: \CC S_{n} & \longrightarrow & \TL_{n}(2) \\
+s_{i} & \longmapsto & 1 - e_{i}.
 \end{array}
 \]
 
@@ -1042,7 +1047,7 @@ Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ usin
 \[
 \ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle
 \]
-is invariant under the $\CC$-linear map $w \shortmapsto w^{-1}$, the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
+is invariant under the $\CC$-linear map $w \mapsto w^{-1}$, the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
 
 \begin{thm}
 \label{thm:TLbasis}
@@ -1061,8 +1066,8 @@ However,~\cite{GobetWilliams} does not provide an explicit statement of this res
 The Temperley--Lieb algebra $\TL_{n}(2)$ is the $\CC$-algebra generated by elements $e_{1}, \ldots, e_{n-1}$, subject to relations described in Section~\ref{sec:TLpres}.  There is a surjective algebra morphism from the symmetric group algebra $\CC S_{n}$ to $\TL_{n}(2)$ given by 
 \[
 \begin{array}{rcl}
-\phi: \CC S_{n} & \to & \TL_{n}(2) \\
-s_{i} & \mapsto & 1 - e_{i}.
+\phi: \CC S_{n} & \longrightarrow & \TL_{n}(2) \\
+s_{i} & \longmapsto & 1 - e_{i}.
 \end{array}
 \]
 
@@ -1118,7 +1123,7 @@ e_{i}e_{j} &= e_{j}e_{i} & \text{if $|i - j| > 1$} \\
 e_{i} e_{j} e_{i} &= e_{i} &  \text{if $|i - j| = 1$}.
 \end{array}
 \]
-The kernel of the map $\phi: \CC S_{n} \to \TL_{n}(2)$ is the two-sided ideal
+The kernel of the map $\phi: \CC S_{n} \longrightarrow \TL_{n}(2)$ is the two-sided ideal
 \[
 \ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle.
 \]
@@ -1220,16 +1225,171 @@ This completes the proof.
 \end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quasisymmetric vanishing polynomials}
+In this section we define polynomials in $n$ variables that vanishes on the set $QSV_n$ and such that
+the homogeneous top degree is quasisymmetric. More precisely, let $\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_k)$
+be any fixed composition of $d>0$. Let 
+	$$M_\alpha(x_1,x_2,\ldots,x_n)=\sum_{1\le i_1<i_2<\cdots<i_k\le n} x_{i_1}^{\alpha_1} x_{i_2}^{\alpha_2}\cdots  x_{i_k}^{\alpha_k}$$
+be the quasisymmetric monomial indexed by $\alpha$. We will define a polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ such that
+  $P_\alpha = M_\alpha +$  lower degree terms, and  $P_\alpha(\sigma)=0$  for all $\sigma\in QSV_n$.
+
+$1=f_1<f_2<\cdots <f_\ell<f_{\ell+1}=n+1$ and 
+$\beta_i=\alpha_{f_i}+\alpha_{f_i+1}+\cdots+\alpha_{f_{i+1}-1}$.
+When $\alpha$ refine $\beta$, we write $\alpha\le\beta$.
+
+\begin{definition}\label{def:vanishP}
+ For any $\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_k)$, the polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ is defined as
+	$$P_\alpha=\sum_{\ell=1}^k (-1)^{k-\ell} \sum_{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n} \prod_{j=1}^\ell 
+	      \Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)
+	      $$
+	      The top degree of $P_\alpha$ is in the sum when $\ell=k$, we must have $f_i=i$ in this case. Choosing the variable $x_{i_j}$ in all binomials $(x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})$, we get $M_\alpha$.
+\end{definition}
+	      
+For a fix $\sigma$, we will partition the sums in $P_\alpha$ according to the cycle type of $\sigma$ and the non-crossing structure
+of these cycle will play a major role in showing the following theorem.
+
+\begin{thm}\label{thm:vanishing}
+ For any $\alpha$ and any $\sigma\in QSV_n$ we  have $P_\alpha(\sigma)=0$.
+\end{thm}
+
+\begin{proof}
+ Let $\sigma=C_1C_2\cdots C_r$  the decomposition of $\sigma$ into disjoint cycle. We include the fix points a 1-cycles.
+ Given a set on indices $1\le i_1<i_2<\cdots < i_\ell\le n$ we say that the cycle support of $S=\{ i_1,i_2,\ldots , i_\ell\}$
+ is $C(S)=\{j : S\cap C_j \not= \emptyset \}$. We have
+ 	$\displaystyle P_\alpha=\sum_{T\subseteq [r]} P_{\alpha,T},$
+where 
+\begin{equation}\label{eq:PT}
+P_{\alpha,T}=
+	\sum_{\ell=|T|}^k (-1)^{k-\ell} \hskip-.8cm \sum_{{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n}\atop C(\{ i_1,i_2,\ldots , i_\ell\})=T} \prod_{j=1}^\ell 
+	      \Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)\,.
+\end{equation}
+We show that $P_{\alpha,T}(\sigma)=0$ for all $T$. If $T=\emptyset$ there is nothing to show as $P_{\alpha,\emptyset}=0$. 
+We first consider the case when $|T|=1$, and then use the non-crossing structure of the cycles to reduce the case $|T|>1$
+to $|T'|=1$.
+
+\medskip
+\noindent{\bf Case $\bf |T|=1$}: Let $T=\{t\}$ and $C_t=(a_m\,\ldots\,a_2\,a_1)$, where $a_1<a_2<\cdots<a_m$. Remark that on such cycle, the variable $x_{a_i}=a_{i-1}$ with the convention that $a_0=a_m$.
+Expanding all the product in the definition of $P_{\alpha,T}$ and evaluating at $\sigma$, we obtain
+\begin{equation}\label{eq:PTatsigma}
+	P_{\alpha,\{t\}}(\sigma)=
+	\sum_{{1\le j_1\le j_2\le\cdots\le j_k\le m}} \sum_{{\epsilon_1,\epsilon_2,\ldots,\epsilon_k \atop \epsilon_i\in \{0,1\}}\atop \epsilon_i=1 \text{ if } j_{i-1}=j_i} (-1)^{\sum \epsilon_i}\ 
+	   z_{j_1,\epsilon_1}^{\alpha_1}z_{j_2,\epsilon_2}^{\alpha_2} \cdots z_{j_k,\epsilon_k}^{\alpha_k}\,,
+\end{equation}
+where $z_{j_i,\epsilon_i}=a_{j_i-1}$ if $\epsilon_i=0$, otherwise $z_{j_i,\epsilon_i}=a_{j_i}$. To show that $P_{\alpha,\{t\}}(\sigma)$, we construct a sign reversing involution 
+on the evaluation of the terms in Equation~\eqref{eq:PTatsigma}.
+
+Given $1\le j_1\le j_2\le\cdots\le j_k\le m$ and $\epsilon_1,\epsilon_2,\ldots,\epsilon_k$, then the term 
+$$z_{j_1,\epsilon_1}^{\alpha_1}z_{j_2,\epsilon_2}^{\alpha_2} \cdots z_{j_k,\epsilon_k}^{\alpha_k}=a_{s_1}^{\alpha_1}a_{s_2}^{\alpha_2}\cdots a_{s_k}^{\alpha_k},$$
+where $s_i\in\{j_i,j_i-1\}$ depending on $\epsilon_i$ and  $0\le s_1\le s_2\le \cdots\le s_k\le m$. First find the largest, rightmost $s_i\not\in\{0,m\}$. 
+
+\medskip
+\noindent
+If $\epsilon_i=1$, then let $\epsilon'_i=0$ and $j'_i=j_i+1$, fixing all other values $\epsilon'_p=\epsilon_p$ and $j'_p=j_p$ for $p\not= i$.
+
+\medskip
+In this case remark that $z_{j_i,\epsilon_i}=a_{j_i}=z_{j'_i,\epsilon'_i}$ and $z_{j_p,\epsilon_p}=z_{j'_p,\epsilon'_p}$ for  $p\not= i$. Hence
+ $$ (-1)^{\sum \epsilon'_i}\ z_{j'_1,\epsilon'_1}^{\alpha_1}z_{j'_2,\epsilon'_2}^{\alpha_2} \cdots z_{j'_k,\epsilon'_k}^{\alpha_k}
+  = - (-1)^{\sum \epsilon_i}\ z_{j_1,\epsilon_1}^{\alpha_1}z_{j_2,\epsilon_2}^{\alpha_2} \cdots z_{j_k,\epsilon_k}^{\alpha_k}$$
+ To show that $z_{j'_1,\epsilon'_1}^{\alpha_1}z_{j'_2,\epsilon'_2}^{\alpha_2} \cdots z_{j'_k,\epsilon'_k}^{\alpha_k}$ is a term of the sum Equation~\eqref{eq:PTatsigma}
+ we need to show that $j'_1\le\cdots\le j'_{i}\le j'_{i+1}\le\cdots\le j'_{k}$ and since $\epsilon'_i=0$, we need $j'_{i-1}<j'_i$.
+ For the last inequality, we have $j'_{i-1}=j_{i-1}\le j_i<j_i+1=j'_i$. For the other inequality among the $j$'s, we only need to show that $j'_{i}=j_i+1\le j_{i+1}= j'_{i+1}$.
+ Here we recall that $i$ is chosen so that $s_i$ is the rightmost values such that $0<s_i<m$. This implies that either $i=k$ and there is no $j_{i+1}$ or $s_{i+1}=m\in\{j_{i+1},j_{i+1}-1\}$
+ and $j_{i+1}\ge m >s_i=j_i$. The last equality follows from $\epsilon_i=1$. We thus have that all such terms cancelled each other in Equation~\eqref{eq:PTatsigma}.
+ 
+ The case where $\epsilon_i=0$ is very similar and is the reverse of the operation above. The choice of the rightmost $s_i\not\in\{0,n\}$ will be the same in both cases, showing that we indeed
+ have a sign reversing involution. All terms such that the evaluation $a_{s_1}^{\alpha_1}a_{s_2}^{\alpha_2}\cdots a_{s_k}^{\alpha_k}$ contains some $0<s_i<m$ will cancel.
+ The only two terms that survive the cancelation are
+ $$(-1)^{n-1}a_{0}^{\alpha_1}a_{m}^{\alpha_2}\cdots a_{m}^{\alpha_k}+  (-1)^n a_{m}^{\alpha_1}a_{m}^{\alpha_2}\cdots a_{m}^{\alpha_k}$$
+ that can only be obtained when $j_1=1$ and $j_2=\cdots=j_k=m$ with $\epsilon_1=0$ and $\epsilon_2=\cdots=\epsilon_k=1$, for the first term;
+ and when $j'_1=\cdots=j'_k=m$ with $\epsilon'_1=\cdots=\epsilon'_k=1$ for the second term. Since $a_0=a_m$:
+  $$P_{\alpha,\{t\}}(\sigma)=(-1)^{n-1}a_{0}^{\alpha_1}a_{m}^{\alpha_2}\cdots a_{m}^{\alpha_k}+  (-1)^n a_{m}^{\alpha_1}a_{m}^{\alpha_2}\cdots a_{m}^{\alpha_k}=0.$$
+
+
+\medskip 
+\noindent{\bf Case $\bf |T|>1$}: 
+When we have more than one cycle involved, let $T=\{t_1,t_2,\ldots,t_r\}$ and we assume (without lost of generality) that $C=C_{t_1}$
+is a cycle that do not contain (in the non-crossing sense) any nested cycles among $C_{t_j}$ for $j>1$. The fact that the cycles of $\sigma$ are non-crossing guaranties the existence of such $C$
+for any given $T$.  We now partition the terms of Equation~\eqref{eq:PT} according to the intersection of $ i_1<i_2<\cdots < i_\ell$ with the $C_{t_j}$ for $j>1$ and the corresponding possible choices of $f_j$'s.
+We  show that the portion of the terms intersecting $C$ is a vanishing polynomials as in the case $|T|=1$. Let $c=\min(C)$ and $d=\max(C)$.
+Assume we have $C(\{ i_1,i_2,\ldots , i_\ell\})=T$ and let 
+ 	$$CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap C_{t_j}\not= \emptyset\,.$$ 
+From our choice of $C=C_{t_1}$, we have $CQ_j(\{i_1,i_2,\ldots,i_\ell\})=\{i_1,i_2,\ldots,i_\ell\}\cap \{i: c\le i\le d\}$. Outside the range $[c,d]=\{i: c\le i\le d\}$, we fix all the other parameters involved in the terms
+$P_{\alpha,T}$ in Equation~\eqref{eq:PT}.
+Fix $Q=(Q_2,\ldots,Q_r)$ where $\emptyset\not= Q_j\subset C_{t_j}$ such that 
+	$$\bigcup_{j=2}^r Q_j = \{\underline{i}_1,\underline{i}_2,\ldots,\underline{i}_p\} \cup  \{\overline{i}_1,\overline{i}_2,\ldots,\overline{i}_q\}$$
+where $p+q<k$ and 
+	$$\underline{i}_1<\underline{i}_2<\cdots<\underline{i}_p<c\le d<\overline{i}_1<\overline{i}_2<\cdots<\overline{i}_q\,.$$
+We also fix $F=\{\underline{f}_1,\underline{f}_2,\ldots,\underline{f}_p,\underline{f}_{p+1},\overline{f}_1,\overline{f}_2,\ldots,\overline{f}_q,\overline{f}_{q+1}\}$. where
+	$$1=\underline{f}_1<\underline{f}_2<\cdots<\underline{f}_p<\underline{f}_{p+1}<\overline{f}_1<\overline{f}_2<\cdots<\overline{f}_q<\overline{f}_{q+1}=k+1\,.$$
+For any term of the sum in  Equation~\eqref{eq:PT}, we have a unique corresponding $Q$ and $F$. 
+In particular, we have $\displaystyle P_{\alpha,T}=\sum_Q P_{\alpha,T,Q,F}$ where
+\begin{align*}\label{eq:PTQ}
+P_{\alpha,T,Q,F}= &\prod_{j=1}^p 
+	     	\Big( (x_{\underline{i}_j}^{\alpha_{\underline{f}_j}}-\underline{i}_j^{\alpha_{\underline{f}_j }})  \underline{i}_j^{\alpha_{\underline{f}_j +1}+\cdots+\alpha_{\underline{f}_{j +1}-1}} \Big) \times\\
+	&\sum_{\ell=1}^{k-p-q} (-1)^{k-p-q-\ell} \hskip-1cm
+	\sum_{{{{\underline{f}_{p+1}=f_1<f_2<\cdots <f_{\ell-p-q+1}=\overline{f}_1   \atop c \le i_1<i_2<\cdots < i_{\ell-p-q} \le d}\atop C(\{ i_1,i_2,\ldots , i_{\ell-p-q}\})=\{t_1\}}}}
+		\prod_{j=1}^\ell 
+	     	\Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)\times\\
+		&\quad\prod_{j=1}^q 
+	     	\Big( (x_{\overline{i}_j}^{\alpha_{\overline{f}_j}}-\overline{i}_j^{\alpha_{\overline{f}_j }})  \overline{i}_j^{\alpha_{\overline{f}_j +1}+\cdots+\alpha_{\overline{f}_{j +1}-1}} \Big) \,.
+\end{align*}
+When we evaluate $P_{\alpha,T,Q,F}(\sigma)$, then centred term above is $P_{(\alpha_{\underline{f}_{p+1}}, \alpha_{\underline{f}_{p+1}+1} , \ldots, \alpha_{\overline{f}_1} ),\{t_1\}}(C_{t_1})=0$ using the result for $|\{t_1\}|=1$ in first part of the proof. This complete the proof.
+\end{proof}
+
+
+
 \newpage
 
 \begin{thebibliography}{99}
+
+
+
+
+\bibitem{AB} J. C. Aval, N. Bergeron,
+\textit{Catalan paths and quasi-symmetric functions}.
+Proc. of the Am. Math. Soc., 2003, 131(4), pp. 1053--1062.
+\href{https://doi.org/10.1090/S0002-9939-02-06634-0}{10.1090/S0002-9939-02-06634-0}.
+
+\bibitem{ABB} J. C. Aval, F. Bergeron, N. Bergeron,
+\textit{Ideals of quasi-symmetric functions and super-covariant polynomials for $S_n$}.
+Adv. in Math., 2004, 181 (2), pp. 353--367.
+\href{https://doi.org/10.1016/S0001-8708(03)00068-9}{10.1016/S0001-8708(03)00068-9}.
+
 \bibitem{Baine}  Philippe Biane.  \textit{Some properties of crossings and partitions}. Discrete Mathamatics {\bf 175} (1997) 41-53.
 
 \bibitem{BjornerBrenti}  Francesco Brenti and Anders Bj\"{o}rner.  Combinatorics of Coxeter Groups. Germany: Springer Berlin Heidelberg, 2010.
 
+
+\bibitem{CLO} D. Cox, J. Little, D. O'Shea,
+\textit{Ideals, varieties, and algorithms: an introduction to computational
+algebraic geometry and commutative algebra}.
+Springer Science \& Business Media; 2013 Mar 9.
+
 \bibitem{GobetWilliams}  Thomas Gobet and Nathan Williams.  \textit{Noncrossing partitions and Bruhat order}. European Journal of Combinatorics {\bf 53} (2016) 8-34.
 
+
+\bibitem{L} S. X. Li,
+\textit{Ideals and quotients of diagonally quasi-symmetric functions}.
+Elec. J. Comb., Vol 24, Issue \#3, P3.3.
+\href{https://doi.org/10.37236/6658}{10.37236/6658}.
+
+\bibitem{MacSchub} I. G. Macdonald,
+\textit{Notes on Schubert polynomials}.
+Publications LACIM, vol. 6, Universit\'e du Qu\'ebec \`a Montr\'eal,  (1991) [ISBN 978-2-89276-086-6].
+
+
+
+\bibitem{Stanley} R. Stanley,
+\textit{Enumerative combinatorics. {V}ol. 2}.
+{Cambridge Studies in Advanced Mathematics}, Vol. {62},
+{Cambridge University Press, Cambridge}, (1999). [and its {Catalan Addendum} https://math.mit.edu/$\sim$rstan/ec/catadd.pdf]
+
 \bibitem{Zinno}  Matthew Zinno.  \textit{A Temperley--Lieb basis coming from the Braid group}. Journal of Knot Theory and Its Ramifications 11, {\bf 4} (2002) 575-599.
+
+
 
 \end{thebibliography}
 
