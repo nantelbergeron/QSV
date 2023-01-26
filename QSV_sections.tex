@@ -41,6 +41,18 @@
 \usetikzlibrary{patterns, arrows, matrix, positioning, calc}
 \usepackage{tikz-cd}
 
+
+%%%%%%%%%%%%%%%%%%%%%%
+% fancy comments
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos]{todonotes}
+\newcommand{\lucas}[1]{\todo[size=\tiny,color=violet!30]{#1 \\ \hfill --- Sami}}
+\newcommand{\Lucas}[1]{\todo[size=\tiny,inline,color=violet!30]{#1 \\ \hfill --- Sami}}
+\newcommand{\nantel}[1]{\todo[size=\tiny,color=blue!30]{#1 \\ \hfill --- Nantel}}
+\newcommand{\Nantel}[1]{\todo[size=\tiny,inline,color=blue!30]{#1 \\ \hfill --- Nantel}}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%    Page setup    %%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -560,6 +572,10 @@ which is $b^{\lambda}_{2k-1}$, and
 which is $b^{\lambda}_{2k}$.
 \end{proof}
 
+\begin{rem}
+Under the straightforward bijection between Dyck paths and partition diagram under the staircase, the order in Proposition~\ref{prop:QSVorderbijection}-3 is exactly the dual of the Young lattice 
+of partition diagrams under the staircase.
+\end{rem}
 %
 %\newpage
 %
@@ -687,6 +703,7 @@ which is $b^{\lambda}_{2k}$.
 \section{The excedance quotient of the Bruhat order}
 \label{sec:excedance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nantel{I am here}
 
 This section will describe a quotient of the Bruhat order on $S_{n}$ under an equivalence relation defined by the weak excedances of a permutation.  
 This quotient order has a number of desirable properties, which are also explored in the section.  
