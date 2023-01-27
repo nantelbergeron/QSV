@@ -1136,7 +1136,6 @@ meets the criteria of Theorem~\ref{thm:TLbases}, and accordingly maps to a basis
 This set is neither $\QSV_{4}$ not the set of $321$-avoiding permutations ($4312 \notin \QSV_{4}$ and is not $321$-avoiding).
 Moreover, the set above is not described in~\cite{GobetWilliams, Zinno}: each subset of $S_{4}$ in these sources which is not $\phi(\QSV_{n})$ contains more than one element from certain excedance classes and none from others.  
 
-\nantel{I am here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A presentation of the Temperley--Lieb algebra}
@@ -1156,7 +1155,7 @@ w \equiv \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d} + \mathbf{a}w_{
 for each $321$-pattern in each permutation $w \in S_{n}$.
 
 \begin{lem}
-Let $w \in S_{n}$ be a permutation with a $321$-pattern in positions $i < j < k$.  Then $w \ge w'$ for each $w'$ in the set
+Let $w \in S_{n}$ be a permutation with a $321$-pattern in positions $i < j < k$.  Then $w > w'$ for each $w'$ in the set
 \[
 \{
 \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d},  \,
@@ -1168,9 +1167,12 @@ Let $w \in S_{n}$ be a permutation with a $321$-pattern in positions $i < j < k$
 \]
 \end{lem}
 \begin{proof}
-Let $w'=\mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d}$, we have $w'= ($
+Let $w'=\mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d}$, we have $w(w')^{-1}= (w_j\,w_i)$ is a transposition. 
+Every inversion of $w'$ is an inversion on $w$. On the other hand, $w$ has the inversion $i<j$, $w_i>w_j$, and potentially more (two for each $b\in \mathbf{b}$ where $w_j<b<w_i$).
+Hence $\ell(w')<\ell(w)$, and therefor $w>w'$ (see~\cite[Chapter 2]{BjornerBrenti}). All other cases are similar, one transposition at a time.
 \end{proof}
 
+\nantel{I am here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Theorem~\ref{thm:TLbases}}
