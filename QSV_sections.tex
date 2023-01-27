@@ -1178,7 +1178,7 @@ Hence $\ell(w')<\ell(w)$, and therefor $w>w'$ (see~\cite[Chapter 2]{BjornerBrent
 \subsection{Proof of Theorem~\ref{thm:TLbases}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section proves Theorem~\ref{thm:TLbases}, which follows from the triangularity established in the next result.  Recall the $321$-avoiding permutation $T_{\lambda}$ defined in Section~\ref{} for each noncrossing partition $\lambda \in \NCP_{n}$.
+This section proves Theorem~\ref{thm:TLbases}, which follows from the triangularity established in the next result.  Recall the $321$-avoiding permutation $T_{\lambda}$ defined in Section~\ref{sec:ex2.1} for each noncrossing partition $\lambda \in \NCP_{n}$.
 
 \begin{prop}
 \label{prop:TLbases}
@@ -1208,7 +1208,7 @@ belongs to the same excedance class as $w$.
 \begin{proof}
 We begin with the first claim.  
 By assumption, there exists an $321$-pattern $i_{0} < j_{0} < k_{0}$ in $w$.  
-It must be the case that either $i_{0} \in \EP(w)$ or $k_{0} \notin \EP(w)$, as the first implies that $w_{k_{0}} < w_{j_{0}} < w_{i_{0}} < i_{0} < j_{0} < k_{0}$, and the second that $i_{0} < j_{0} < k_{0} \le w_{k_{0}} < w_{j_{0}} < w_{i_{0}}$.
+It must be the case that either $i_{0} \in \EP(w)$ or $k_{0} \notin \EP(w)$, as the first implies that $w_{k_{0}} < w_{j_{0}} < w_{i_{0}} < i_{0} < j_{0} < k_{0}$, and the second that $i_{0} < j_{0} < k_{0} \le w_{k_{0}} < w_{j_{0}} < w_{i_{0}}$. \nantel{I don't get this?}
 If $i_{0} \in \EP(w)$, the resulting inequality implies that there exists an element $i < i_{0}$ for which $w_{i} \ge i_{0}$; as a consequence we obtain a $321$-pattern $i < j_{0} < k_{0}$ in $w$ with $i \in \EP(w)$ and $k_{0} \notin \EP(w)$.  
 Following a similar argument, if $k_{0} \in \EP(w)$, then there exists an element $k > k_{0}$ for which $w_{k} \le k_{0}$; we then have a $321$-pattern $i_{0} < j_{0} < k$ for which $k \notin \EP(w)$ and $i_{0} \in \EP(w)$.
 
@@ -1231,11 +1231,11 @@ For all $s \in [n] \setminus \{i, j\}$, we have $w''_{i} = w_{i}$, so the above 
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:TLbases}]
-We proceed by induction on the Bruhat order of $S_{n}$.  If $w$ is $321$-avoiding, then $w = T_{\lambda}$ and the claim clearly holds.  Assuming that $w$ is not $321$-avoiding, we have $T_{\lambda} \le w$, and so we assume for the sake of induction that for each $v \le w$ the claim holds.  As $w$ has a $321$-pattern, we apply Lemma~\ref{lem:321excedance}, which along with Equation~\eqref{eq:321relation} gives an expression
+We proceed by induction on the Bruhat order of $S_{n}$.  If $w$ is $321$-avoiding, then $w = T_{\lambda}$ and the claim clearly holds.  Assuming that $w$ is not $321$-avoiding, we have $T_{\lambda} < w$, and so we assume for the sake of induction that for each $v < w$ the claim holds.  As $w$ has a $321$-pattern, we apply Lemma~\ref{lem:321excedance}, which along with Equation~\eqref{eq:321relation} gives an expression
 \[
 w \equiv w'' + \sum_{\mu \prec \lambda} \sum_{w' \in \CCC_{\mu}} b_{w'} w',
 \]
-where $w''$ is an element of $\CCC_{\lambda}$ with $w'' \le w$, each coefficient $b_{w'} \in \{1, 0, -1\}$, and all but five of the $b_{w'}$ are zero.  Using Proposition~\ref{prop:Qdominates}, each $w'$ in the sum above also precedes $w$ in the Burhat order, so the inductive hypothesis applies, giving
+where $w''$ is an element of $\CCC_{\lambda}$ with $w'' < w$, each coefficient $b_{w'} \in \{1, 0, -1\}$, and all but five of the $b_{w'}$ are zero.  Using Proposition~\ref{prop:Qdominates}, each $w'$ in the sum above also precedes $w$ in the Burhat order, so the inductive hypothesis applies, giving
 \[
 w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w'} T_{\mu} + \sum_{\mu \prec \lambda} \sum_{w' \in \CCC_{\mu}} \left( b_{w'} T_{\mu} + \sum_{\nu \prec \mu} b_{w'} a_{\nu}^{w''} T_{\nu}\right).
 \]
@@ -1251,15 +1251,15 @@ In this section we define polynomials in $n$ variables that vanishes on the set 
 the homogeneous top degree is quasisymmetric. More precisely, let $\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_k)$
 be any fixed composition of $d>0$. Let 
 	$$M_\alpha(x_1,x_2,\ldots,x_n)=\sum_{1\le i_1<i_2<\cdots<i_k\le n} x_{i_1}^{\alpha_1} x_{i_2}^{\alpha_2}\cdots  x_{i_k}^{\alpha_k}$$
-be the quasisymmetric monomial indexed by $\alpha$. We will define a polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ such that
+be the quasisymmetric monomial indexed by $\alpha$. We  define a polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ such that
   $P_\alpha = M_\alpha +$  lower degree terms, and  $P_\alpha(\sigma)=0$  for all $\sigma\in QSV_n$.
 
-$1=f_1<f_2<\cdots <f_\ell<f_{\ell+1}=n+1$ and 
-$\beta_i=\alpha_{f_i}+\alpha_{f_i+1}+\cdots+\alpha_{f_{i+1}-1}$.
-When $\alpha$ refine $\beta$, we write $\alpha\le\beta$.
+%$1=f_1<f_2<\cdots <f_\ell<f_{\ell+1}=n+1$ and 
+%$\beta_i=\alpha_{f_i}+\alpha_{f_i+1}+\cdots+\alpha_{f_{i+1}-1}$.
+%When $\alpha$ refine $\beta$, we write $\alpha\le\beta$.
 
 \begin{definition}\label{def:vanishP}
- For any $\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_k)$, the polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ is defined as
+ For any $\alpha=(\alpha_1,\alpha_2,\ldots,\alpha_k)$, define the polynomial $P_\alpha(x_1,x_2,\ldots,x_n)$ as
 	$$P_\alpha=\sum_{\ell=1}^k (-1)^{k-\ell} \sum_{1=f_1<f_2<\cdots <f_{\ell+1}=k+1  \atop 1\le i_1<i_2<\cdots < i_\ell\le n} \prod_{j=1}^\ell 
 	      \Big( (x_{i_j}^{\alpha_{f_j}}- i_j^{\alpha_{f_j }})  i_j^{\alpha_{f_j +1}+\cdots+\alpha_{f_{j +1}-1}} \Big)
 	      $$
@@ -1296,12 +1296,12 @@ Expanding all the product in the definition of $P_{\alpha,T}$ and evaluating at 
 	\sum_{{1\le j_1\le j_2\le\cdots\le j_k\le m}} \sum_{{\epsilon_1,\epsilon_2,\ldots,\epsilon_k \atop \epsilon_i\in \{0,1\}}\atop \epsilon_i=1 \text{ if } j_{i-1}=j_i} (-1)^{\sum \epsilon_i}\ 
 	   z_{j_1,\epsilon_1}^{\alpha_1}z_{j_2,\epsilon_2}^{\alpha_2} \cdots z_{j_k,\epsilon_k}^{\alpha_k}\,,
 \end{equation}
-where $z_{j_i,\epsilon_i}=a_{j_i-1}$ if $\epsilon_i=0$, otherwise $z_{j_i,\epsilon_i}=a_{j_i}$. To show that $P_{\alpha,\{t\}}(\sigma)$, we construct a sign reversing involution 
+where $z_{j_i,\epsilon_i}=a_{j_i-1}$ if $\epsilon_i=0$, otherwise $z_{j_i,\epsilon_i}=a_{j_i}$. To show that $P_{\alpha,\{t\}}(\sigma)=0$, we construct a sign reversing involution 
 on the evaluation of the terms in Equation~\eqref{eq:PTatsigma}.
 
-Given $1\le j_1\le j_2\le\cdots\le j_k\le m$ and $\epsilon_1,\epsilon_2,\ldots,\epsilon_k$, then the term 
+Given $1\le j_1\le j_2\le\cdots\le j_k\le m$ and $\epsilon_1,\epsilon_2,\ldots,\epsilon_k$, we have the term 
 $$z_{j_1,\epsilon_1}^{\alpha_1}z_{j_2,\epsilon_2}^{\alpha_2} \cdots z_{j_k,\epsilon_k}^{\alpha_k}=a_{s_1}^{\alpha_1}a_{s_2}^{\alpha_2}\cdots a_{s_k}^{\alpha_k},$$
-where $s_i\in\{j_i,j_i-1\}$ depending on $\epsilon_i$ and  $0\le s_1\le s_2\le \cdots\le s_k\le m$. First find the largest, rightmost $s_i\not\in\{0,m\}$. 
+where $s_i\in\{j_i,j_i-1\}$ depending on  $\epsilon_i$ and  $0\le s_1\le s_2\le \cdots\le s_k\le m$. First find the largest, rightmost $s_i\not\in\{0,m\}$. 
 
 \medskip
 \noindent
@@ -1358,6 +1358,32 @@ When we evaluate $P_{\alpha,T,Q,F}(\sigma)$, then centred term above is $P_{(\al
 \end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quasisymmetric varieties}
+
+We are now ready to state and prove one of our main theorems. Let $R=\QQ[x_1,x_2,\ldots,x_n]$ denote the polynomial ring in $n$ variables.
+
+\begin{thm}\label{thm:vanishingQSV} The Ideal $I=\langle P_\alpha : \alpha\models d>1\rangle\subseteq R$ is the vanishing ideal of $QSV_n$. \end{thm}
+
+\begin{proof}
+	Let $J$ denote the vanishing ideal of $QSV_n$. From Theorem~\ref{thm:vanishing}, we have that $I\subseteq J$. From this we deduce that
+	 $$ \dim(R/I) \ge \dim(R/J)\,.$$
+	 Since $J$ is the vanishing ideal of a finite set of points, we have 
+	 $$ \dim(R/J)=|QSV_n|=C_n\,.$$
+	 
+	Let $I'=\langle M_\alpha : \alpha\models d>1\rangle$ and $gr(I)=\langle h(f) : f\in I \rangle$, where $h(f)$ is the top degree homogeneous component of $f$.
+	For example, as noted in Definition~\ref{def:vanishP}, we have $h(P_\alpha)=M_\alpha$. Hence $I'\subseteq gr(I)$. 
+	A standard use of Gr\"obner basis~\cite{CLO} shows that for graded-lex order, the initial ideal of $I$ is the same as the initial ideal of $gr(I)$ (they have the same leading term ideal).
+	This gives us $\dim(R/gr(I)) =  \dim(R/I)$. Now, the main result of~\cite{ABB} shows that
+	$ \dim(R/I')=C_n\,.$
+	Thus, putting it all together, we have 
+	$$C_n= \dim(R/I') \ge \dim(R/gr(I)) =  \dim(R/I) \ge \dim(R/J) =C_n\,,$$
+	and equalities must hold everywhere. Therefor $I=J$.
+\end{proof}
+
+\Nantel{add some concluding remarks}
 
 \newpage
 
