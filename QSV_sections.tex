@@ -1148,13 +1148,15 @@ Recall that a $321$-pattern in a permutation $w \in S_{n}$ is a triple $i < j < 
 w = \mathbf{a}w_{i}\mathbf{b}w_{j}\mathbf{c}w_{k}\mathbf{d},
 \]
 where $\mathbf{a}$, $\mathbf{b}$, $\mathbf{c}$, and $\mathbf{d}$ are (possibly empty) subwords of $w$.  The quotient $\CC S_{n} / \ker(\phi)$ is then described by the relations
-\begin{equation}
+\begin{multline}
 \label{eq:321relation}
-w \equiv \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d} + \mathbf{a}w_{i}\mathbf{b}w_{k}\mathbf{c}w_{j}\mathbf{d} - \mathbf{a}w_{j}\mathbf{b}w_{k}\mathbf{c}w_{i}\mathbf{d} - \mathbf{a}w_{k}\mathbf{b}w_{i}\mathbf{c}w_{j}\mathbf{d} + \mathbf{a}w_{k}\mathbf{b}w_{j}\mathbf{c}w_{i}\mathbf{d}
-\end{equation}
+w \equiv \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d} + \mathbf{a}w_{i}\mathbf{b}w_{k}\mathbf{c}w_{j}\mathbf{d} - \mathbf{a}w_{j}\mathbf{b}w_{k}\mathbf{c}w_{i}\mathbf{d} \\
+- \mathbf{a}w_{k}\mathbf{b}w_{i}\mathbf{c}w_{j}\mathbf{d} + \mathbf{a}w_{k}\mathbf{b}w_{j}\mathbf{c}w_{i}\mathbf{d}  \qquad \text{(mod $\ker(\phi)$)}
+\end{multline}
 for each $321$-pattern in each permutation $w \in S_{n}$.
 
 \begin{lem}
+\label{lem:321reducebruhat}
 Let $w \in S_{n}$ be a permutation with a $321$-pattern in positions $i < j < k$.  Then $w > w'$ for each $w'$ in the set
 \[
 \{
@@ -1169,10 +1171,8 @@ Let $w \in S_{n}$ be a permutation with a $321$-pattern in positions $i < j < k$
 \begin{proof}
 Let $w'=\mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d}$, we have $w(w')^{-1}= (w_j\,w_i)$ is a transposition. 
 Every inversion of $w'$ is an inversion on $w$. On the other hand, $w$ has the inversion $i<j$, $w_i>w_j$, and potentially more (two for each $b\in \mathbf{b}$ where $w_j<b<w_i$).
-Hence $\ell(w')<\ell(w)$, and therefor $w>w'$ (see~\cite[Chapter 2]{BjornerBrenti}). All other cases are similar, one transposition at a time.
+Hence $\ell(w')<\ell(w)$, and therefore $w>w'$ (see~\cite[Chapter 2]{BjornerBrenti}). All other cases are similar, one transposition at a time.
 \end{proof}
-
-\nantel{I am here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Theorem~\ref{thm:TLbases}}
@@ -1184,7 +1184,7 @@ This section proves Theorem~\ref{thm:TLbases}, which follows from the triangular
 \label{prop:TLbases}
 For $n \ge 0$, take $w \in S_{n}$ and let $\lambda \in \NCP_{n}$ be the unique noncrossing partition for which $w \in \CCC_{\lambda}$.  Then
 \[
-w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w} T_{\mu} \qquad \text{(mod $ \ker\phi$)}
+w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w} T_{\mu} \qquad \text{(mod $\ker(\phi)$)}
 \]
 for some coefficients $a_{\mu}^{w} \in \ZZ$.
 \end{prop}
@@ -1206,13 +1206,21 @@ Suppose that $w \in S_{n}$ has a $321$-pattern.  Then $w$ has a $321$-pattern $i
 belongs to the same excedance class as $w$.
 \end{lem}
 \begin{proof}
-We begin with the first claim.  
-By assumption, there exists an $321$-pattern $i_{0} < j_{0} < k_{0}$ in $w$.  
-It must be the case that either $i_{0} \in \EP(w)$ or $k_{0} \notin \EP(w)$, as the first implies that $w_{k_{0}} < w_{j_{0}} < w_{i_{0}} < i_{0} < j_{0} < k_{0}$, and the second that $i_{0} < j_{0} < k_{0} \le w_{k_{0}} < w_{j_{0}} < w_{i_{0}}$. \nantel{I don't get this?}
-If $i_{0} \in \EP(w)$, the resulting inequality implies that there exists an element $i < i_{0}$ for which $w_{i} \ge i_{0}$; as a consequence we obtain a $321$-pattern $i < j_{0} < k_{0}$ in $w$ with $i \in \EP(w)$ and $k_{0} \notin \EP(w)$.  
-Following a similar argument, if $k_{0} \in \EP(w)$, then there exists an element $k > k_{0}$ for which $w_{k} \le k_{0}$; we then have a $321$-pattern $i_{0} < j_{0} < k$ for which $k \notin \EP(w)$ and $i_{0} \in \EP(w)$.
+By assumption, $w$ has a $321$-pattern, which we will denote by $i_{0} < j_{0} < k_{0}$.
+For the first claim, we proceed in cases based on $i_{0}$ and $k_{0}$.  
+If $i_{0} \in \EP(w)$, then either $k_{0} \notin \EP(w)$, in which case we have the desired $321$-pattern, or $k_{0} \in \EP(w)$, in which case we have $i_{0} < j_{0} < k_{0} \le w_{k_{0}} < w_{j_{0}} < w_{i_{0}}$.  
+Proceeding with the assumption that $k_{0} \in \EP(w)$, the set $w^{-1}([k_{0}-1])$ does not contain $i_{0}$, $j_{0}$, or $k_{0}$, so there is at least one $k > k_{0}$ with $w_{k} < k_{0}$, and $i_{0} < j_{0} < k$ is a $321$-pattern for which $i_{0} \in \EP(w)$ and $k \notin\EP(w)$.  
+On the other hand, if $i_{0} \notin \EP(w)$ then $w_{k_{0}} < w_{j_{0}} < w_{i_{0}} < i_{0} < j_{0} < k_{0}$, so that $k_{0} \notin \EP(w)$.  
+In this case $w([i_{0} - 1])$ does not contain $w_{i_{0}}$, $w_{j_{0}}$, or $w_{k_{0}}$, so there is at least one $i < i_{0}$ for which $w_{i} > i_{0}$, and $i < j_{0} < k_{0}$ is a $321$-pattern for which $i \in \EP(w)$ and $k_{0} \notin\EP(w)$.  
 
-For the second argument, we write $i < j < k$ for the $321$-pattern described in the Lemma; there are two cases, in which $j \in \EP(w)$ or not.  We will consider the first case, as the second follows from a similar argument.  In this case, it is straightforward to see that each element $w'$ in the set
+For the second argument, we write $i < j < k$ for the $321$-pattern described in the first claim.  There are two cases, depending on whether $j$ is an excedance position or not, and we will only consider the first case, as the second follows from a similar argument.  Assuming that $j \in \EP(w)$, we first show that with $w' = \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d}$, 
+\[
+\EP(w') = \EP(w)
+\qquad\text{and}\qquad
+\EV(w') = \EV(w).
+\]
+For all $s \in [n] \setminus \{i, j\}$, we have $w'_{i} = w_{i}$, so the above statement reduces to $i, j \in \EP(w')$ and $w_{i}, w_{j} \in \EV(w')$; to see this, observe that $i < j \le w_{j} < w_{i}$, and so $w'_{i} = w_{j} > i$ and $w'_{j} = w_{i} > j$.  
+To complete the proof, we verify that each element $w''$ in the set
 \[
 \{
 \mathbf{a}w_{i}\mathbf{b}w_{k}\mathbf{c}w_{j}\mathbf{d}, \,
@@ -1221,25 +1229,23 @@ For the second argument, we write $i < j < k$ for the $321$-pattern described in
 \mathbf{a}w_{k}\mathbf{b}w_{j}\mathbf{c}w_{i}\mathbf{d}
 \}
 \]
-will have a difference excedance class: either $k$ is an excedance position of $w'$, in which case $\EP(w') \neq \EP(w)$, or  or one of $w_{i}$ or $w_{j}$ is a not excedance value for $w'$, in which case $\EV(w') \neq \EV(w)$.  What remains is to show that with $w'' = \mathbf{a}w_{j}\mathbf{b}w_{i}\mathbf{c}w_{k}\mathbf{d}$, 
-\[
-\EP(w'') = \EP(w)
-\qquad\text{and}\qquad
-\EV(w'') = \EV(w).
-\]
-For all $s \in [n] \setminus \{i, j\}$, we have $w''_{i} = w_{i}$, so the above claim reduces to $i, j \in \EP(w')$ and $w_{i}, w_{j} \in \EV(w'')$.  To show this, we observe that $i < j \le w_{j} < w_{i}$, and so $w''_{i} = w_{j} > i$ and $w''_{j} = w_{i} > j$.
+belongs to a difference excedance class than $w$: either $k \le w''_{k}$, in which case $\EP(w'') \neq \EP(w)$, or $w''_{k} \in \{w_{i}, w_{j}\}$ is a not excedance value for $w''$, in which case $\EV(w'') \neq \EV(w)$.  
 \end{proof}
 
 \begin{proof}[Proof of Proposition~\ref{prop:TLbases}]
-We proceed by induction on the Bruhat order of $S_{n}$.  If $w$ is $321$-avoiding, then $w = T_{\lambda}$ and the claim clearly holds.  Assuming that $w$ is not $321$-avoiding, we have $T_{\lambda} < w$, and so we assume for the sake of induction that for each $v < w$ the claim holds.  As $w$ has a $321$-pattern, we apply Lemma~\ref{lem:321excedance}, which along with Equation~\eqref{eq:321relation} gives an expression
+We proceed by induction on the Bruhat order of $S_{n}$.  If $w$ is $321$-avoiding, then $w = T_{\lambda}$ and the claim clearly holds.  
+If $w$ is not $321$-avoiding, we have $T_{\lambda} < w$, so we assume for the sake of induction that for each $v < w$ the claim holds.  
+As $w$ has a $321$-pattern, Equation~\eqref{eq:321relation}, Lemma~\ref{lem:321reducebruhat}, and Lemma~\ref{lem:321excedance} allow us to express
 \[
-w \equiv w'' + \sum_{\mu \prec \lambda} \sum_{w' \in \CCC_{\mu}} b_{w'} w',
+w \equiv w' + \sum_{\substack{w'' \le w \\ w'' \notin \CCC_{\lambda} }} b_{w''} w'' \qquad \text{(mod $\ker(\phi)$)},
+%\mu \prec \lambda} \sum_{w'' \in \CCC_{\mu}} b_{w''} w'',
 \]
-where $w''$ is an element of $\CCC_{\lambda}$ with $w'' < w$, each coefficient $b_{w'} \in \{1, 0, -1\}$, and all but five of the $b_{w'}$ are zero.  Using Proposition~\ref{prop:Qdominates}, each $w'$ in the sum above also precedes $w$ in the Burhat order, so the inductive hypothesis applies, giving
+where $w' < w$ is an element of $\CCC_{\lambda}$, $\sim$ denotes the excedance relation, and each coefficient $b_{w''}$ belongs to $\{1, 0, -1\}$.  
+We may now apply out inductive hypothesis to the elements $w'$ and $w''$ in the expression above; by Proposition~\ref{prop:Qdominates}, each $w''$ in the sum above belongs to an excedance class $\CCC_{\mu}$ with $\mu \prec \lambda$, so that this gives
 \[
-w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w'} T_{\mu} + \sum_{\mu \prec \lambda} \sum_{w' \in \CCC_{\mu}} \left( b_{w'} T_{\mu} + \sum_{\nu \prec \mu} b_{w'} a_{\nu}^{w''} T_{\nu}\right).
+w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w'} T_{\mu} + \sum_{\mu \prec \lambda} \sum_{w'' \in \CCC_{\mu}} \left( b_{w''} T_{\mu} + \sum_{\nu \prec \mu} b_{w''} a_{\nu}^{w''} T_{\nu}\right)
 \]
-This completes the proof.
+for some coefficients $a_{\mu}^{w'}, a_{\mu}^{w''} \in \ZZ$.  Combining like terms, the proof is complete.
 \end{proof}
 
 
