@@ -822,9 +822,16 @@ One can translate between the two by interchanging each $1$ in a ballot sequence
 \label{sec:excedance}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section will describe a quotient of the Bruhat order on $S_{n}$ under an equivalence relation defined by the weak excedances of a permutation.  
-This quotient order has a number of desirable properties, which are also explored in the section.  
-One particularly noteworthy result is that each equivalence class contains a unique element of the set $\QSV_{n}$, so the construction of this order can be seen as dual to the results of~\cite{GobetWilliams} described in Section~\ref{sec:bruhatballot}.  
+In this section we describe a novel equivalence relation $\sim$ on $S_{n}$ and show that it induces a quotient of the Bruhat order.  
+This equivalence relation is defined in a simple way using the weak excedances of a permutation.  
+We have discovered a number of nice properties of the equivalence classes in $S_{n}/\!\sim$, which we summarize after our initial definition.
+
+%
+%
+%
+%, and we uncover a number of remarkable properties in a number of remarkable properties .   
+%Moreover, the induced order on equivalence classes 
+%One particularly noteworthy result is that each equivalence class contains a unique element of the set $\QSV_{n}$, so the construction of this order can be seen as dual to the results of~\cite{GobetWilliams} described in Section~\ref{sec:bruhatballot}.  
 
 Given a permutation $w \in S_{n}$, a \emph{weak excedance} of $w$ is a pair $(i, w_{i})$ for which $i \le w_{i}$.  Disaggregating, we define the \emph{excedance values} $\EV(w)$ and \emph{excedance positions} $\EP(w)$ to be the sets
 \begin{align*}
@@ -844,6 +851,11 @@ We define the \emph{excedance relation} $\sim$ on $S_{n}$ by:
 v \sim w \qquad\text{if and only if} \qquad \text{$\EV(v) = \EV(w)$ and $\EP(v) = \EP(w)$},
 \end{equation}
 and say that each equivalence class of $S_{n}/\sim$ is an \emph{excedance class}.
+
+\begin{rem}
+The excedance relation refines a similar equivalence relation defined in the paper~\cite{ES}, in which permutations are related if they share the same excedance position set.  
+The authors of~\cite{ES} prove a number of detailed results about their equivalence classes, and it would be interesting to see how these results extend to our excedance classes.  
+\end{rem}
 
 This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  Each noncrossing partition $\lambda$ of size $n$ determines an excedance class: recall the sets $\lambda^{+}$ and $\lambda^{-}$ defined in Section~\ref{sec:ncp}, and let
 \[
@@ -1556,10 +1568,15 @@ Adv. in Math. {\bf 181 (2)} (2004) 353--367.
 \bibitem{BjornerBrenti}  Francesco Brenti and Anders Bj\"{o}rner.  Combinatorics of Coxeter Groups. Germany: Springer Berlin Heidelberg, 2010.
 
 
-\bibitem{CLO} D. Cox, J. Little, D. O'Shea,
+\bibitem{CLO} D.~Cox, J.~Little, D.~O'Shea,
 \textit{Ideals, varieties, and algorithms: an introduction to computational
 algebraic geometry and commutative algebra}.
 Springer Science \& Business Media; 2013 Mar 9.
+
+\bibitem{ES} R.~Ehrenborg and E.~Steingr\'{i}msson.
+\textit{The Excedance Set of a Permutation},
+{Adv. Appl. Math.}
+{\bf 24} (2000), 284--299.
 
 \bibitem{GP} A.~M~.Garsia and C.~Procesi.
 \textit{On certain graded {$S_n$}-modules and the {$q$}-{K}ostka
@@ -1567,7 +1584,7 @@ Springer Science \& Business Media; 2013 Mar 9.
  {Adv. Math.}
  {\bf 94-1} (1992)  82--138.
  
-\bibitem{Gessel} I. M. Gessel,
+\bibitem{Gessel} I.~M.~Gessel,
 \textit{Multipartite {$P$}-partitions and inner products of skew
               {S}chur functions}.
 {Combinatorics and algebra ({B}oulder, {C}olo., 1983)} 
@@ -1583,12 +1600,12 @@ Springer Science \& Business Media; 2013 Mar 9.
  (2016) 302 pages.
 http://dspace.mit.edu/handle/1721.1/104468.
 
-\bibitem{Hivert} F. Hivert,
+\bibitem{Hivert} F.~Hivert,
 \textit{Hecke algebras, difference operators, and quasi-symmetric functions},
  {Adv. Math.},
 {\bf 155-2} (2000) 181--238.
 
-\bibitem{Humphrey} J. E. Humphreys,   \textit{Reflection groups and {C}oxeter groups},
+\bibitem{Humphrey} J.~E.~Humphreys,   \textit{Reflection groups and {C}oxeter groups},
  {Cambridge Studies in Advanced Mathematics},
 {\bf 29},
 (1990) 204 pages.
