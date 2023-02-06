@@ -472,7 +472,7 @@ Given an arc $ \edge{i}{j} \in \lambda$, say that $i$ is the \emph{left endpoint
 \]
 and
 \[
-\lambda^{-} = \{ i \in [n] \;|\; \text{$i$ is a right endpoint in $\lambda$} \}
+\lambda^{-} = \{ i \in [n] \;|\; \text{$i$ is a right endpoint in $\lambda$} \}.
 \]
 For example, with the noncrossing partition $\lambda$ in~\eqref{eq:noncrossingpartitionexample}, $\lambda^{+} = \{2, 3, 5\}$ and $\lambda^{-} = \{5, 6, 7\}$.  The arcs in $\lambda$ give a bijection between the sets $\lambda^{+}$ and $\lambda^{-}$, so that
 \[
@@ -815,8 +815,6 @@ One can translate between the two by interchanging each $1$ in a ballot sequence
 \end{enumerate}
 \end{rem}
 
-\Lucas{I am here}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The excedance quotient of the Bruhat order}
 \label{sec:excedance}
@@ -824,7 +822,7 @@ One can translate between the two by interchanging each $1$ in a ballot sequence
 
 In this section we describe a novel equivalence relation $\sim$ on $S_{n}$ and show that it induces a quotient of the Bruhat order.  
 This equivalence relation is defined in a simple way using the weak excedances of a permutation.  
-We have discovered a number of nice properties of the equivalence classes in $S_{n}/\!\sim$, which we summarize after our initial definition.
+We have discovered a number of nice properties of the equivalence classes in $S_{n}\big/\!\!\sim$, which we summarize after our initial definition.
 
 %
 %
@@ -838,7 +836,7 @@ Given a permutation $w \in S_{n}$, a \emph{weak excedance} of $w$ is a pair $(i,
 \EV(w) &= \{ w_{i} \;|\; \text{$(i, w_{i})$ is a weak excedance of $w$}\},\;\text{and} \\[0.5em]
 \EP(w) &= \{ i  \;|\; \text{$(i, w_{i})$ is a weak excedance of $w$}\}.
 \end{align*}
-Excedances and the sets $\EV(w)$ and $\EP(w)$ are easiest seen using two-line notation for permutations.  For example, marking non-excedancs in red,
+Excedances and the sets $\EV(w)$ and $\EP(w)$ are easiest seen using two-line notation for permutations.  For example, marking the non-excedances of a permutation in red,
 \[
 w = \overset{1}{3} \overset{2}{5} {\color{red} \overset{3}{1}} \overset{4}{4} {\color{red} \overset{5}{2}} \overset{6}{6} {\color{red} \overset{7}{5}} \overset{8}{8},
 \qquad
@@ -853,15 +851,17 @@ v \sim w \qquad\text{if and only if} \qquad \text{$\EV(v) = \EV(w)$ and $\EP(v) 
 and say that each equivalence class of $S_{n}\big/\sim$ is an \emph{excedance class}.
 
 \begin{rem}
-The excedance relation refines a similar equivalence relation defined in the paper~\cite{ES}, in which permutations are related if they share the same excedance position set.  
-The authors of~\cite{ES} prove a number of detailed results about their equivalence classes, and it would be interesting to see how these results extend to our excedance classes.  
+The excedance relation refines a similar equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
+The authors of~\cite{ES} prove several enumerative and statistical results about their ``excedance classes,'' and it would be interesting to see how these results extend to our notion of excedance class.  
 \end{rem}
 
-This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  Each noncrossing partition $\lambda$ of size $n$ determines an excedance class: recall the sets $\lambda^{+}$ and $\lambda^{-}$ defined in Section~\ref{sec:ncp}, and let
+%This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  
+We now summarize the main results of the section.  
+Each noncrossing partition $\lambda$ of size $n$ determines an excedance class: recall the sets $\lambda^{+}$ and $\lambda^{-}$ defined in Section~\ref{sec:ncp}, and let
 \[
 \CCC_{\lambda} = \{ w \in S_{n} \;|\;  \text{$\EV(w) = [n] \setminus \lambda^{+}$ and $\EP(w) = [n] \setminus \lambda^{-}$}  \}.
 \]
-In Section~\ref{sec:ex1}, it is shown that every  excedance class of $S_{n}$ is of the form $\CCC_{\lambda}$ for some noncrossing partition.  As an example, the are five excedance classes of $S_{3}$ are given below:
+In Section~\ref{sec:ex1}, we show that this construction is bijective, so that the excedance classes are counted by the Catalan numbers.  For example, the five excedance classes of $S_{3}$ are:
 \[
 \mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
 \foreach \x in {1, ..., 3}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
@@ -891,18 +891,21 @@ In Section~\ref{sec:ex1}, it is shown that every  excedance class of $S_{n}$ is 
 %\foreach \i\j in {2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
 \end{tikzpicture}} = \{\stackrel{1}{1} \stackrel{2}{2} \stackrel{3}{3} \}.
 \]
-The Bruhat order descends to a relation on excedance classes, and we show that this relation is a partial order; in particular Section~\ref{sec:ex3} proves the following result.  Recall the order $\preceq$ from Section~\ref{sec:bruhatballot}.
+
+The Bruhat order induces a relation on $S_{n}/\!\!\sim$, and in Section~\ref{sec:ex3} we show that this relation is a partial order by way of the following result.  Recall the order $\preceq$ from Section~\ref{sec:bruhatballot}.
 
 \begin{thm}
 \label{thm:excedancequotient}
-Writing $\le$ for the partial order on excedance classes $S_{n}\big/\!\!\sim$ induced by the Bruhat order, $\CCC_{\lambda} \le \CCC_{\mu}$ if and only if $\lambda \preceq \mu$.
+Writing $\le$ for the relation on excedance classes $S_{n}\big/\!\! \sim$ induced by the Bruhat order, $\CCC_{\lambda} \le \CCC_{\mu}$ if and only if $\lambda \preceq \mu$.
 \end{thm}
 
-Two important intermediate results stated in Section~\ref{sec:ex2} show that each excedance class $\CCC_{\lambda}$ contains a unique minimal and maximal elements, which are respectively a $321$-avoiding permutation and the element $Q_{\lambda} \in \QSV_{n}$.  Combined with Theorem~\ref{thm:excedancequotient}, this gives the following corollary.  
+Two key intermediate results in the proof of Theorem~\ref{thm:excedancequotient} are established in Section~\ref{sec:ex2}: we show that each excedance class $\CCC_{\lambda}$ contains a unique Bruhat-minimal and Bruhat-maximal element, and moreover that these are respectively a $321$-avoiding permutation and the element $Q_{\lambda} \in \QSV_{n}$.  Combined with Theorem~\ref{thm:excedancequotient}, this implies the following corollary.  
 
 \begin{cor}\label{cor:interval}
-Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}$ and lower bound given by a $321$-avoiding permutation.
+Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation
 \end{cor}
+
+Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes using the weak order on $S_{n}$.
 
 %%%%%%%%%%%%%%%
 \subsection{Excedance classes and noncrossing partitions}
@@ -922,14 +925,14 @@ For $n \ge 0$, the map
 is a bijection.
 \end{prop}
 \begin{proof}
-We will first show that every excedance class of $S_{n}$ has the form $\CCC_{\lambda}$ for some $\lambda \in \NCP_{n}$.  
-This is equivalent to showing that for any $w \in S_{n}$, the criterion of Lemma~\ref{lem:noncrossingpartitionproperty} holds:
+We will first show that every excedance class has the form $\CCC_{\lambda}$ for some $\lambda \in \NCP_{n}$.  
+By Lemma~\ref{lem:noncrossingpartitionproperty}, this is equivalent to showing that for any $w \in S_{n}$, the following criterion holds:
 \[
 |\{i \in [k-1] \;|\; i \notin \EV(w)\}| \ge |\{ j \in [k] \;|\; j \notin \EP(w)\}| \qquad\text{for all $1 \le k \le n$}.
 \]
-We will establish the above inequality directly.  Fix $1 \le k \le n$ and suppose that $i \in [k]$ is not an excedance position, so that that $i > w_{i}$.  By assumption, $w_{i} < k$ and $w_{i}$ is not an excedance value.  Thus, 
+We will establish the above inequality directly.  Fix $1 \le k \le n$ and suppose that $j \in [k]$ is not an excedance position, so that that $w_{j} < j$.  By assumption, $w_{j} < k$ and $w_{j}$ is not an excedance value.  Thus, 
 \[
-\{w_{i} \;|\; \text{$i \in [k-1]$ and $i \notin \EV(w)$} \} \subseteq \{j \in [k] \;|\; j \notin \EP(w)\},
+\{i \;|\; \text{$i \in [k-1]$ and $i \notin \EV(w)$} \} \supseteq \{w_{j} \;|\; \text{$j \in [k]$ and $j \notin \EP(w)$}\},
 \]
 giving the claim.  Now, we must show that each $\CCC_{\lambda}$ is nonempty.  This is established by Lemma~\ref{lem:QSVexcedance} below, which completes the proof.
 \end{proof}
@@ -937,7 +940,7 @@ giving the claim.  Now, we must show that each $\CCC_{\lambda}$ is nonempty.  Th
 
 \begin{lem}
 \label{lem:QSVexcedance}
-For any noncrossing partition $\lambda$, $Q_{\lambda} \in \CCC_{\lambda}$.  In particular, if $Q_{\lambda} \in S_{n}$, 
+Let $\lambda$ be a noncrossing partition of size $n$.  Then $Q_{\lambda} \in \CCC_{\lambda}$, so that
 \[
 \EV(Q_{\lambda}) = [n] \setminus \lambda^{+}
 \qquad\text{and}\qquad
@@ -983,68 +986,71 @@ Now, for $j \in \EV(w) \cap [k]$, we have $j = w_{i}$ for some $i \le j$, so tha
 \end{proof}
 
 %%%%%%%%%%%%%%%
-\subsection{Minimal and maximal elements}%Excedance classes are Bruhat intervals}
-\label{sec:minmax}
+\subsection{Minimal and maximal elements}
 \label{sec:ex2}
 %%%%%%%%%%%%%%%
 
 This section will show that each excedance class contains a unique Bruhat minimum and maximum.  
 This is a key intermediate step to showing that excedance classes are Bruhat intervals with a well-defined quotient order.  
 %This section will show that each excedance class is an interval in the Bruhat order, and in doing so explicitly specify the maximal and minimal elements.  
-We will begin with the maximal elements, which are the elements of $\QSV_{n}$, while the minimal ($321$-avoiding) elements are discussed in Subsection~\ref{sec:ex2.1}
+We will begin with the maximal elements, which are the elements of $\QSV_{n}$, while the minimal ($321$-avoiding) elements are discussed after the proof of Proposition~\ref{prop:QSVinterval} below.
 
 \begin{prop}
 \label{prop:QSVinterval}
 For all noncrossing partitions $\lambda$, $Q_{\lambda}$ is the Bruhat maximum element of $\CCC_{\lambda}$.  
 %In particular $w \le Q_{\lambda}$ for all $w \in \CCC_{\lambda}$.
 \end{prop}
-\begin{proof}
-Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we need only show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that $\TTT_{k}(w)$ is entry-wise less than or equal to $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
 
-The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this hinges on the fact that these collections of entires have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
+\Lucas{ALSO here (just the proof)}
+
+
+\begin{proof}
+Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we only need to show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that each entry of $\TTT_{k}(w)$ is bounded above by the same entry of $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
+
+The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this approach relies on the fact that these collections of entires have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
 \begin{align*}
 |\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|
-&= |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}| \\
-&= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] |,
+&= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] | \\
+&= |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|,
 \end{align*}
 and consequently $|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}| = |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}|$.
 
-We begin with the first part.  Enumerate the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are greater than $k$ in increasing order as $x_{1} < x_{2} < \cdots <  x_{r}$ and $q_{1} < q_{2} < \ldots < q_{r}$.  We aim to show that $x_{i} \le q_{i}$ for each $1 \le i \le r$.  
+We begin with the first part.  Enumerate the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are greater than $k$ in increasing order as $x_{1} < x_{2} < \cdots <  x_{r}$ and $q_{1} < q_{2} < \ldots < q_{r}$ respectively.  We aim to show that $x_{i} \le q_{i}$ for each $1 \le i \le r$.  
 Fixing one such $i$, Lemma~\ref{lem:tableautobruhat} gives that
 \[
 |\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}| = |\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|.
 \]
 %and each of $x_{1}, x_{2}, \ldots, x_{r}$ is contained in the set on the left.  
-It is sufficient to show that the above quantity is equal to $r - i$, as this implies that each of $x_{1}, \ldots x_{i}$ must be less than $q_{i}$.
+It is sufficient to show that the above expressions are equal to $r - i$, as this implies that each of $x_{1}, \ldots x_{i}$ is not contained in the set $\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}$, and therefore must be less than $q_{i}$.
 
-Let $C_{i}$ denote the connected component of $\lambda$ containing $y_{i}$.  
-From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C_{i}$,  and $Q_{\lambda}^{-1}(q_{i})$ the minimal element.  
+Let $C_{i}$ denote the connected component of $\lambda$ containing $q_{i}$.  
+From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C_{i}$,  and $Q_{\lambda}^{-1}(q_{i}) \le k$ the minimal element.  
 Combinatorially, the difference $|\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with left endpoint in $[q_{i}]$ and right endpoint in $[n] \setminus [q_{i}]$, and as $q_{i} \in \EV(w)$, this is the number of arcs in $\lambda$ which are above $q_{i}$.  
-Every arc in $\lambda$ which lies above $q_{i}$ must fully contain $C_{i}$ between its left and right endpoints, and so in particular, the left endpoint of such an arc is contained in $[k]$, and the right endpoint is greater than $q_{i}$.  
+Every arc in $\lambda$ which lies above $q_{i}$ must have all elements of $C_{i}$ between its left and right endpoints, so that the left endpoint of any such an arc is contained in $[k]$ and the right endpoint is greater than $q_{i}$.  
 Thus, each such arc belongs to the connected component of one of the elements $q_{i+1}, \ldots, q_{r}$; there are precisely $r - i$ such connected components.
 
-For the second part of the argument, we aim to show that the entries of $\TTT_{k}(w)$ which are at most $k$ are entry-wise less than or equal to the analogous entries of $\TTT_{k}(Q_{\lambda})$, and we establish this in an indirect manner described below.  
+For the second part of the argument, we aim to show that each entry of $\TTT_{k}(w)$ which is at most $k$ is less than or equal to the analogous entry of $\TTT_{k}(Q_{\lambda})$, and we establish this in an indirect manner described below.  
 Writing $s = |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|$, Lemma~\ref{lem:tableautobruhat} states that there are exactly $s$ elements of $[k]$ which do not appear in $\TTT_{k}(w)$, and likewise for $\TTT_{k}(Q_{\lambda})$.  
-Respectively enumerate these elements in increasing order as $x_{1} < x_{2} < \cdots < x_{s}$ and $q_{1} < q_{2} < \cdots < q_{s}$.  
-We will show that $q_{i} \le x_{i}$ for each $1 \le i \le s$, as this implies the opposite comparison for the remaining elements of $[k] \setminus \{q_{1}, q_{2}, \ldots, q_{s}\}$ and $[k] \setminus \{x_{1}, x_{2}, \ldots, x_{s}\}$ as desired.  
+Respectively enumerate these elements in increasing order as $y_{1} < y_{2} < \cdots < y_{s}$ and $p_{1} < p_{2} < \cdots < p_{s}$.  
+We will show that $p_{i} \le y_{i}$ for each $1 \le i \le s$, as this implies the opposite comparison for the remaining elements of $[k] \setminus \{p_{1}, p_{2}, \ldots, p_{s}\}$ and $[k] \setminus \{y_{1}, y_{2}, \ldots, y_{s}\}$ as desired.  
 
 Fixing $1 \le i \le s$, Lemma~\ref{lem:tableautobruhat} gives that
 \[
-|\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < q_{i}$} \}| = |\lambda^{+} \cap [q_{i} - 1]| - |\lambda^{-} \cap [q_{i}]|.
+|\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < p_{i}$} \}| = |\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|.
 \]
-It is therefore sufficient to show that the above quantity $i-1$, so that $q_{i}$ is bounded above by each of $x_{i}, x_{i+1}, \ldots, x_{s}$.
+It is therefore sufficient to show that the above quantity $i-1$, so that $p_{i}$ is bounded above by each of $y_{i}, y_{i+1}, \ldots, y_{s}$.
 
-Combinatorially, the difference $|\lambda^{+} \cap [q_{i} - 1]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with a left endpoint $[q_{i} -1]$ and a right endpoint in $[n] \setminus [q_{i}]$, or equivalently, the arcs above $q_{i}$ in $\lambda$.  
-Writing $C_{i}$ for the connected component containing $q_{i}$, each such arc must contain $C_{i}$ between its left and right endpoints, so the left endpoint is less that $q_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
-Thus, each such arc must belong to the connected component of one of $q_{1}, q_{2}, \ldots, q_{i-1}$, and there are $i-1$ such connected components.
+Combinatorially, the difference $|\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|$ counts the number of arcs in $\lambda$ with a left endpoint $[p_{i} -1]$ and a right endpoint in $[n] \setminus [p_{i}]$, or equivalently, the arcs above $p_{i}$ in $\lambda$.  
+Writing $C_{i}$ for the connected component containing $p_{i}$, each such arc must contain $C_{i}$ between its left and right endpoints, so the left endpoint is less that $p_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
+Thus, each such arc must belong to the connected component of one of $p_{1}, p_{2}, \ldots, p_{i-1}$, and there are $i-1$ such connected components.
 \end{proof}
 
-%%%%%%%%%%%%%%%
-\subsubsection{The minimal element of an excedance class}
-\label{sec:ex2.1}
-%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%
+%\subsubsection{The minimal element of an excedance class}
+%\label{sec:ex2}
+%%%%%%%%%%%%%%%%
 
-We now turn to the minimal element of each excedance class described in Theorem~\ref{thm:excedancequotient}.  For a noncrossing partition $\lambda$ of size $n$, write 
+We now turn to the minimal element of each excedance class.  For a noncrossing partition $\lambda$ of size $n$, enumerate the sets $\lambda^{+}$, $\lambda^{-}$, $[n] \setminus \lambda^{+}$, and  $[n] \setminus \lambda^{-}$ in increasing order as
 \[
 \lambda^{+} = \{a_{1} < a_{2} < \cdots < a_{s}\},
 \qquad
@@ -1053,13 +1059,13 @@ We now turn to the minimal element of each excedance class described in Theorem~
 \[
 [n] \setminus \lambda^{+} = \{x_{1} < x_{2} < \cdots < x_{n-s}\},
 \qquad\text{and}\qquad
-[n] \setminus \lambda^{-} = \{y_{1} < y_{2} < \cdots < y_{n-s}\},
+[n] \setminus \lambda^{-} = \{y_{1} < y_{2} < \cdots < y_{n-s}\}.
 \]
-so that the elements of each set are enumerated in increasing order.  Let $T_{\lambda} \in S_{n}$ be the permutation with
+Let $T_{\lambda} \in S_{n}$ be the permutation with
 \[
-T_{\lambda}(i) = \begin{cases} a_{s} & \text{if $i = b_{s}$} \\ x_{s} & \text{if $i = y_{s}$.}  \end{cases}
+T_{\lambda}(i) = \begin{cases} a_{s} & \text{if $i \in \lambda^{-}$ and $i = b_{s}$} \\ x_{s} & \text{if $i \notin \lambda^{-}$ and $i = y_{s}$.}  \end{cases}
 \]
-Thus, the one-line notation for $T_{\lambda}$ can be obtained by placing the elements of $\lambda^{+}$ in increasing left-to-right order in the positions $\lambda^{-}$, and placing the remaining elements of $[n]$ in the remaining positions in the same manner.  For example, with $n = 8$ and 
+Thus, the two-line notation for $T_{\lambda}$ can be obtained by placing the elements of $\lambda^{+}$ in increasing left-to-right order below the elements of $\lambda^{-}$, and placing the elements of $[n] \setminus \lambda^{+}$ below the elements of $[n] \setminus \lambda^{-}$ in the same manner.  For example, with $n = 8$ and 
 \[
 \lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
 \foreach \x in {1, ..., 8}{\draw[fill] (\x - 1, 0) node[inner sep = 2pt] (\x) {$\scriptstyle \x$};}
@@ -1074,30 +1080,30 @@ where non-excedances are marked in red, as at the beginning of Section~\ref{sec:
 
 \begin{prop}
 \label{prop:321avoid}
-For all noncrossing partitions $\lambda$, $T_{\lambda} \in \CCC_{\lambda}$, and this is the Bruhat-minimum element of $\CCC_{\lambda}$.
+For all noncrossing partitions $\lambda$, $T_{\lambda} \in \CCC_{\lambda}$, and $T_{\lambda}$ is the Bruhat-minimum element of $\CCC_{\lambda}$.
 \end{prop}
 \begin{proof}
-To see that $T_{\lambda} \in \CCC_{\lambda}$, recall the elements $a_{i}, b_{i}, x_{i}$, and $y_{i}$ defined above for $\lambda$. For $1 \le r \le s$,
+To see that $T_{\lambda} \in \CCC_{\lambda}$, recall the elements $a_{i}, b_{i}, x_{i}$, and $y_{i}$ defined above for $\lambda$. For $1 \le r \le s$, our enumeration of $\lambda^{+}$ and $\lambda^{-}$ ensure that
 \[
 a_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{+}| \}
 \qquad\text{and}\qquad
 b_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{-}| \}.
 \]
-By Lemma~\ref{lem:noncrossingpartitionproperty}, it is always the case that $|[k] \cap \lambda^{-}| \le |[k-1] \cap \lambda^{+}|$, and so $b_{r} < a_{r}$.  Thus the $(b_{r}, a_{r})$ is not a weak excedence of $T_{\lambda}$.  
-A similar argument shows that every pair $(y_{r}, x_{r})$ is a weak excedance, so that 
+By Lemma~\ref{lem:noncrossingpartitionproperty}, it is always the case that $|[k-1] \cap \lambda^{+}| \ge |[k] \cap \lambda^{-}|$, and so $a_{r} < b_{r}$.  Thus the pair $(b_{r}, a_{r}) = (b_{r}, T_{\lambda}(b_{r}))$ is not a weak excedance of $T_{\lambda}$.  
+A similar argument shows that every pair $(y_{r}, x_{r})$, $1 \le r \le n-s$ is a weak excedance of $T_{\lambda}$, so we conclude that
 \[
 \lambda^{+} = [n] \setminus \EV(T_{\lambda})
 \qquad\text{and}\qquad
 \lambda^{-} =  [n] \setminus \EP(T_{\lambda}).
 \]
 
-To see that $T_{\lambda} \le w$ for all $w \in \CCC_{\lambda}$, recall the Tableau Criterion, Proposition~\ref{TableauCriterion}.  
+To see that $T_{\lambda} \le w$ for all $w \in \CCC_{\lambda}$, recall the tableau criterion (Proposition~\ref{TableauCriterion}).  
 For $1 \le k \le n$, the row $\TTT_{k}(T_{\lambda})$ will consist of the $|[k] \cap \lambda^{-}|$ smallest elements of $\EV(w)$ along with the $k - |[k] \cap \lambda^{-}|$ smallest elements of $[n] \setminus \EV(w)$.  
 For $w$,  the row $\TTT_{k}(w)$ will also consist of $|[k] \cap \lambda^{-}|$ elements of $\EV(w)$ and $k - |[k] \cap \lambda^{-}|$ elements of $[n] \setminus \EV(w)$, but these elements need not be the minimal ones.  
-Thus, by assumption of minimality, $\TTT_{k}(T_{\lambda})$ is entry-wise less than or equal to $\TTT_{k}(w)$.
+Thus, by assumption of minimality, each entry of $\TTT_{k}(T_{\lambda})$ is bounded above by the corresponding entry of $\TTT_{k}(w)$.
 \end{proof}
 
-For the next result, recall that a permutation $w \in S_{n}$ is \emph{$321$-avoiding} if there do not exist indices $i < j < k$ for which $w_{i} > w_{j} > w_{k}$.  The number of $321$-avoiding permutations is known to be the $n$th Catalan number, so the following result establishes that each excedance class contains a unique $321$-avoiding permutation.
+Finally, recall that a permutation $w \in S_{n}$ is \emph{$321$-avoiding} if there do not exist indices $i < j < k$ for which $w_{i} > w_{j} > w_{k}$.  The number of $321$-avoiding permutations is known to be the $n$th Catalan number, so the following result establishes that each excedance class contains a unique $321$-avoiding permutation.
 
 \begin{prop}
 For all noncrossing partitions $\lambda$, the permutation $T_{\lambda}$ is $321$-avoiding.
@@ -1111,9 +1117,7 @@ Let $i, j, k\in [n]$ and assume without loss of generality that $i < j < k$.  Si
 \label{sec:ex3}
 %%%%%%%%%%%%%%%
 
-This section will prove Theorem~\ref{thm:excedancequotient}, following an intermediate result.
-
-To begin, recall the order $\preceq$ on noncrossing partitions defined in Section~\ref{sec:bruhatballot}
+In this section we give a proof of Theorem~\ref{thm:excedancequotient}.  This proof follows a final intermediate result; recall the order $\preceq$ on noncrossing partitions defined in Section~\ref{sec:bruhatballot}
 
 \begin{prop}
 \label{prop:Qdominates}
@@ -1123,13 +1127,13 @@ Let $\mu$ be a noncrossing partition of size $n$.  Then
 \]
 \end{prop}
 \begin{proof}
-To begin, assume that $\lambda \preceq \mu$, so that by Proposition~\ref{prop:QSVorderbijection}, $Q_{\lambda} \le Q_{\mu}$.  By Proposition~\ref{prop:QSVinterval}, we have $w \le Q_{\lambda}$ for any $w \in C_{\lambda}$, so we have
+To begin, assume that $\lambda \preceq \mu$, so that by Proposition~\ref{prop:QSVorderbijection}, $Q_{\lambda} \le Q_{\mu}$.  Proposition~\ref{prop:QSVinterval} states that $w \le Q_{\lambda}$ for any $w \in C_{\lambda}$, so by transitivity we have
 \[
 \{w \in S_{n} \;|\; w \le Q_{\mu}\} \supseteq \bigsqcup_{\lambda \preceq \mu} \CCC_{\lambda}.
 \]
 
 To see the opposite containment, suppose that $w$ is a permutation with $w \le Q_{\mu}$ and let $\lambda$ be the unique noncrossing partition for which $w \in \CCC_{\lambda}$.  
-By way of Corollary~\ref{cor:bruhatncphelper}, $\lambda \preceq \mu$ is equivalent to the inequalities
+By Corollary~\ref{cor:bruhatncphelper}, the statement $\lambda \preceq \mu$ is equivalent to the inequalities
 \[
 |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k-1]| - |\mu^{-} \cap [k]|
 \]
@@ -1155,16 +1159,16 @@ since each entry of $\TTT_{k}(w)$ is bounded above by the corresponding entry of
 since each entry of $\TTT_{k}(Q_{\mu})$ is bounded below by the corresponding entry of $\TTT_{k}(w)$.  This completes the proof.
 \end{proof}
 
-We now prove Theorem~\ref{thm:excedancequotient}.  Recall the elements $T_{\lambda}$ defined in Section~\ref{sec:ex2.1}.
+We now prove Theorem~\ref{thm:excedancequotient}.  Recall the elements $T_{\lambda}$ defined in Section~\ref{sec:ex2}.
 
 \begin{proof}[Proof of Theorem~\ref{thm:excedancequotient}]
-Define a relation on excedance classes:
+The relation $\le$ on excedance classes is defined by:
 \[
 \CCC_{\lambda} \le \CCC_{\mu}
 \qquad\text{if and only if}\qquad
 \text{$v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$}.
 \]
-As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for each noncrossing partition $\lambda$, Proposition~\ref{prop:QSVorderbijection} implies that $\CCC_{\lambda} \le \CCC_{\mu}$ whenever $\lambda \preceq \mu$.  It is therefore sufficient to show the converse: $\CCC_{\lambda} \le \CCC_{\mu}$ only if $\lambda \preceq \mu$.  To this end, suppose that $\CCC_{\lambda} \le \CCC_{\mu}$, so that $v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$.  With Proposition~\ref{prop:QSVinterval}, this implies that $v \le Q_{\lambda}$.  Then by Proposition~\ref{prop:Qdominates}, we have that $\lambda \preceq \mu$, completing the proof.
+As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for each noncrossing partition $\lambda$, Proposition~\ref{prop:QSVorderbijection} implies that $\CCC_{\lambda} \le \CCC_{\mu}$ whenever $\lambda \preceq \mu$.  It is therefore sufficient to show the converse: $\CCC_{\lambda} \le \CCC_{\mu}$ only if $\lambda \preceq \mu$.  To this end, suppose that $\CCC_{\lambda} \le \CCC_{\mu}$, so that $v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$.  By Proposition~\ref{prop:QSVinterval}, $w \le Q_{\mu}$, so we have that $v \le Q_{\lambda}$.   Proposition~\ref{prop:Qdominates} now implies that $\lambda \preceq \mu$, completing the proof.
 \end{proof}
 
 %%%%%%%%%%%%%%%
@@ -1172,24 +1176,36 @@ As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for
 \label{sec:weakorder}
 %%%%%%%%%%%%%%%
 
-Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} show that the excedance classes partition the Bruhat order of $S_n$ in intervals and the quotient $S_n\big/\!\!\sim$ is a 
-well defined order isomorphic to lattice $\preceq$ on noncrossing partitions. Another relevant order on $S_n$ is the (left) weak order generated by the  covering relation
-	$$u\lessdot_w v \quad\iff\quad  \begin{cases} \ell(v)=\ell(u)+1, \text{ and } \\ vu^{-1} \text{ is a simple transposition } (a\, a+1) \end{cases}$$
-This order is a suborder of the Bruhat order and there are several reason to study the weak order of $S_n$. For example, see~\cite{A,B,C} and much more. 
-We are thus interested to use the quotient we define in Theorem~\ref{thm:excedancequotient} to define a weak order on excedance classes.
-This will give us a weak order on the set $\QSV_n$ which will be of particular interest when we will study the points of $\QSV_n$ as a variety.  
-In a sequel article, we will describe further interesting properties of the weak order. Here we shall define it and mention some of its properties in subsequent sections.
+While most results in this section concern the Burhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite{A,B,C}).  This order is generated by the covering relations
+\[
+v \lessdot_{L} w \qquad\text{if and only if} \qquad 
+\begin{array}{c}
+\text{$wv^{-1}$ is a simple transposition} \\ \text{ $(i\,i+1)$ and $\ell(v) +1 = \ell(w)$}.
+\end{array}
+\]
+
+The weak order is a suborder of the Bruhat order, in that $v \le w$ implies $v \le_{L} w$, and so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe further interesting properties of the weak order, but for now we only define it and mention some of its properties in subsequent sections.
 
 The (left) weak ordering on $S_n\big/\!\!\sim$ is generated by the  covering relation
-  $$ C_{\lambda} \lessdot_w C_{\mu} \quad\iff\quad  Q_\lambda \lessdot_w  v\in C_{\mu} \text{ for some } v.$$
- This is a well defined suborder of the Bruhat order on $S_n\big/\!\!\sim$
+\[
+C_{\lambda} \lessdot_{L} C_{\mu} \qquad\text{if and only if}\qquad  \text{$Q_\lambda \lessdot_{L} v$ for some  $v \in C_{\mu}$.}
+\]
+
+\begin{prop}
+The relation $\le_{L}$ defined on $S_{n}/\!\!\sim$ above is a partial order.
+\end{prop}
+\begin{proof}
+By definition, the relation $\le_{L}$ is reflexive and transitive.  Moreover, using Proposition~\ref{prop:QSVinterval} it can be deduced that $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
+\end{proof}
  
  \begin{rem} 
-  One can also consider the weak order restricted to the set $\QSV_n$ as we did in Section~\ref{sec:bruhatballot}.
-  Unlike the Bruhat order, the two construction are not isomorphic. The order on the quotient is much more amenable to our
-  current and future work than the restriction to $\QSV_n$. We leave to the interested reader the study of the weak order
-  restricted to $\QSV_n$.
+One can also consider the weak order restricted to the set $\QSV_n$ as we did in Section~\ref{sec:bruhatballot} for the Bruhat order.  
+However, unlike the Bruhat order, the two posets do are not isomorphic, and the order on the quotient is more amenable to our current and future work. 
+We leave to the interested reader the study of the weak order restricted to $\QSV_n$.
  \end{rem}
+ 
+ 
+\Lucas{I am here}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1311,7 +1327,7 @@ Hence $\ell(w')<\ell(w)$, and therefore $w>w'$ (see~\cite[Chapter 2]{BjornerBren
 \subsection{Proof of Theorem~\ref{thm:TLbases}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section proves Theorem~\ref{thm:TLbases}, which follows from the triangularity established in the next result.  Recall the $321$-avoiding permutation $T_{\lambda}$ defined in Section~\ref{sec:ex2.1} for each noncrossing partition $\lambda \in \NCP_{n}$.
+This section proves Theorem~\ref{thm:TLbases}, which follows from the triangularity established in the next result.  Recall the $321$-avoiding permutation $T_{\lambda}$ defined in Section~\ref{sec:ex2} for each noncrossing partition $\lambda \in \NCP_{n}$.
 
 \begin{prop}
 \label{prop:TLbases}
