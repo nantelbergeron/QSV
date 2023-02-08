@@ -349,6 +349,10 @@ R_{n}\big/\mathbf{I}(\QSV_{n}) \cong R_{n}\big/\langle \QSym_{n}^{+} \rangle.
 \]
 Future work will explore the module structure on $R_{n}\big/\langle \QSym_{n}^{+} \rangle$ implicit in this result.
 
+\subsection{Acknowledgement} 
+We thank the participants of the Algebraic Combinatorics working seminar at the Fields Institute: K.~Chan, F.~G\'elinas, A.~Lao, A.~A.~Lazzeroni, C.~McConnell, Y.~Solomon, F.~Soltani,  N.~Wallace and Mike Zabrocki.
+We are also grateful to Rafael Gonz\'alez D'L\'eon for his  inspiring discussions related to Section~\ref{sec:weakorder}. 
+
 
 %\newpage
 %Quasisymmetric functions where introduced by Stanley in~\cite{StanleyQSym} as enumeration series for $P$-partitions.
@@ -799,13 +803,14 @@ which is $b^{\lambda}_{2k-1}$, and
 which is $b^{\lambda}_{2k}$.
 \end{proof}
 
-\begin{rem}
+\begin{rem}\label{rem:auto}
 We make several additional remarks about Proposition~\ref{prop:QSVorderbijection} below.
 %There are two superficial differences between our presentation and that of~\cite{GobetWilliams}.
 \begin{enumerate}
-\item The results of~\cite{GobetWilliams} describe the Bruhat ordering of the set $\{w^{-1} \;|\; w \in \QSV_{n}\}$, rather than $\QSV_{n}$.  
-In the terminology of Remark~\ref{rem:QSVnoncrossing}, these are the noncrossing partitions associated to the cycle $(12\ldots n)$ rather than $(n\ldots 21)$.  
-Inversion gives an automorphism of the Bruhat order, so the results are equivalent.
+\item The results of~\cite{GobetWilliams} describe the Bruhat order of the set $\{\omega_0w\omega_0\; |\; w \in \QSV_{n}\}$ rather than $\QSV_{n}$, where $\omega_0w\omega_0$ is the conjugation by the top element $\omega_0\in S_n$.
+As described in Remark~\ref{rem:QSVnoncrossing}, these are the non-crossing partitions associated with the cycle $(12\ldots n)$ instead of $(n\ldots 21)$. This conjugation is an automorphism of the Bruhat order, so the results are equivalent. It will play an interesting role throughout this paper.
+
+\Nantel{we have to make sure we use the right automorphism so that all proofs work. Inversion is not right, as it does not preserve quasisym. ideal. The automorphism always use ``$\backslash$omega\_0'' so is easy to search and replace if need be.}
 
 \item The results of~\cite{GobetWilliams} use Dyck paths rather than ballot sequences for item 3.~in Propostition~\ref{prop:QSVorderbijection}.  
 One can translate between the two by interchanging each $1$ in a ballot sequence with an up step in a Dyck path, and likewise each $-1$ with a down step.
@@ -854,6 +859,14 @@ and say that each equivalence class of $S_{n}\big/\!\!\sim$ is an \emph{excedanc
 The excedance relation refines a similar equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
 The authors of~\cite{ES} prove several enumerative and statistical results about their ``excedance classes,'' and it would be interesting to see how these results extend to our notion of excedance class.  
 \end{rem}
+
+\begin{rem}
+There is an alternative notion for excedance classes. Instead, one can define $\EV'(w)$ as the set of $w_{i}$ such that $i< w_{i}$, and $\EP'(w)$ as the set of indices $i$ such that $i<w_{i}$. 
+This second choice would also be viable and lead to equivalent results as presented here.
+
+This is directly related to the automorphism described in Remark~\ref{rem:auto}, providing us with two dual solutions to the work presented here.
+\end{rem}
+\Nantel{what you think of  remark above?}
 
 %This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  
 We now summarize the main results of the section.  
@@ -986,15 +999,6 @@ The second equation follows from a similar but somewhat more complicated argumen
 Now, for $j \in \EV(w) \cap [k]$, we have $j = w_{i}$ for some $i \le j$, so that $i \in \EP(w) \cap [k]$.  Since $i \in \EP(w) \cap [k]$ implies that $w_{i} \in \EV(w)$, the equation above counts the positions $i \in \EP(w) \cap [k]$ for which $w_{i} \notin [k]$; this set is equinumerous to $\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}$.
 \end{proof}
 
-\Nantel{I am here! Some things not to forget:
-
-\ 
-
- Thank Rafa for discussion about Section~\ref{sec:weakorder}, thanks participants of Fields Seminar.
- 
- \ 
- 
- A question, if we replace weak exc. by strict excedences, does it produce the set we get by applying the automorphism of QSym? }
 
 %%%%%%%%%%%%%%%
 \subsection{Minimal and maximal elements}
@@ -1015,40 +1019,40 @@ For all noncrossing partitions $\lambda$, $Q_{\lambda}$ is the Bruhat maximum el
 \begin{proof}
 Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we only need to show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that each entry of $\TTT_{k}(w)$ is bounded above by the corresponding entry of $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
 
-The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this approach relies on the fact that these collections of entires have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
+The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this approach relies on the fact that these collections of entries have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
 \begin{align*}
-|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|
-&= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] | \\
-&= |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|,
+\big|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}\big|
+&= \big|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] \big| \\
+&= \big|\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}\big|\,.
 \end{align*}
-and consequently $|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}| = |\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}|$.
+%and consequently $\big|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}\big| = \big|\{ Q_{\lambda}(i) \;|\; \text{$1 \le i \le k$ and $w_{i} \le k$}\}\big|$.
 
 We begin with the first part.  Enumerate the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are greater than $k$ in increasing order as $x_{1} < x_{2} < \cdots <  x_{r}$ and $q_{1} < q_{2} < \ldots < q_{r}$ respectively.  We aim to show that $x_{i} \le q_{i}$ for each $1 \le i \le r$.  
 Fixing one such $i$, Lemma~\ref{lem:tableautobruhat} gives that
 \[
-|\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}| = |\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|.
+\big|\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}\big| = \big|\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]\big|.
 \]
 %and each of $x_{1}, x_{2}, \ldots, x_{r}$ is contained in the set on the left.  
 It is sufficient to show that the above expressions are equal to $r - i$, as this implies that each of $x_{1}, x_{2}, \ldots, x_{i}$ is not contained in the set $\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}$, and therefore that $x_{i} \le q_{i}$.
 
-Let $C$ denote the connected component of $\lambda$ containing $q_{i}$.  
-From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C$,  and $Q_{\lambda}^{-1}(q_{i}) \le k$ the minimal element.  
-Combinatorially, the difference $|\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with left endpoint in $[q_{i}]$ and right endpoint in $[n] \setminus [q_{i}]$, and as $q_{i} \in \EV(w)$, this is the number of arcs in $\lambda$ which are above $q_{i}$.  
+Let $C$ denote the connected component of $\lambda$ containing the value $q_{i}$.  Since $q_i\in \TTT_{k}(Q_{\lambda})$ and $q_i>k$, we have that $t_i=Q_{\lambda}^{-1}(q_{i})\le k <q_i$.
+From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C$,  and $t_i$ the minimal element.  
+Combinatorially, the difference $\big|\lambda^{+} \cap [q_{i}]\big| - \big|\lambda^{-} \cap [q_{i}]\big|$ counts the number of arcs in $\lambda$ with left endpoint in $[q_{i}]$ and right endpoint in $[n] \setminus [q_{i}]$, and as $q_{i} \in \EV(w)$, this is the number of arcs in $\lambda$ which are above $q_{i}$.  
 Every arc in $\lambda$ which lies above $q_{i}$ must have all elements of $C$ between its left and right endpoints, so that the left endpoint of any such an arc is contained in $[k]$ and the right endpoint is greater than $q_{i}$.  
 Thus, each such arc belongs to the connected component of one of the elements $q_{i+1}, \ldots, q_{r}$, and there are precisely $r - i$ such connected components.
 
 For the second part of the argument, we aim to show that each entry of $\TTT_{k}(w)$ which is at most $k$ is less than or equal to the analogous entry of $\TTT_{k}(Q_{\lambda})$, and we establish this in an indirect manner described below.  
-Writing $s = |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|$, Lemma~\ref{lem:tableautobruhat} states that there are exactly $s$ elements of $[k]$ which do not appear in $\TTT_{k}(w)$, and likewise for $\TTT_{k}(Q_{\lambda})$.  
+Writing $s = \big|\lambda^{+} \cap [k-1]\big| - \big|\lambda^{-} \cap [k]\big|$, Lemma~\ref{lem:tableautobruhat} states that there are exactly $s$ elements of $[k]$ which do not appear in $\TTT_{k}(w)$, and likewise for $\TTT_{k}(Q_{\lambda})$.  
 Respectively enumerate these elements in increasing order as $y_{1} < y_{2} < \cdots < y_{s}$ and $p_{1} < p_{2} < \cdots < p_{s}$.  
 We will show that $p_{i} \le y_{i}$ for each $1 \le i \le s$, as this implies the opposite comparison for the remaining elements of $[k] \setminus \{p_{1}, p_{2}, \ldots, p_{s}\}$ and $[k] \setminus \{y_{1}, y_{2}, \ldots, y_{s}\}$ as desired.  
 
 Fixing $1 \le i \le s$, Lemma~\ref{lem:tableautobruhat} gives that
 \[
-|\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < p_{i}$} \}| = |\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|.
+\big|\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < p_{i}$} \}\big| = \big|\lambda^{+} \cap [p_{i} - 1]\big| - \big|\lambda^{-} \cap [p_{i}]\big|.
 \]
-It is therefore sufficient to show that the above quantity $i-1$, so that $p_{i}$ is bounded above by each of $y_{i}, y_{i+1}, \ldots, y_{s}$, and in particular $p_{i} \le y_{i}$.
+It is therefore sufficient to show that the above quantity is $i-1$, so that $p_{i}$ is bounded above by each of $y_{i}, y_{i+1}, \ldots, y_{s}$, and in particular $p_{i} \le y_{i}$.
 
-Combinatorially, the difference $|\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|$ counts the number of arcs in $\lambda$ with a left endpoint $[p_{i} -1]$ and a right endpoint in $[n] \setminus [p_{i}]$, or equivalently, the arcs above $p_{i}$ in $\lambda$.  
+Combinatorially, the difference $\big|\lambda^{+} \cap [p_{i} - 1]\big| - \big|\lambda^{-} \cap [p_{i}]\big|$ counts the number of arcs in $\lambda$ with a left endpoint $[p_{i} -1]$ and a right endpoint in $[n] \setminus [p_{i}]$, or equivalently, the arcs above $p_{i}$ in $\lambda$.  
 Writing $C$ for the connected component containing $p_{i}$, each such arc must contain $C$ between its left and right endpoints, so the left endpoint is less that $p_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
 Thus, each such arc must belong to the connected component of one of $p_{1}, p_{2}, \ldots, p_{i-1}$, and there are $i-1$ such connected components.
 \end{proof}
@@ -1093,11 +1097,11 @@ For all noncrossing partitions $\lambda$, $T_{\lambda} \in \CCC_{\lambda}$, and 
 \begin{proof}
 To see that $T_{\lambda} \in \CCC_{\lambda}$, recall the elements $a_{i}, b_{i}, x_{i}$, and $y_{i}$ defined above for $\lambda$. For $1 \le r \le s$, our enumeration of $\lambda^{+}$ and $\lambda^{-}$ ensure that
 \[
-a_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{+}| \}
+a_{r} = \min\Big\{ k  \;|\;  r \ge \big|[k] \cap \lambda^{+}\big| \Big\}
 \qquad\text{and}\qquad
-b_{r} = \min\{ k  \;|\;  r \ge |[k] \cap \lambda^{-}| \}.
+b_{r} = \min\Big\{ k  \;|\;  r \ge \big|[k] \cap \lambda^{-}\big| \Big\}.
 \]
-By Lemma~\ref{lem:noncrossingpartitionproperty}, it is always the case that $|[k-1] \cap \lambda^{+}| \ge |[k] \cap \lambda^{-}|$, and so $a_{r} < b_{r}$.  Thus the pair $(b_{r}, a_{r}) = (b_{r}, T_{\lambda}(b_{r}))$ is not a weak excedance of $T_{\lambda}$.  
+By Lemma~\ref{lem:noncrossingpartitionproperty}, it is always the case that $\big|[k-1] \cap \lambda^{+}\big| \ge \big|[k] \cap \lambda^{-}\big|$, and so $a_{r} < b_{r}$.  Thus the pair $(b_{r}, a_{r}) = (b_{r}, T_{\lambda}(b_{r}))$ is not a weak excedance of $T_{\lambda}$.  
 A similar argument shows that every pair $(y_{r}, x_{r})$, $1 \le r \le n-s$ is a weak excedance of $T_{\lambda}$, so we conclude that
 \[
 \lambda^{+} = [n] \setminus \EV(T_{\lambda})
@@ -1106,7 +1110,7 @@ A similar argument shows that every pair $(y_{r}, x_{r})$, $1 \le r \le n-s$ is 
 \]
 
 To see that $T_{\lambda} \le w$ for all $w \in \CCC_{\lambda}$, recall the tableau criterion (Proposition~\ref{TableauCriterion}).  
-For $1 \le k \le n$, the row $\TTT_{k}(T_{\lambda})$ will consist of the $|[k] \cap \lambda^{-}|$ smallest elements of $\EV(w)$ along with the $k - |[k] \cap \lambda^{-}|$ smallest elements of $[n] \setminus \EV(w)$.  
+For $1 \le k \le n$, the row $\TTT_{k}(T_{\lambda})$ will consist of the $\big|[k] \cap \lambda^{-}\big|$ smallest elements of $\EV(w)$ along with the $k - |[k] \cap \lambda^{-}|$ smallest elements of $[n] \setminus \EV(w)$.  
 For $w$,  the row $\TTT_{k}(w)$ will also consist of $|[k] \cap \lambda^{-}|$ elements of $\EV(w)$ and $k - |[k] \cap \lambda^{-}|$ elements of $[n] \setminus \EV(w)$, but these elements need not be the minimal ones.  
 Thus, by assumption of minimality, each entry of $\TTT_{k}(T_{\lambda})$ is bounded above by the corresponding entry of $\TTT_{k}(w)$.
 \end{proof}
@@ -1119,6 +1123,7 @@ For all noncrossing partitions $\lambda$, the permutation $T_{\lambda}$ is $321$
 \begin{proof}
 Let $i, j, k\in [n]$ and assume without loss of generality that $i < j < k$.  Since any element of $[n]$ must be contained in either $\lambda^{+}$ or its complement, we must have two elements of $\{i, j, k\}$ which belong to one of $\lambda^{-}$ or $[n] \setminus \lambda^{-}$.  Since $T_{\lambda}$ restricts to an order-preserving bijection from $\lambda^{+}$ to $\lambda^{-}$, and from $[n] \setminus \lambda^{+}$ to $[n] \setminus \lambda^{-}$, this implies that no $321$-pattern can exist in $T_{\lambda}$, giving the first claim.
 \end{proof}
+
 
 %%%%%%%%%%%%%%%
 \subsection{Comparing excedance classes}
@@ -1143,26 +1148,26 @@ To begin, assume that $\lambda \preceq \mu$, so that by Proposition~\ref{prop:QS
 To see the opposite containment, suppose that $w$ is a permutation with $w \le Q_{\mu}$ and let $\lambda$ be the unique noncrossing partition for which $w \in \CCC_{\lambda}$.  
 By Corollary~\ref{cor:bruhatncphelper}, the statement $\lambda \preceq \mu$ is equivalent to the inequalities
 \[
-|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k-1]| - |\mu^{-} \cap [k]|
+\big|\lambda^{+} \cap [k-1]\big| - \big|\lambda^{-} \cap [k]\big| \  \le\   \big|\mu^{+} \cap [k-1]\big| - |\mu^{-} \cap [k]\big|
 \]
 and
 \[
-|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k]| \le |\mu^{+} \cap [k]| - |\mu^{-} \cap [k]|
+\big|\lambda^{+} \cap [k]\big| - \big|\lambda^{-} \cap [k]\big|\  \le \  \big|\mu^{+} \cap [k]\big| - \big|\mu^{-} \cap [k]\big|
 \]
 for all $1 \le k \le n$.  
 We will establish this equivalent formulation of our claim using the characterization of each side given in Lemma~\ref{lem:tableautobruhat}.  
 From the assumption that $w \le Q_{\mu}$, the tableau criterion (Proposition~\ref{TableauCriterion}) states that the tableau $\TTT(w)$ is entry-wise less than or equal to $\TTT(Q_{\mu})$.  
 Thus, for each $1 \le k \le n$, 
 \[
-|\{w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$} \}|
-\le
-|\{Q_{\mu}(i) \;|\; \text{$1 \le i \le k$ and $Q_{\mu}(i) > k$} \}|,
+\big|\{w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$} \}\big|
+\ \le\ 
+\big|\{Q_{\mu}(i) \;|\; \text{$1 \le i \le k$ and $Q_{\mu}(i) > k$} \}\big|,
 \]
 since each entry of $\TTT_{k}(w)$ is bounded above by the corresponding entry of $\TTT_{k}(Q_{\mu})$, and likewise
 \[
-|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$} \}| 
-\le
-|\{ Q_{\mu}(i) \;|\; \text{$n \ge i > k$ and $Q_{\mu}(i) < k$} \}|,
+\big|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$} \}\big| 
+\ \le\ 
+\big|\{ Q_{\mu}(i) \;|\; \text{$n \ge i > k$ and $Q_{\mu}(i) < k$} \}\big|,
 \]
 since each entry of $\TTT_{k}(Q_{\mu})$ is bounded below by the corresponding entry of $\TTT_{k}(w)$.  This completes the proof.
 \end{proof}
@@ -1179,12 +1184,13 @@ The relation $\le$ on excedance classes is defined by:
 As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for each noncrossing partition $\lambda$, Proposition~\ref{prop:QSVorderbijection} implies that $\CCC_{\lambda} \le \CCC_{\mu}$ whenever $\lambda \preceq \mu$.  It is therefore sufficient to show the converse: $\CCC_{\lambda} \le \CCC_{\mu}$ only if $\lambda \preceq \mu$.  To this end, suppose that $\CCC_{\lambda} \le \CCC_{\mu}$, so that $v \le w$ for some $v \in \CCC_{\lambda}$ and $w \in \CCC_{\mu}$.  By Proposition~\ref{prop:QSVinterval}, $w \le Q_{\mu}$, so we have that $v \le Q_{\lambda}$.   Proposition~\ref{prop:Qdominates} now implies that $\lambda \preceq \mu$, completing the proof.
 \end{proof}
 
+
 %%%%%%%%%%%%%%%
 \subsection{The weak order on excedance classes}
 \label{sec:weakorder}
 %%%%%%%%%%%%%%%
 
-While most results in this section concern the Bruhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}, ~\cite{A,B}\lucas{do you \\ think  \\ more \\ citations \\ are \\ needed?}).  This order is generated by the covering relations
+While most results in this section concern the Bruhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}).  This order is generated by the covering relations
 \[
 v \lessdot_{L} w \qquad\text{if and only if} \qquad 
 \begin{array}{c}
@@ -1192,7 +1198,7 @@ v \lessdot_{L} w \qquad\text{if and only if} \qquad
 \end{array}
 \]
 
-The weak order is a suborder of the Bruhat order, in that $v \le w$ implies $v \le_{L} w$, and so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe further interesting properties of the weak order, but for now we only define it and mention some of its properties in subsequent sections.
+The weak order is a suborder of the Bruhat order, in that $v \le w$ implies $v \le_{L} w$, and so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe further interesting properties of the weak order, but for now we only define it and mention some of its properties here and in subsequent sections.
 
 The (left) weak order $\le_{L}$ on $S_n\big/\!\!\sim$ is generated by the  covering relation
 \[
@@ -1205,12 +1211,22 @@ The relation $\le_{L}$ defined on $S_{n}/\!\!\sim$ above is a partial order.
 \begin{proof}
 By definition, the relation $\le_{L}$ is reflexive and transitive.  By Proposition~\ref{prop:QSVinterval}, $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
 \end{proof}
+
+\Nantel{what you think of remark below?} 
+  \begin{rem}
+   It is easy to observe that the order $\le_{L}$ on the set $S_{n}/\!\!\sim$ forms a lattice. 
+  The least upper bound of $\CCC_{\lambda} \vee \CCC_{\mu}$ is $\CCC_{\nu}$ if and only if $Q_{\lambda}\vee Q_{\mu}$ is contained in $\CCC_{\nu}$.
+   The lattice $(S_{n}/\!\!\sim,\le_{L})$ is closely related to the Tamari lattice, also known as the associahedron~\cite{Tamari}. 
+   The two lattices have the same number of vertices and covers, and each face of the Tamari lattice, whether it is square or pentagonal, corresponds to an interval in $(S_{n}/\!\!\sim,\le_{L})$.
+
+R. González D'León has proposed that this may be evidence that the lattice $(S_{n}/\!\!\sim,\le_{L})$ is part of a larger family of partial orders corresponding to triangulations of certain flow polytopes, as discussed in \cite{vBGMFY} and related references.
+  \end{rem}
  
  \begin{rem} 
-One can also consider the weak order restricted to the set $\QSV_n$ as we did in Section~\ref{sec:bruhatballot} for the Bruhat order.  
-However, unlike the Bruhat order, the two posets are not isomorphic, and the order on the quotient is more amenable to our current and future work. 
-We leave to the interested reader the study of the weak order restricted to $\QSV_n$.
- \end{rem}
+It is also possible to examine the weak order when it is restricted to the set $\QSV_n$, as we did in Section~\ref{sec:bruhatballot} for the Bruhat order. 
+However, unlike the Bruhat order, the two posets are not equivalent, and the order on the quotient is more noteworthy in relation to our current and future research. 
+The study of the weak order restricted to $\QSV_n$ is left for the interested reader. \end{rem}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bases for the Temperley--Lieb Algebra $\TL_{n}(2)$}
@@ -1232,14 +1248,14 @@ There is a surjective algebra morphism from the symmetric group algebra $\CC S_{
 s_{i} & \longmapsto & 1 - e_{i}.
 \end{array}
 \]
-In particular $\TL_{n}(2)\cong S_n\big/\ker(\phi)$.
+In particular $\TL_{n}(2)\cong S_n\big/\!\ker(\phi)$.
 
 It is well-known that the images of all $321$-avoiding permutations under $\phi$ forms a basis for $\TL_{n}(2)$.  
-Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ using the combinatorics of noncrossing partitions described in Remark~\ref{rem:QSVnoncrossing}.  This basis is precisely the set $\{\phi(w^{-1}) \;|\; w \in \QSV_{n}\}$.  Since the kernel
+Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ using the combinatorics of noncrossing partitions described in Remark~\ref{rem:QSVnoncrossing}.  This basis is precisely the set $\{\phi(\omega_0w\omega_0) \;|\; w \in \QSV_{n}\}$.  Since the kernel
 \[
 \ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle
 \]
-is invariant under the $\CC$-linear map $w \mapsto w^{-1}$, the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
+is invariant under the $\CC$-linear map $w \mapsto \omega_0w\omega_0$ (as in Remark~\ref{rem:auto}), the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
 
 \begin{thm}
 \label{thm:TLbasis}
@@ -1283,8 +1299,19 @@ A proof of Theorem~\ref{thm:TLbases} is given in Section~\ref{sec:basistheorempr
 \}
 \]
 meets the criteria of Theorem~\ref{thm:TLbases}, and accordingly maps to a basis of $\TL_{n}(2)$ under $\phi$. 
-This set is neither $\QSV_{4}$ not the set of $321$-avoiding permutations ($4312 \notin \QSV_{4}$ and is not $321$-avoiding).
+This set is neither $\QSV_{4}$ nor the set of $321$-avoiding permutations ($4312 \notin \QSV_{4}$ and is not $321$-avoiding).
 Moreover, the set above is not described in~\cite{GobetWilliams, Zinno}: each subset of $S_{4}$ in these sources which is not $\QSV_{4}$ contains more than one element from certain excedance classes and none from others.  
+
+\Nantel{I am here!  Things not to forget:
+
+ \ 
+ 
+ I added remarks about automorphism and dual def of exc-classes. I will add one last remark at the end of Section 6 stating that we can apply the reverse of the variable to the $P_\alpha$ to obtain that
+ we have vanishing polynomial for the dual notion of excedance. The top homogeneous part (being quasisymmetric) is invariant by such transformation. 
+ 
+ \
+ 
+ I have also added remark in Section about the week order... have a look (I asked the AI to write it nicely haha!) }
 
 \Lucas{I am here}
 
@@ -1583,6 +1610,12 @@ Proc. of the Am. Math. Soc. {\bf 131(4)} (2003) 1053--1062.
 \textit{Ideals of quasi-symmetric functions and super-covariant polynomials for $S_n$}.
 Adv. in Math. {\bf 181 (2)} (2004) 353--367.
 
+\bibitem{vBGMFY}
+M.~von~Bell, R.~Gonz\'{a}lez D'Le\'{o}n, C.~Mayorga, A.~Francisco A. and M.~Yip,
+\textit {On framed triangulations of flow polytopes, the {$\nu$}-{T}amari lattice and {Y}oung's lattice},
+{S\'{e}m. Lothar. Combin.} {\bf 85B}
+(2021) Art. 42, 12 pages.
+
 \bibitem{Baine}  Philippe Biane.  \textit{Some properties of crossings and partitions}. Discrete Mathamatics {\bf 175} (1997) 41-53.
 
 \bibitem{BjornerBrenti}  Francesco Brenti and Anders Bj\"{o}rner.  Combinatorics of Coxeter Groups. Germany: Springer Berlin Heidelberg, 2010.
@@ -1634,6 +1667,13 @@ http://dspace.mit.edu/handle/1721.1/104468.
 \textit{Ideals and quotients of diagonally quasi-symmetric functions}.
 Elec. J. Comb., Vol 24, Issue \#3, P3.3.
 \href{https://doi.org/10.37236/6658}{10.37236/6658}.
+
+\bibitem{Tamari} F.~Müller-Hoissen, J.~M.~Pallo and J.~Stasheff  (Editors),
+\textit{Associahedra, Tamari Lattices, and Related Structures},
+Progress in Mathematics {\bf 299}, Birkh\"auser (2012) 436 pages.
+[https://doi.org/10.1007/978-3-0348-0405-9]
+
+
 
 \bibitem{LMvW} 
 K.~Luoto, S.~Mykytiuk and S. van Willigenburg,
