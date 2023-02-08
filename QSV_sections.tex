@@ -215,7 +215,7 @@ then the vanishing ideal $ \mathbf{I}(QSV_n)$ is such that the top homogeneous c
 $$gr\big(\mathbf{I}(\QSV_n)\big)=\big\langle \mathsf{h}(f): f\in \mathbf{I}(QSV_n)\big\rangle=\big\langle \QSym_{n}^{+} \big\rangle.$$ 
 Here  $\mathsf{h}(f)$ denote the top degree homogeneous component of $f$.
 
-We have a few byproducts of our construction. We give a partition of the symmetric group $S_n$ into equivalent classes given by excedence classes $C_\lambda$. The indexes $\lambda$ are non-crossing partition of $\{1,2,\ldots,n\}$. For each $\lambda$, the class $C_\lambda$ is an interval of the Bruhat order containing a unique element on $\QSV_n$ (which is the maximum in the interval) and a unique $321$-avoiding permutation (which is the minimum). We show that in fact any section of the excedence classes produce a basis of $\TL_n$. We show that the Bruhat order induce a well defined order on the quotient $S_n\big/\!\!\sim$ by excedence classes. This allows us to also induce a weak order $S_n\big/\!\!\sim$.
+We have a few byproducts of our construction. We give a partition of the symmetric group $S_n$ into equivalent classes given by excedence classes $C_\lambda$. The indexes $\lambda$ are non-crossing partition of $\{1,2,\ldots,n\}$. For each $\lambda$, the class $C_\lambda$ is an interval of the Bruhat order containing a unique element on $\QSV_n$ (which is the maximum in the interval) and a unique $321$-avoiding permutation (which is the minimum). We show that in fact any section of the excedence classes produce a basis of $\TL_n$. We show that the Bruhat order induce a well defined order on the quotient $S_n\big/\!\!\sim$ by excedence classes. This allows us to also induce a weak order on $S_n\big/\!\!\sim$.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -323,7 +323,7 @@ Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with u
 \end{introcor}
 
 The combinatorics of excedance classes seems to be very rich, and there is much left to explore.   
-For example, in Section~\ref{sec:weakorder} we describe a weak order on noncrossing partitions using excedance classes, but the combinatorics of this order are still fairly mysterious.  
+For example, in Section~\ref{sec:weakorder} we describe a weak order on noncrossing partitions using excedance classes, but the combinatorics of this order are still up for discoveries.  
 
 In Section~\ref{sec:TLbasis}, we use excedance classes of $S_{n}$ to explore bases of $\TL_{n}(2)$.  Using results of~\cite{GobetWilliams} and~\cite{Zinno}, our Theorem~\ref{thm:TLbasis} restates the fact that $\QSV_{n}$ satisfies condition (ii) above.  However, we also prove more general (and novel) theorem about bases of $\TL_{n}(2)$ coming from the surjection $\phi: \CC S_{n} \to \TL_{n}(2)$.
 
@@ -848,7 +848,7 @@ We define the \emph{excedance relation} $\sim$ on $S_{n}$ by:
 \label{eq:excednacerel}
 v \sim w \qquad\text{if and only if} \qquad \text{$\EV(v) = \EV(w)$ and $\EP(v) = \EP(w)$},
 \end{equation}
-and say that each equivalence class of $S_{n}\big/\sim$ is an \emph{excedance class}.
+and say that each equivalence class of $S_{n}\big/\!\!\sim$ is an \emph{excedance class}.
 
 \begin{rem}
 The excedance relation refines a similar equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
@@ -907,6 +907,7 @@ Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with u
 
 Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes using the weak order on $S_{n}$.
 
+
 %%%%%%%%%%%%%%%
 \subsection{Excedance classes and noncrossing partitions}
 \label{sec:ex1}
@@ -928,11 +929,11 @@ is a bijection.
 We will first show that every excedance class has the form $\CCC_{\lambda}$ for some $\lambda \in \NCP_{n}$.  
 By Lemma~\ref{lem:noncrossingpartitionproperty}, this is equivalent to showing that for any $w \in S_{n}$, the following criterion holds:
 \[
-|\{i \in [k-1] \;|\; i \notin \EV(w)\}| \ge |\{ j \in [k] \;|\; j \notin \EP(w)\}| \qquad\text{for all $1 \le k \le n$}.
+\Big|\big\{i \in [k-1] \;|\; i \notin \EV(w)\big\}\Big| \ \ge\  \Big|\big\{ j \in [k] \;|\; j \notin \EP(w)\big\}\Big| \qquad\text{for all $1 \le k \le n$}.
 \]
 We will establish the above inequality directly.  Fix $1 \le k \le n$ and suppose that $j \in [k]$ is not an excedance position, so that that $w_{j} < j$.  By assumption, $w_{j} < k$ and $w_{j}$ is not an excedance value.  Thus, 
 \[
-\{i \;|\; \text{$i \in [k-1]$ and $i \notin \EV(w)$} \} \supseteq \{w_{j} \;|\; \text{$j \in [k]$ and $j \notin \EP(w)$}\},
+\big\{i \;|\; \text{$i \in [k-1]$ and $i \notin \EV(w)$} \big\}\  \supseteq\  \big\{w_{j} \;|\; \text{$j \in [k]$ and $j \notin \EP(w)$}\big\},
 \]
 giving the claim.  Now, we must show that each $\CCC_{\lambda}$ is nonempty.  This is established by Lemma~\ref{lem:QSVexcedance} below, which completes the proof.
 \end{proof}
@@ -958,32 +959,42 @@ The final result relates certain properties of the elements of $\CCC_{\lambda}$ 
 \label{lem:tableautobruhat}
 Let $\lambda$ be a noncrossing partition of size $n \ge 0$ and take $w \in \CCC_{\lambda}$.  For all $1 \le k \le n$, 
 \[
-|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$}\}|
+\big|\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$}\}\big|
 %|\{j \in [n] \setminus \TTT_{k}(w) \;|\; j < k \}| 
-= |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|
+\ = \ \big|\lambda^{+} \cap [k-1]\big| - \big|\lambda^{-} \cap [k]\big|
 \]
 and 
 \[
-|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}|
+\big|\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}\big|
 %|\{j \in \TTT_{k}(w) \;|\; j > k \}| 
-= |\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] |.
+\ =\  \big|\lambda^{+} \cap [k]\big| - \big|\lambda^{-} \cap [k]\big|.
 \]
 \end{lem}
 \begin{proof}
 To show the first equation, note that by definition
 \[
-|\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]| = |\{j \in [k-1] \;|\; j \notin \EV(w)\}| - |\{i \in [k] \;|\; i \notin \EP(w)\}|.
+\big|\lambda^{+} \cap [k-1]\big| - \big|\lambda^{-} \cap [k]\big| \ = \ \Big|\big\{j \in [k-1] \;|\; j \notin \EV(w)\big\}\Big| - \Big|\big\{i \in [k] \;|\; i \notin \EP(w)\big\}\Big|.
 \]
 For $i \in [k]$ with $i \notin \EP(w)$, it must be the case that $w_{i} < i$ and so $w_{i} \in [k-1]$ with $w_{i} \notin \EV(w)$.  
 Therefore, the equation above counts the $w_{i} \in [k-1]$ for which $w_{i} \notin \EV(w)$ and $i \notin [k]$; this is exactly $\{ w_{i} \;|\; \text{$n \ge i > k$ and $w_{i} < k$}\}$.
 
 The second equation follows from a similar but somewhat more complicated argument.  We begin by manipulating the right side into a more suitable form:
 \begin{align*}
-|\lambda^{+} \cap [k]| - |\lambda^{-} \cap [k] | &=  (k - |\lambda^{-} \cap [k] |) - (k - |\lambda^{+} \cap [k]|) \\
-&= |\EP(w) \cap [k]| - |\EV(w) \cap [k]|.
+\big|\lambda^{+} \cap [k]\big| - \big|\lambda^{-} \cap [k] \big| \ &= \  \Big(k - \big|\lambda^{-} \cap [k] \big|\Big) - \Big(k - \big|\lambda^{+} \cap [k]\big|\Big) \\
+&=\  \big|\EP(w) \cap [k]\big| - \big|\EV(w) \cap [k]\big|.
 \end{align*}
 Now, for $j \in \EV(w) \cap [k]$, we have $j = w_{i}$ for some $i \le j$, so that $i \in \EP(w) \cap [k]$.  Since $i \in \EP(w) \cap [k]$ implies that $w_{i} \in \EV(w)$, the equation above counts the positions $i \in \EP(w) \cap [k]$ for which $w_{i} \notin [k]$; this set is equinumerous to $\{ w_{i} \;|\; \text{$1 \le i \le k$ and $w_{i} > k$}\}$.
 \end{proof}
+
+\Nantel{I am here! Some things not to forget:
+
+\ 
+
+ Thank Rafa for discussion about Section~\ref{sec:weakorder}, thanks participants of Fields Seminar.
+ 
+ \ 
+ 
+ A question, if we replace weak exc. by strict excedences, does it produce the set we get by applying the automorphism of QSym? }
 
 %%%%%%%%%%%%%%%
 \subsection{Minimal and maximal elements}
