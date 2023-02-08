@@ -1001,11 +1001,8 @@ For all noncrossing partitions $\lambda$, $Q_{\lambda}$ is the Bruhat maximum el
 %In particular $w \le Q_{\lambda}$ for all $w \in \CCC_{\lambda}$.
 \end{prop}
 
-\Lucas{ALSO here (just the proof)}
-
-
 \begin{proof}
-Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we only need to show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that each entry of $\TTT_{k}(w)$ is bounded above by the same entry of $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
+Lemma~\ref{lem:QSVexcedance} shows that $Q_{\lambda} \in \CCC_{\lambda}$, so we only need to show that $Q_{\lambda}$ is an upper bound for $\CCC_{\lambda}$; to this end, fix $w \in \CCC_{\lambda}$.  Using the tableau criterion (Proposition~\ref{TableauCriterion}), it is sufficient to show that each entry of $\TTT_{k}(w)$ is bounded above by the corresponding entry of $\TTT_{k}(Q_{\lambda})$ for each $1 \le k \le n$.
 
 The argument consists of two distinct parts, first conducting an element-by-element comparison of the entries of $\TTT_{k}(w)$ and $\TTT_{k}(Q_{\lambda})$ which are strictly greater than $k$, and then doing the same for the elements which are at most $k$.  The validity of this approach relies on the fact that these collections of entires have the same cardinality for $w$ and $Q_{\lambda}$: by Lemma~\ref{lem:tableautobruhat}, 
 \begin{align*}
@@ -1021,13 +1018,13 @@ Fixing one such $i$, Lemma~\ref{lem:tableautobruhat} gives that
 |\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}| = |\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|.
 \]
 %and each of $x_{1}, x_{2}, \ldots, x_{r}$ is contained in the set on the left.  
-It is sufficient to show that the above expressions are equal to $r - i$, as this implies that each of $x_{1}, \ldots x_{i}$ is not contained in the set $\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}$, and therefore must be less than $q_{i}$.
+It is sufficient to show that the above expressions are equal to $r - i$, as this implies that each of $x_{1}, x_{2}, \ldots, x_{i}$ is not contained in the set $\{ w_{t} \;|\; \text{$1 \le t \le q_{i}$ and $w_{t} > q_{i}$} \}$, and therefore that $x_{i} \le q_{i}$.
 
-Let $C_{i}$ denote the connected component of $\lambda$ containing $q_{i}$.  
-From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C_{i}$,  and $Q_{\lambda}^{-1}(q_{i}) \le k$ the minimal element.  
+Let $C$ denote the connected component of $\lambda$ containing $q_{i}$.  
+From the definition of $Q_{\lambda}$, $q_{i}$ must be the maximal element of $C$,  and $Q_{\lambda}^{-1}(q_{i}) \le k$ the minimal element.  
 Combinatorially, the difference $|\lambda^{+} \cap [q_{i}]| - |\lambda^{-} \cap [q_{i}]|$ counts the number of arcs in $\lambda$ with left endpoint in $[q_{i}]$ and right endpoint in $[n] \setminus [q_{i}]$, and as $q_{i} \in \EV(w)$, this is the number of arcs in $\lambda$ which are above $q_{i}$.  
-Every arc in $\lambda$ which lies above $q_{i}$ must have all elements of $C_{i}$ between its left and right endpoints, so that the left endpoint of any such an arc is contained in $[k]$ and the right endpoint is greater than $q_{i}$.  
-Thus, each such arc belongs to the connected component of one of the elements $q_{i+1}, \ldots, q_{r}$; there are precisely $r - i$ such connected components.
+Every arc in $\lambda$ which lies above $q_{i}$ must have all elements of $C$ between its left and right endpoints, so that the left endpoint of any such an arc is contained in $[k]$ and the right endpoint is greater than $q_{i}$.  
+Thus, each such arc belongs to the connected component of one of the elements $q_{i+1}, \ldots, q_{r}$, and there are precisely $r - i$ such connected components.
 
 For the second part of the argument, we aim to show that each entry of $\TTT_{k}(w)$ which is at most $k$ is less than or equal to the analogous entry of $\TTT_{k}(Q_{\lambda})$, and we establish this in an indirect manner described below.  
 Writing $s = |\lambda^{+} \cap [k-1]| - |\lambda^{-} \cap [k]|$, Lemma~\ref{lem:tableautobruhat} states that there are exactly $s$ elements of $[k]$ which do not appear in $\TTT_{k}(w)$, and likewise for $\TTT_{k}(Q_{\lambda})$.  
@@ -1038,10 +1035,10 @@ Fixing $1 \le i \le s$, Lemma~\ref{lem:tableautobruhat} gives that
 \[
 |\{ w_{t} \;|\; \text{$n \ge t > k$ and $w_{t} < p_{i}$} \}| = |\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|.
 \]
-It is therefore sufficient to show that the above quantity $i-1$, so that $p_{i}$ is bounded above by each of $y_{i}, y_{i+1}, \ldots, y_{s}$.
+It is therefore sufficient to show that the above quantity $i-1$, so that $p_{i}$ is bounded above by each of $y_{i}, y_{i+1}, \ldots, y_{s}$, and in particular $p_{i} \le y_{i}$.
 
 Combinatorially, the difference $|\lambda^{+} \cap [p_{i} - 1]| - |\lambda^{-} \cap [p_{i}]|$ counts the number of arcs in $\lambda$ with a left endpoint $[p_{i} -1]$ and a right endpoint in $[n] \setminus [p_{i}]$, or equivalently, the arcs above $p_{i}$ in $\lambda$.  
-Writing $C_{i}$ for the connected component containing $p_{i}$, each such arc must contain $C_{i}$ between its left and right endpoints, so the left endpoint is less that $p_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
+Writing $C$ for the connected component containing $p_{i}$, each such arc must contain $C$ between its left and right endpoints, so the left endpoint is less that $p_{i}$ and the right endpoint lies somewhere in $[n] \setminus [k]$.  
 Thus, each such arc must belong to the connected component of one of $p_{1}, p_{2}, \ldots, p_{i-1}$, and there are $i-1$ such connected components.
 \end{proof}
 
@@ -1176,7 +1173,7 @@ As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for
 \label{sec:weakorder}
 %%%%%%%%%%%%%%%
 
-While most results in this section concern the Burhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}, ~\cite{A,B}\lucas{more \\citations \\ needed?}).  This order is generated by the covering relations
+While most results in this section concern the Bruhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}, ~\cite{A,B}\lucas{do you \\ think  \\ more \\ citations \\ are \\ needed?}).  This order is generated by the covering relations
 \[
 v \lessdot_{L} w \qquad\text{if and only if} \qquad 
 \begin{array}{c}
@@ -1186,7 +1183,7 @@ v \lessdot_{L} w \qquad\text{if and only if} \qquad
 
 The weak order is a suborder of the Bruhat order, in that $v \le w$ implies $v \le_{L} w$, and so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe further interesting properties of the weak order, but for now we only define it and mention some of its properties in subsequent sections.
 
-The (left) weak ordering on $S_n\big/\!\!\sim$ is generated by the  covering relation
+The (left) weak order $\le_{L}$ on $S_n\big/\!\!\sim$ is generated by the  covering relation
 \[
 C_{\lambda} \lessdot_{L} C_{\mu} \qquad\text{if and only if}\qquad  \text{$Q_\lambda \lessdot_{L} v$ for some  $v \in C_{\mu}$.}
 \]
@@ -1195,18 +1192,14 @@ C_{\lambda} \lessdot_{L} C_{\mu} \qquad\text{if and only if}\qquad  \text{$Q_\la
 The relation $\le_{L}$ defined on $S_{n}/\!\!\sim$ above is a partial order.
 \end{prop}
 \begin{proof}
-By definition, the relation $\le_{L}$ is reflexive and transitive.  Moreover, using Proposition~\ref{prop:QSVinterval} it can be deduced that $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
+By definition, the relation $\le_{L}$ is reflexive and transitive.  By Proposition~\ref{prop:QSVinterval}, $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
 \end{proof}
  
  \begin{rem} 
 One can also consider the weak order restricted to the set $\QSV_n$ as we did in Section~\ref{sec:bruhatballot} for the Bruhat order.  
-However, unlike the Bruhat order, the two posets do are not isomorphic, and the order on the quotient is more amenable to our current and future work. 
+However, unlike the Bruhat order, the two posets are not isomorphic, and the order on the quotient is more amenable to our current and future work. 
 We leave to the interested reader the study of the weak order restricted to $\QSV_n$.
  \end{rem}
- 
- 
-\Lucas{I am here}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Bases for the Temperley--Lieb Algebra $\TL_{n}(2)$}
@@ -1221,7 +1214,7 @@ e_{i}e_{j} &= e_{j}e_{i} & \text{if $|i - j| > 1$} \\
 e_{i} e_{j} e_{i} &= e_{i} & \text{if $|i - j| = 1$}.
 \end{array}
 \]
-There is a subjective algebra morphism from the symmetric group algebra $\CC S_{n}$ to $\TL_{n}(2)$ given by 
+There is a surjective algebra morphism from the symmetric group algebra $\CC S_{n}$ to $\TL_{n}(2)$ given by 
 \[
 \begin{array}{rcl}
 \phi: \CC S_{n} & \longrightarrow & \TL_{n}(2) \\
@@ -1243,25 +1236,23 @@ For all $n \ge 0$, the set $\phi(\QSV_{n})$ is a basis for $\TL_{n}(2)$.
 \end{thm}
 
 \begin{rem}
-Theorem~\ref{thm:TLbasis} also follows from the results of Gobet and Williams in~\cite{GobetWilliams} as a special case of a much stronger result which gives a basis for $\TL_{n}(2)$ for each Coxeter element of $S_{n}$.  
-However,~\cite{GobetWilliams} does not provide an explicit statement of this result, so it is easier to deduce the theorem as a consequence of Zinno's work directly.
+Theorem~\ref{thm:TLbasis} also follows from the work of Gobet and Williams in~\cite{GobetWilliams}: their results imply a  generalization of Zinno's in which each Coxeter element of $S_{n}$ determines a basis of $\TL_{n}(2)$ under $\phi$ (see also Remark~\ref{rem:QSVnoncrossing}).  
+However,~\cite{GobetWilliams} does not explicitly state this result about bases, so the theorem is more easily deduced from Zinno's earlier work.
 \end{rem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{More Bases for the Temperley--Lieb Algebra $\TL_{n}(2)$}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Using excedance classes, we discovered that one can give a more general theorem for constructing Temperley--Lieb Algebra basis from permutation.
+In our investigation of excedance classes we found an application of their structure the problem of computing sets of permutations which give bases of $\TL_{n}(2)$ under $\phi$.  
 We include it here with its proof as it is a nice result of our current investigation.
 
 \begin{thm}
 \label{thm:TLbases}
-Let $n \ge 0$ and for each $\lambda \in \NCP_{n}$, fix an element $w_{\lambda} \in \CCC_{\lambda}$.  Then the set 
-$\{\phi(w_{\lambda}) \;|\; \lambda \in \NCP_{n}\}$ is a basis of $\TL_{n}(2)$.
+Let $n \ge 0$ and for each noncrossing partition $\lambda$ of size $n$, fix an element $w_{\lambda} \in \CCC_{\lambda}$. Then the set $\{\phi(w_{\lambda}) \;|\; \text{noncrossing partitions $\lambda$}\}$ is a basis of $\TL_{n}(2)$.
 \end{thm}
 
-The Theorem~\ref{thm:TLbasis} then follow as a corollary of Theorem~\ref{thm:TLbases}.
-In general, however, many bases obtained via Theorem~\ref{thm:TLbases} are novel.  A minimal example can be obtained with $n = 4$: the set 
+A proof of Theorem~\ref{thm:TLbases} is given in Section~\ref{sec:basistheoremproof}.  Here, we discuss its implications: taking $w_{\lambda} = Q_{\lambda}$ in the theorem gives yet another proof of Theorem~\ref{thm:TLbasis}, confirming the results of~\cite{GobetWilliams} and~\cite{Zinno} discussed above.  In general, however, many bases obtained via Theorem~\ref{thm:TLbases} are novel.  The smallest novel example can be found with $n = 4$: the set 
 \[
 \{
 \stackrel{1}{4} \stackrel{2}{3} \color{red} \stackrel{3}{1} \stackrel{4}{2} \color{black}, 
@@ -1282,8 +1273,9 @@ In general, however, many bases obtained via Theorem~\ref{thm:TLbases} are novel
 \]
 meets the criteria of Theorem~\ref{thm:TLbases}, and accordingly maps to a basis of $\TL_{n}(2)$ under $\phi$. 
 This set is neither $\QSV_{4}$ not the set of $321$-avoiding permutations ($4312 \notin \QSV_{4}$ and is not $321$-avoiding).
-Moreover, the set above is not described in~\cite{GobetWilliams, Zinno}: each subset of $S_{4}$ in these sources which is not $\phi(\QSV_{n})$ contains more than one element from certain excedance classes and none from others.  
+Moreover, the set above is not described in~\cite{GobetWilliams, Zinno}: each subset of $S_{4}$ in these sources which is not $\QSV_{4}$ contains more than one element from certain excedance classes and none from others.  
 
+\Lucas{I am here}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{A presentation of the Temperley--Lieb algebra}
@@ -1325,6 +1317,7 @@ Hence $\ell(w')<\ell(w)$, and therefore $w>w'$ (see~\cite[Chapter 2]{BjornerBren
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Proof of Theorem~\ref{thm:TLbases}}
+\label{sec:basistheoremproof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section proves Theorem~\ref{thm:TLbases}, which follows from the triangularity established in the next result.  Recall the $321$-avoiding permutation $T_{\lambda}$ defined in Section~\ref{sec:ex2} for each noncrossing partition $\lambda \in \NCP_{n}$.
