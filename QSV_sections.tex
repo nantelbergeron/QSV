@@ -807,10 +807,10 @@ which is $b^{\lambda}_{2k}$.
 We make several additional remarks about Proposition~\ref{prop:QSVorderbijection} below.
 %There are two superficial differences between our presentation and that of~\cite{GobetWilliams}.
 \begin{enumerate}
-\item The results of~\cite{GobetWilliams} describe the Bruhat order of the set $\{\omega_0w\omega_0\; |\; w \in \QSV_{n}\}$ rather than $\QSV_{n}$, where $\omega_0w\omega_0$ is the conjugation by the top element $\omega_0\in S_n$.
-As described in Remark~\ref{rem:QSVnoncrossing}, these are the non-crossing partitions associated with the cycle $(12\ldots n)$ instead of $(n\ldots 21)$. This conjugation is an automorphism of the Bruhat order, so the results are equivalent. It will play an interesting role throughout this paper.
+\item The results of~\cite{GobetWilliams} describe the Bruhat order of the set $\{\omega_0w\omega_0^{-1}\; |\; w \in \QSV_{n}\}$ rather than $\QSV_{n}$, where $\omega_0\in S_n$ denotes the Bruhat-maximal element $\omega_0\in S_n$. \lucas{I removed \\ the description \\ of conjugation \\ and just \\ wrote it \\ as $\omega_0w\omega_0^{-1}$: \\ is this OK?}
+In the terminology of Remark~\ref{rem:QSVnoncrossing}, these are the non-crossing partitions associated with the cycle $(12\ldots n)$ instead of $(n\ldots 21)$, but conjugation by $\omega_{0}$ is an automorphism of the Bruhat order so the results are equivalent.  Many of our results have counterparts under this bijection, and we revisit this equivalence throughout the paper.
 
-\Nantel{we have to make sure we use the right automorphism so that all proofs work. Inversion is not right, as it does not preserve quasisym. ideal. The automorphism always use ``$\backslash$omega\_0'' so is easy to search and replace if need be.}
+%\Nantel{we have to make sure we use the right automorphism so that all proofs work. Inversion is not right, as it does not preserve quasisym. ideal. The automorphism always use ``$\backslash$omega\_0'' so is easy to search and replace if need be.}
 
 \item The results of~\cite{GobetWilliams} use Dyck paths rather than ballot sequences for item 3.~in Propostition~\ref{prop:QSVorderbijection}.  
 One can translate between the two by interchanging each $1$ in a ballot sequence with an up step in a Dyck path, and likewise each $-1$ with a down step.
@@ -854,19 +854,6 @@ We define the \emph{excedance relation} $\sim$ on $S_{n}$ by:
 v \sim w \qquad\text{if and only if} \qquad \text{$\EV(v) = \EV(w)$ and $\EP(v) = \EP(w)$},
 \end{equation}
 and say that each equivalence class of $S_{n}\big/\!\!\sim$ is an \emph{excedance class}.
-
-\begin{rem}
-The excedance relation refines a similar equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
-The authors of~\cite{ES} prove several enumerative and statistical results about their ``excedance classes,'' and it would be interesting to see how these results extend to our notion of excedance class.  
-\end{rem}
-
-\begin{rem}
-There is an alternative notion for excedance classes. Instead, one can define $\EV'(w)$ as the set of $w_{i}$ such that $i< w_{i}$, and $\EP'(w)$ as the set of indices $i$ such that $i<w_{i}$. 
-This second choice would also be viable and lead to equivalent results as presented here.
-
-This is directly related to the automorphism described in Remark~\ref{rem:auto}, providing us with two dual solutions to the work presented here.
-\end{rem}
-\Nantel{what you think of  remark above?}
 
 %This section will investigate the properties of excedance classes and their interaction with the Bruhat order; a summary of the main results follows.  
 We now summarize the main results of the section.  
@@ -919,6 +906,25 @@ Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with u
 \end{cor}
 
 Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes using the weak order on $S_{n}$.
+
+\Lucas{I moved these down because together they broke the flow of the section a bit too much.}
+
+\begin{rem}
+Two alternative notions of ``excedance classes'' are worth mentioning.
+\begin{enumerate}
+\item Our definition of excedance class is one of two obvious choices: one can instead consider the equivalence classes determined by sets $\EV'(w)$ and $\EP'(w)$ of values $i$ and positions $w_{i}$ for which $i < w_{i}$, known as strict excedances.  
+This choice is equally viable and would lead to results equivalent to the ones presented here.  This equivalence is directly  related to the automorphism described in Remark~\ref{rem:auto} (1).
+
+\item The excedance relation refines an equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
+The authors of~\cite{ES} prove several enumerative and statistical results about their ``excedance classes,'' and it is worth considering how these results extend to our notion of excedance class.  
+%\end{rem}
+%
+%\begin{rem}
+
+\end{enumerate}
+\end{rem}
+%\Nantel{what you think of  remark above?}
+
 
 
 %%%%%%%%%%%%%%%
@@ -1213,6 +1219,7 @@ By definition, the relation $\le_{L}$ is reflexive and transitive.  By Propositi
 \end{proof}
 
 \Nantel{what you think of remark below?} 
+\Lucas{I'm going to save edits on this for the last minute -- how we change it will depend a lot on whether we can prove $\le_{L}$ is a lattice, so let's see what we can do while we finish everything else.}
   \begin{rem}
    It is easy to observe that the order $\le_{L}$ on the set $S_{n}/\!\!\sim$ forms a lattice. 
   The least upper bound of $\CCC_{\lambda} \vee \CCC_{\mu}$ is $\CCC_{\nu}$ if and only if $Q_{\lambda}\vee Q_{\mu}$ is contained in $\CCC_{\nu}$.
