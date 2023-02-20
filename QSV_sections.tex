@@ -219,10 +219,13 @@ In the present work, we explain this phenomenon by defining a set of permutation
 Our construction has a few byproducts which are independently noteworthy.  
 We define am equivalence relation $\sim$ on the symmetric group $S_{n}$ using weak excedances and show that its equivalence classes are naturally indexed by noncrossing partitions.  
 Each equivalence class is an interval in the Bruhat order between an element of $\mathrm{QSV}_{n}$ and a $321$-avoiding permutation.  
-Furthermore, the Bruhat order induces a well-defined order on $S_{n}\big/\!\!\sim$, and we use this property to define an analogous weak order.  
+Furthermore, the Bruhat order induces a well-defined order on $S_{n}\big/\!\!\sim$.  %, and we use this property to define an analogous weak order.  
 Finally, we show that any section of the quotient $S_{n}\big/\!\!\sim$ gives an (often novel) basis for $\mathsf{TL}_{n}(2)$.  
 
-%We have a few byproducts of our construction. We give a partition of the symmetric group $S_n$ into equivalent classes given by excedence classes $C_\lambda$. The indexes $\lambda$ are non-crossing partition of $\{1,2,\ldots,n\}$. For each $\lambda$, the class $C_\lambda$ is an interval of the Bruhat order containing a unique element on $\QSV_n$ (which is the maximum in the interval) and a unique $321$-avoiding permutation (which is the minimum). We show that in fact any section of the excedence classes produce a basis of $\TL_n$. We show that the Bruhat order induce a well defined order on the quotient $S_n\big/\!\!\sim$ by excedence classes. This allows us to also induce a weak order on $S_n\big/\!\!\sim$.
+%
+%We have a few byproducts of our construction. We give a partition of the symmetric group $S_n$ into equivalent classes given by excedence classes $C_\lambda$. The indexes $\lambda$ are non-crossing partition of $\{1,2,\ldots,n\}$. For each $\lambda$, the class $C_\lambda$ is an interval of the Bruhat order containing a unique element on $\QSV_n$ (which is the maximum in the interval) and a unique $321$-avoiding permutation (which is the minimum). We show that in fact any section of the excedence classes produce a basis of $\TL_n$. We show that the Bruhat order induce a well defined order on the quotient $S_n\big/\!\!\sim$ by excedence classes. 
+%This allows us to also induce a weak order on $S_n\big/\!\!\sim$.
+
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -329,8 +332,8 @@ A similar result is given by~\cite{GobetWilliams} for the set $\QSV_{n}$ as a su
 Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation
 \end{introcor}
 
-The combinatorics of excedance classes seems to be very rich, and there is much left to explore.   
-For example, in Section~\ref{sec:weakorder} we describe a well-behaved weak order on noncrossing partitions using excedance classes, but many properties of this order remain mysterious.  %are still up for discoveries.  
+The combinatorics of excedance classes are very rich, and there is much left to explore.   
+%For example, in Section~\ref{sec:weakorder} we describe a well-behaved weak order on noncrossing partitions using excedance classes, but many properties of this order remain mysterious.  %are still up for discoveries.  
 
 In Section~\ref{sec:TLbasis}, we use excedance classes of $S_{n}$ to explore bases of $\TL_{n}(2)$.  Using results of~\cite{GobetWilliams} and~\cite{Zinno}, our Theorem~\ref{thm:TLbasis} restates the fact that $\QSV_{n}$ satisfies condition (ii) above.  However, we also prove more general (and novel) theorem about bases of $\TL_{n}(2)$ coming from the surjection $\phi: \CC S_{n} \to \TL_{n}(2)$.
 
@@ -358,7 +361,7 @@ Future work will explore the module structure on $R_{n}\big/\langle \QSym_{n}^{+
 
 \subsection{Acknowledgement} 
 We thank the participants of the Algebraic Combinatorics working seminar at the Fields Institute: K.~Chan, F.~G\'elinas, A.~Lao, A.~A.~Lazzeroni, C.~McConnell, Y.~Solomon, F.~Soltani,  N.~Wallace and Mike Zabrocki.
-We are also grateful to Rafael Gonz\'alez D'L\'eon for his  inspiring discussions related to Section~\ref{sec:weakorder}. 
+We are also grateful to Rafael Gonz\'alez D'L\'eon for his  inspiring discussions.% related to Section~\ref{sec:weakorder}. 
 \lucas{Why not \\ ``M.~Zabrocki'' \\ and \\ ``R.~Gonz\'alez D'L\'eon?''}
 
 
@@ -913,7 +916,7 @@ Two key intermediate results in the proof of Theorem~\ref{thm:excedancequotient}
 Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation
 \end{cor}
 
-Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes which emulates the weak order on $S_{n}$.
+%Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes which emulates the weak order on $S_{n}$.
 
 
 \begin{rem}
@@ -1199,45 +1202,45 @@ As Lemma~\ref{lem:QSVexcedance} states that $Q_{\lambda} \in \CCC_{\lambda}$ for
 \end{proof}
 
 
-%%%%%%%%%%%%%%%
-\subsection{The weak order on excedance classes}
-\label{sec:weakorder}
-%%%%%%%%%%%%%%%
-
-While most results in this section concern the Bruhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}).  This order is generated by the covering relations
-\[
-v \lessdot_{L} w \qquad\text{if and only if} \qquad 
-\begin{array}{c}
-\text{$wv^{-1}$ is a simple transposition} \\ \text{ $(i\,i+1)$ and $\ell(v) +1 = \ell(w)$}.
-\end{array}
-\]
-
-The weak order is a suborder of the Bruhat order in the sense that $v \le w$ implies $v \le_{L} w$, so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe more interesting properties of the weak order, but for now we only define it and mention some of its elementary properties here and in subsequent sections.
-
-The (left) weak order $\le_{L}$ on $S_n\big/\!\!\sim$ is generated by the  covering relation
-\[
-C_{\lambda} \lessdot_{L} C_{\mu} \qquad\text{if and only if}\qquad  \text{$Q_\lambda \lessdot_{L} v$ for some  $v \in C_{\mu}$.}
-\]
-
-\begin{prop}
-The relation $\le_{L}$ defined on $S_{n}/\!\!\sim$ above is a partial order.
-\end{prop}
-\begin{proof}
-By definition, the relation $\le_{L}$ is reflexive and transitive.  By Proposition~\ref{prop:QSVinterval}, $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
-\end{proof}
-
-\begin{rem}
-\label{rem:tamari}
-In ongoing work, we have discovered that the order $(S_{n}/\!\!\sim,\le_{L})$ is closely related to the Tamari lattice, also known as the associahedron~\cite{Tamari}. 
-The two orders have the same number of vertices and covers, and each face of the Tamari lattice, whether it is square or pentagonal, corresponds to a minimal interval in $(S_{n}/\!\!\sim,\le_{L})$ generated by two covers.
-R. González D'León has proposed that this may be evidence that the order $(S_{n}/\!\!\sim,\le_{L})$ is part of a larger family of partial orders corresponding to triangulations of certain polytopes, as discussed in \cite{vBGMFY} and related references.
-\end{rem}
- 
- \begin{rem} 
-It is also possible to examine the weak order when it is restricted to the set $\QSV_n$, as we did in Section~\ref{sec:bruhatballot} for the Bruhat order. 
-Unlike the Bruhat order, the two posets are not equivalent, and the order on the quotient is more noteworthy in relation to our current and future research; see Remark~\ref{rem:tamari} above. 
-The study of the weak order restricted to $\QSV_n$ is left for the interested reader. 
-\end{rem}
+%%%%%%%%%%%%%%%%
+%\subsection{The weak order on excedance classes}
+%\label{sec:weakorder}
+%%%%%%%%%%%%%%%%
+%
+%While most results in this section concern the Bruhat order defined in Section~\ref{sec:bruhat}, another widely used order on $S_{n}$ is the (left) weak order $\le_{L}$ (for example, see~\cite[Chapter 3]{BjornerBrenti}).  This order is generated by the covering relations
+%\[
+%v \lessdot_{L} w \qquad\text{if and only if} \qquad 
+%\begin{array}{c}
+%\text{$wv^{-1}$ is a simple transposition} \\ \text{ $(i\,i+1)$ and $\ell(v) +1 = \ell(w)$}.
+%\end{array}
+%\]
+%
+%The weak order is a suborder of the Bruhat order in the sense that $v \le w$ implies $v \le_{L} w$, so the results of Theorem~\ref{thm:excedancequotient} and Corollary~\ref{cor:interval} allow us to define a weak order on excedance classes as well.  In a sequel article, we will describe more interesting properties of the weak order, but for now we only define it and mention some of its elementary properties here and in subsequent sections.
+%
+%The (left) weak order $\le_{L}$ on $S_n\big/\!\!\sim$ is generated by the  covering relation
+%\[
+%C_{\lambda} \lessdot_{L} C_{\mu} \qquad\text{if and only if}\qquad  \text{$Q_\lambda \lessdot_{L} v$ for some  $v \in C_{\mu}$.}
+%\]
+%
+%\begin{prop}
+%The relation $\le_{L}$ defined on $S_{n}/\!\!\sim$ above is a partial order.
+%\end{prop}
+%\begin{proof}
+%By definition, the relation $\le_{L}$ is reflexive and transitive.  By Proposition~\ref{prop:QSVinterval}, $\CCC_{\lambda} \le_{L} \CCC_{\mu}$ implies that $\CCC_{\lambda} \le \CCC_{\mu}$ in the Bruhat order; now Theorem~\ref{thm:excedancequotient} implies antisymmetry.
+%\end{proof}
+%
+%\begin{rem}
+%\label{rem:tamari}
+%In ongoing work, we have discovered that the order $(S_{n}/\!\!\sim,\le_{L})$ is closely related to the Tamari lattice, also known as the associahedron~\cite{Tamari}. 
+%The two orders have the same number of vertices and covers, and each face of the Tamari lattice, whether it is square or pentagonal, corresponds to a minimal interval in $(S_{n}/\!\!\sim,\le_{L})$ generated by two covers.
+%R. González D'León has proposed that this may be evidence that the order $(S_{n}/\!\!\sim,\le_{L})$ is part of a larger family of partial orders corresponding to triangulations of certain polytopes, as discussed in \cite{vBGMFY} and related references.
+%\end{rem}
+% 
+% \begin{rem} 
+%It is also possible to examine the weak order when it is restricted to the set $\QSV_n$, as we did in Section~\ref{sec:bruhatballot} for the Bruhat order. 
+%Unlike the Bruhat order, the two posets are not equivalent, and the order on the quotient is more noteworthy in relation to our current and future research; see Remark~\ref{rem:tamari} above. 
+%The study of the weak order restricted to $\QSV_n$ is left for the interested reader. 
+%\end{rem}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1436,17 +1439,6 @@ w \equiv T_{\lambda} + \sum_{\mu \prec \lambda} a_{\mu}^{w'} T_{\mu} + \sum_{\mu
 for some coefficients $a_{\mu}^{w'}, a_{\mu}^{w''} \in \ZZ$.  Combining like terms, the proof is complete.
 \end{proof}
 
-\Nantel{I am here!  Things not to forget:
-
- \ 
- 
- I added remarks about automorphism and dual def of exc-classes. I will add one last remark at the end of Section 6 stating that we can apply the reverse of the variable to the $P_\alpha$ to obtain that
- we have vanishing polynomial for the dual notion of excedance. The top homogeneous part (being quasisymmetric) is invariant by such transformation. 
- 
- \
- 
- I have downgraded the remark in Section about the week order. }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1525,6 +1517,18 @@ We have $R_n\big/\langle \QSym_{n}^{+} \rangle \cong R_n\big/\mathbf{I}(\QSV_{n}
 
 \Lucas{I got confused and I am not sure what these remarks should say any more.  (Original remark is commented out below).}
 
+\Nantel{I am here!  Things not to forget:
+
+ \ 
+ 
+ I added remarks about automorphism and dual def of exc-classes. I will add one last remark at the end of Section 6 stating that we can apply the reverse of the variable to the $P_\alpha$ to obtain that
+ we have vanishing polynomial for the dual notion of excedance. The top homogeneous part (being quasisymmetric) is invariant by such transformation. 
+ 
+ \
+ 
+ I removed all mention to weak order. This all go in a subsequent paper!}
+
+
 \begin{rem}
 \begin{enumerate}
 \item New remark about Hilbert series and/or weak order?
@@ -1534,14 +1538,14 @@ We have $R_n\big/\langle \QSym_{n}^{+} \rangle \cong R_n\big/\mathbf{I}(\QSV_{n}
 \end{enumerate}
 \end{rem}
 
-%\begin{rem} The weak order on $\QSV_n$ that we defined in Section~\ref{sec:weakorder} has the following property. For any noncrossing partition $\lambda$ we define $\ell(\lambda)$ to be
-%the length of the shortest path from the identity to $C_\lambda$ is the weak order on $S_n\big/\!\!\sim$. In a sequel paper, we construct polynomial $m_\lambda$ of degree $\ell(\lambda)$
-%such that for any $Q_\mu\in \QSV_n$ we have
-%	$$ m_\lambda(Q_\mu)=\begin{cases}1&\text{ if }\lambda=\mu,\\ 0 &\text{ if  } \mu<_w\lambda. \end{cases}$$
-%Furthermore the polynomial 
-%	$$H_n(q) = \sum_\lambda q^{\ell(\lambda)}$$
-%is the Hilbert series of the (graded) quotient $R_n\big/J_n$
-%\end{rem}
+\begin{rem} The weak order on $\QSV_n$ that we defined in Section~\ref{sec:weakorder} has the following property. For any noncrossing partition $\lambda$ we define $\ell(\lambda)$ to be
+the length of the shortest path from the identity to $C_\lambda$ is the weak order on $S_n\big/\!\!\sim$. In a sequel paper, we construct polynomial $m_\lambda$ of degree $\ell(\lambda)$
+such that for any $Q_\mu\in \QSV_n$ we have
+	$$ m_\lambda(Q_\mu)=\begin{cases}1&\text{ if }\lambda=\mu,\\ 0 &\text{ if  } \mu<_w\lambda. \end{cases}$$
+Furthermore the polynomial 
+	$$H_n(q) = \sum_\lambda q^{\ell(\lambda)}$$
+is the Hilbert series of the (graded) quotient $R_n\big/J_n$
+\end{rem}
 
 The remainder of the section fills in the gaps of the proof of Theorem~\ref{thm:vanishingQSV}.  Section~\ref{sec:QSymvanish} gives a complete account of the polynomials $P_{\alpha}$, and Section~\ref{sec:Grobner} describes the isomorphism $R_{n}/\mathsf{gr}(I_{n}) \cong R_{n}/I_{n}$ used in the proof.
 
