@@ -1504,37 +1504,23 @@ We have $R_n\big/\langle \QSym_{n}^{+} \rangle \cong R_n\big/\mathbf{I}(\QSV_{n}
 \end{cor}
 
 
-\Lucas{I got confused and I am not sure what these remarks should say any more.  (Original remark is commented out below).}
 
-\Nantel{I am here!  Things not to forget:
-
- \ 
- 
- I added remarks about automorphism and dual def of exc-classes. I will add one last remark at the end of Section 6 stating that we can apply the reverse of the variable to the $P_\alpha$ to obtain that
- we have vanishing polynomial for the dual notion of excedance. The top homogeneous part (being quasisymmetric) is invariant by such transformation. 
- 
- \
- 
- I removed all mention to weak order. This all go in a subsequent paper!}
-
-
-\begin{rem}
-\begin{enumerate}
-\item New remark about Hilbert series and/or weak order?
-
-\item Remark about reversal.
-
-\end{enumerate}
-\end{rem}
-
-\begin{rem} The weak order on $\QSV_n$ that we defined in Section~\ref{sec:weakorder} has the following property. For any noncrossing partition $\lambda$ we define $\ell(\lambda)$ to be
-the length of the shortest path from the identity to $C_\lambda$ is the weak order on $S_n\big/\!\!\sim$. In a sequel paper, we construct polynomial $m_\lambda$ of degree $\ell(\lambda)$
+\Nantel{I re-wrote the remark about Hilbert series correctly.}
+\begin{rem} The Tamari lattice (see~\cite{Tamari}) is a well known order on binary tree or any associated combinatorial objects. 
+This lattice can thus be defined on noncrossing partitions and it has the following property. For any noncrossing partition $\lambda$ we define $\ell(\lambda)$ to be
+the length of the shortest path from the identity to $\lambda$ is the Tamari lattice. In a sequel paper, we will study polynomial $m_\lambda$ of degree $\ell(\lambda)$
 such that for any $Q_\mu\in \QSV_n$ we have
 	$$ m_\lambda(Q_\mu)=\begin{cases}1&\text{ if }\lambda=\mu,\\ 0 &\text{ if  } \mu<_w\lambda. \end{cases}$$
-Furthermore the polynomial 
+Furthermore the Hilbert series  
 	$$H_n(q) = \sum_\lambda q^{\ell(\lambda)}$$
-is the Hilbert series of the (graded) quotient $R_n\big/J_n$
+correspond to the (graded) quotient $R_n\big/\langle \QSym_{n}^{+} \rangle $.
 \end{rem}
+
+\Nantel{we need to write the remark below properly and test it.}
+\begin{rem}
+ Remark about polynomial vanishing on the $\omega_0 \QSV_n\omega_0$ obtained from the $P_\alpha$ and mention that the top homogenious component is invariants.
+\end{rem}
+
 
 The remainder of the section fills in the gaps of the proof of Theorem~\ref{thm:vanishingQSV}.  Section~\ref{sec:QSymvanish} gives a complete account of the polynomials $P_{\alpha}$, and Section~\ref{sec:Grobner} describes the isomorphism $R_{n}/\mathsf{gr}(I_{n}) \cong R_{n}/I_{n}$ used in the proof.
 
@@ -1595,7 +1581,7 @@ Suppose that $\sigma \in \QSV_{n}$ has at most one cycle of length greater than 
 \end{lem}
 \begin{proof}
 We begin with a simple but significant reduction using the observation that for any exponent $e$, the expression $(x_{i}^{e} - i^{e})$ vanishes at $x_{i} = i$.  If $\sigma$ is the identity, the claim follows from this observation and the definition of $P_{\alpha}$.  
-Assuming the contrary, write $C = \{a_{1} < a_{2} < \cdots < a_{m}\}$ for the elements of the unique long cycle in $\sigma$.  By Lemma~\ref{lem:QSVcycles}, we know that $\sigma = (a_{m}\;\ldots\;a_{2}a_{2})$.  We then have
+Assuming the contrary, write $C = \{a_{1} < a_{2} < \cdots < a_{m}\}$ for the elements of the unique long cycle in $\sigma$.  By Lemma~\ref{lem:QSVcycles}, we know that $\sigma = (a_{m}\;\ldots\;a_{2}a_{1})$.  We then have
 \begin{equation}
 \label{eq:Patsigma1}
 P_{\alpha}(\sigma) =  
@@ -1650,6 +1636,8 @@ This also shows that the operation described above is an involution: it does not
 Thus, all terms in $P_{\alpha}(\sigma)$ cancel with their image under this involution, completing the proof.
 \end{proof}
 
+
+
 In the remainder of the section, we will show how the general case follows from Lemma~\ref{lem:onecyclevanishing}.  To begin, let $\lambda$ be a noncrossing partition and fix a subset $\{i_{1}, i_{2}, \ldots, i_{\ell}\}$ of $[n]$.  
 Define the \emph{leftmost nested component of $\lambda$ with respect to $\{i_{1}, i_{2}, \ldots, i_{\ell}\}$} as the leftmost connected component of $\lambda$ which contains some element $i_{j}$ and furthermore has no other connected component with this property ``nested'' between its arcs.  Formally, if we write $C$ for this component, $C$ is defined by the properties 
 \begin{enumerate}[label = (\roman*), itemsep = 1ex]
@@ -1676,7 +1664,7 @@ The noncrossing structure of the cycles of $\sigma$ will be essential in the pro
 Let $\lambda$ be the noncrossing partition for which $\sigma = Q_{\lambda}$, as defined in Section~\ref{sec:QSV}.  
 
 We will carefully examining the expression
-\[
+\begin{equation}\label{eq:Palpha_evaluated}
 P_{\alpha}(\sigma) =  
 \sum_{\beta \succeq \alpha}
 \hspace{0.6em}
@@ -1687,7 +1675,7 @@ P_{\alpha}(\sigma) =
 (\sigma_{i_{j}}^{\alpha_{f_{j}}} - i_{j}^{\alpha_{f_{j}}}) 
 \prod_{s = f_{j} + 1}^{f_{j+1} - 1} (- i_{j})^{\alpha_{s}}
 \Big),
-\]
+\end{equation}
 and show that it can be divided into summands which each have a factor of the form $P_{\alpha'}(\tau)$, where $\alpha'$ is another composition and $\tau \in \QSV_{n}$ is one of the cycles of $\sigma$, taken as a permutation that fixes all other points.  Lemma~\ref{lem:onecyclevanishing} states that each $P_{\alpha'}(\tau) = 0$, so this will complete the proof.
 
 %To begin, let $\sigma = C_{1}C_{2} \dots C_{r}$ be the decomposition of $\sigma$ into the product of disjoint cycles, including one-element cycles.  
@@ -1695,7 +1683,7 @@ and show that it can be divided into summands which each have a factor of the fo
 %We will abuse notation and write $C_{i}$ for the connected component (as a set) corresponding to the cycle $C_{i}$ as well as the corresponding cycle.
 
 We now analyze $P_{\alpha}(\sigma)$; recall the definition of a leftmost nested component given before the proof.  
-Each summand in the formula above corresponds to the choice of a composition $\beta \succeq \alpha$ and a subset $\{i_{1}, i_{2}, \ldots, i_{\ell}\}$ of $[n]$.  
+Each summand in the formula~\eqref{eq:Palpha_evaluated} corresponds to the choice of a composition $\beta \succeq \alpha$ and a subset $\{i_{1}, i_{2}, \ldots, i_{\ell}\}$ of $[n]$.  
 Let $C$ be the leftmost nested component of $\lambda$ with respect to this subset, and let $p$ and $q$ count the respective number of indices $i_{j}$ which appear left and right of the component $C$ in $\lambda$.  
 Thus, $i_{p} < \min(C)$, $i_{\ell - q+1} > \max(C)$, and $\{i_{p+1}, \ldots, i_{\ell - q}\} \subseteq C$.  
 Record the specifics of this configuration with four additional sets:
@@ -1773,7 +1761,6 @@ Lemma~\ref{lem:onecyclevanishing} states that $P_{\alpha'}(\tau) = 0$, so this c
 \label{sec:Grobner}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\Lucas{What do you think of this section?}
 
 In this section we use Gr\"{o}bner basis theory to show that for all ideals $I \subseteq R_{n}$, there is a vector space isomorphism
 \[
