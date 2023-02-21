@@ -205,7 +205,7 @@ Combinatorics Seminar at Fields Institute}
 
 \keywords{Quasisymmetric Polynomials, } 
 
-\subjclass[2020]{05E05, ???}
+\subjclass[2020]{05E05, 20C08, 33D80, 14L24}
 \begin{document}
 
 \maketitle
@@ -360,9 +360,9 @@ R_{n}\big/\mathbf{I}(\QSV_{n}) \cong R_{n}\big/\langle \QSym_{n}^{+} \rangle.
 Future work will explore the module structure on $R_{n}\big/\langle \QSym_{n}^{+} \rangle$ implicit in this result.
 
 \subsection{Acknowledgement} 
-We thank the participants of the Algebraic Combinatorics working seminar at the Fields Institute: K.~Chan, F.~G\'elinas, A.~Lao, A.~A.~Lazzeroni, C.~McConnell, Y.~Solomon, F.~Soltani,  N.~Wallace and Mike Zabrocki.
-We are also grateful to Rafael Gonz\'alez D'L\'eon for his  inspiring discussions.% related to Section~\ref{sec:weakorder}. 
-\lucas{Why not \\ ``M.~Zabrocki'' \\ and \\ ``R.~Gonz\'alez D'L\'eon?''}
+We thank the participants of the Algebraic Combinatorics working seminar at the Fields Institute: K.~Chan, F.~G\'elinas, A.~Lao, A.~A.~Lazzeroni, C.~McConnell, Y.~Solomon, F.~Soltani,  N.~Wallace and 
+M.~ Zabrocki.
+We are also grateful to R.~Gonz\'alez~D'L\'eon for his  inspiring discussions.% related to Section~\ref{sec:weakorder}. 
 
 
 %\newpage
@@ -648,7 +648,7 @@ Q_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
 \begin{lem}
 \label{lem:QSVcycles}
 
-Let $\lambda$ be a noncrossing partition of size $n$ with connected components $C_{1}, C_{2}, \ldots, C_{s}$, and for $1 \le r \le s$ enumerate $C_{r}$ in increasing order as $\{c_{r, 1} < c_{r, 2} < \cdots < c_{r, |C_{r}|}\}$. 
+Let $\lambda$ be a noncrossing partition of size $n$ with connected components $C_{1}, \ldots, C_{s}$, and for $1 \le r \le s$ enumerate $C_{r}$ in increasing order as $\{c_{r, 1} < c_{r, 2} < \cdots < c_{r, |C_{r}|}\}$. 
 We then have the disjoint cycle decomposition
 \[
 Q_{\lambda} = \prod_{r = 1}^{s} (c_{r, |C_{r}|} \cdots c_{r, 2} c_{r, 1} ).
@@ -1515,8 +1515,6 @@ We have $R_n\big/\langle \QSym_{n}^{+} \rangle \cong R_n\big/\mathbf{I}(\QSV_{n}
 \end{cor}
 
 
-
-\Nantel{I re-wrote the remark about Hilbert series correctly.}
 \begin{rem} The Tamari lattice (see~\cite{Tamari}) is a well known order on binary tree or any associated combinatorial objects. 
 This lattice can thus be defined on noncrossing partitions and it has the following property. For any noncrossing partition $\lambda$ we define $\ell(\lambda)$ to be
 the length of the shortest path from the identity to $\lambda$ is the Tamari lattice. In a sequel paper, we will study polynomial $m_\lambda$ of degree $\ell(\lambda)$
@@ -1527,9 +1525,11 @@ Furthermore the Hilbert series
 correspond to the (graded) quotient $R_n\big/\langle \QSym_{n}^{+} \rangle $.
 \end{rem}
 
-\Nantel{we need to write the remark below properly and test it.}
 \begin{rem}
- Remark about polynomial vanishing on the $\omega_0 \QSV_n\omega_0$ obtained from the $P_\alpha$ and mention that the top homogenious component is invariants.
+In light of Remark~\ref{rem:altECs} one may find that the image $\omega_0 \QSV_n\omega_0$ of the set $\QSV_n$ under the automorphism in Remark~\ref{rem:auto} has similar properties.
+In particular, the polynomials $P_\alpha$ may be modified to polynomials $P'_\alpha$ that vanish on every permutation of $\omega_0 \QSV_n\omega_0$.
+The top homogeneous component of $P'_\alpha$ would also be quasisymmetric, showing an analogue results for $\omega_0 \QSV_n\omega_0$.
+This is closely related to the automorphisms of the ring of quasysymmetric functions (see for example~\cite{JWY}).
 \end{rem}
 
 
@@ -2081,6 +2081,14 @@ http://dspace.mit.edu/handle/1721.1/104468.
  {Cambridge Studies in Advanced Mathematics},
 {\bf 29},
 (1990) 204 pages.
+
+
+\bibitem{JWY} W.~Jia, Z.~Wang and H.~Yu, 
+ \textit{Rigidity for the {H}opf algebra of quasisymmetric functions},
+{Electron. J. Combin.} {\bf 26-3}
+(2019)
+ {Paper No. 3.4, 26}.
+
 
 \bibitem{L} S. X. Li,
 \textit{Ideals and quotients of diagonally quasi-symmetric functions}.
