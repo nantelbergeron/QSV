@@ -1497,10 +1497,19 @@ corresponds to the (graded) quotient $R_n\big/\langle \QSym_{n}^{+} \rangle$.
 \end{rem}
 
 \begin{rem}
-In light of Remark~\ref{rem:altECs}, one should expect the vanishing ideal of the set $\{\omega_{0} w \omega_{0} \;|\; w \in \QSV_{n}\}$ in Remark~\ref{rem:auto} to have similar properties to $\mathbf{I}(\QSV_{n})$, and this turns out to be the case.  In particular, the polynomials $P_\alpha$ can be modified to polynomials $P'_\alpha$ that vanish on every permutation $\omega_{0} w \omega_{0}$ for $w \in \QSV_{n}$. The top homogeneous component of $P'_\alpha$ is also $M_{\alpha}$, leading to an analogue of Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} for this set.  
+In light of Remark~\ref{rem:altECs}, one should expect the vanishing ideal of the set $\{\omega_{0} w \omega_{0} \;|\; w \in \QSV_{n}\}$ in Remark~\ref{rem:auto} to have similar properties to $\mathbf{I}(\QSV_{n})$, and this turns out to be the case.  In particular, the polynomials $P_\alpha$ can be modified to polynomials 
+	$$\omega_0P_\alpha\omega_0=P_\alpha(-x_n+n+1,\ldots, -x_2+n+1,-x_1+n+1)$$
+ that vanish on every permutation $\omega_{0} w \omega_{0}$ for $w \in \QSV_{n}$. The top homogeneous component of $\omega_0P_\alpha\omega_0$ is  
+ 	$$M_{\alpha}(-x_n,\ldots,-x_2,-x_1)=(-1)^{|\alpha|} M_{\overleftarrow{\alpha}},$$ 
+where for $\alpha=(\alpha_1,\ldots,\alpha_k)$ we have $\overleftarrow{\alpha}=(\alpha_k,\ldots,\alpha_1)$, is again quasisymmetric.
+This leads to an analogue of Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} for this set.  
 This is closely related to the automorphisms of the ring of quasisymmetric functions (see, for example,~\cite{JWY}).
 \end{rem}
 
+\begin{rem} As in Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto}, one may wonder what happen for a general coxeter element $c$. The interval $[1,c]$ in the absolute order also provides a basis of 
+the Temperley-Lieb algebra (see~\cite{GobetWilliams}). Any full cycle $c$ is conjugate to the cycle $(n\ldots 3\,2\,1)$ via a permutation $\omega$. One can show that $\omega P\omega^{-1}$ would  vanish on the set $[1,c]$ and give us the vanishing ideal. Unfortunately, the top homogeneous component of $\omega P\omega^{-1}$ would not be quasisymmetric in general. It would be some $\omega$-twisted
+vector space corresponding to $\QSym$. Only $c=(n\ldots 3\,2\,1)$ and $c=(1\,2\,3\ldots n)$ preserve $QSym$ in general. 
+\end{rem}
 
 The remainder of the section fills in the gaps of the proof of Theorem~\ref{thm:vanishingQSV}.  Section~\ref{sec:QSymvanish} gives a complete account of the polynomials $P_{\alpha}$, and Section~\ref{sec:Grobner} describes the isomorphism $R_{n}/\mathsf{gr}(I_{n}) \cong R_{n}/I_{n}$ used in the proof.
 
