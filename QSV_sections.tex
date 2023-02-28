@@ -578,7 +578,7 @@ Define a permutation $Q_{\lambda} \in S_{n}$ by
 %Since the parts of $\lambda$ are disjoint, the above product can be taken in any order.  The permutation $Q_{\lambda}$ can also be described using the noncrossing partition diagram of $\lambda$: 
 \[
 Q_{\lambda}(j) = \begin{cases} i & \text{if $j \in \lambda^{-}$ and $ \edge{i}{j} \in \lambda$} \\
-k & \text{if $j \notin \lambda^{-}$ and $k$ is the largest element connected to $i$ in $\lambda$}
+k & \text{if $j \notin \lambda^{-}$ and $k$ is the largest element connected to $j$ in $\lambda$}
 \end{cases}
 \]
 Thus, $Q_{\lambda}$ sends each $j \in [n]$ to its leftward neighbor in $\lambda$, if such a neighbor exists, and otherwise sends $j$ to the rightmost element of its connected component.  
@@ -1109,11 +1109,17 @@ Thus, by assumption of minimality, each entry of $\TTT_{k}(T_{\lambda})$ is boun
 Finally, recall that a permutation $w \in S_{n}$ is \emph{$321$-avoiding} if there do not exist indices $i < j < k$ for which $w_{i} > w_{j} > w_{k}$.  The number of $321$-avoiding permutations is known to be the $n$th Catalan number, so the following result establishes that each excedance class contains a unique $321$-avoiding permutation.
 
 \begin{prop}
+\label{prop:Tlambda321}
 For all noncrossing partitions $\lambda$, the permutation $T_{\lambda}$ is $321$-avoiding.
 \end{prop}
 \begin{proof}
 Let $i, j, k\in [n]$ and assume without loss of generality that $i < j < k$.  Since any element of $[n]$ must be contained in either $\lambda^{+}$ or its complement, we must have two elements of $\{i, j, k\}$ which belong to one of $\lambda^{+}$ or $[n] \setminus \lambda^{+}$.  Since $T_{\lambda}$ restricts to an order-preserving bijection from $\lambda^{+}$ to $\lambda^{-}$, and from $[n] \setminus \lambda^{+}$ to $[n] \setminus \lambda^{-}$, this implies that no $321$-pattern can exist in $T_{\lambda}$, completing the proof.
 \end{proof}
+
+
+\begin{rem}
+Proposition~\ref{prop:Tlambda321} implicitly defines a bijection between $321$-avoiding permutations and noncrossing partitions.  Up to conjugation by $\omega_{0}$ (as in Remark~\ref{rem:auto}), this bijection is equivalent to one used by Zinno in~\cite{Zinno}.  An explicit description using reduced words has been given by Gobet; see~\cite{Gobet}.
+\end{rem}
 
 
 %%%%%%%%%%%%%%%
@@ -1240,20 +1246,24 @@ s_{i} & \longmapsto & 1 - e_{i}.
 In particular $\TL_{n}(2)\cong S_n\big/\!\ker(\phi)$.
 
 It is well-known that the images of all $321$-avoiding permutations under $\phi$ forms a basis for $\TL_{n}(2)$.  
-Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ using the combinatorics of noncrossing partitions described in Remark~\ref{rem:QSVnoncrossing}.  This basis is precisely the set $\{\phi(\omega_0w\omega_0) \;|\; w \in \QSV_{n}\}$.  Since the kernel
-\[
-\ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle
-\]
-is invariant under the $\CC$-linear map $w \mapsto \omega_0w\omega_0$ (as in Remark~\ref{rem:auto}), the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
+Gobet~\cite{Gobet} shows that the set $\QSV_{n}$ has a similar property.
 
-\begin{thm}
+
+%Another basis, due to Zinno~\cite{Zinno} can be obtained via the map $\phi$ using the combinatorics of noncrossing partitions described in Remark~\ref{rem:QSVnoncrossing}.  This basis is precisely the set $\{\phi(\omega_0w\omega_0) \;|\; w \in \QSV_{n}\}$.  Since the kernel
+%\[
+%\ker(\phi) = \langle (13) - (123) - (132) + (12) + (23) - e \rangle
+%\]
+%is invariant under the $\CC$-linear map $w \mapsto \omega_0w\omega_0$ (as in Remark~\ref{rem:auto}), the following result is an immediate consequence of~\cite[Theorem 2]{Zinno}.
+
+\begin{thm}[{\cite[Theorem 7.21]{Gobet}}]
 \label{thm:TLbasis}
 For all $n \ge 0$, the set $\phi(\QSV_{n})$ is a basis for $\TL_{n}(2)$.
 \end{thm}
 
 \begin{rem}
-Theorem~\ref{thm:TLbasis} also follows from the work of Gobet and Williams in~\cite{GobetWilliams}: their results imply a  generalization of Zinno's in which each Coxeter element of $S_{n}$ determines a basis of $\TL_{n}(2)$ under $\phi$ (see also Remark~\ref{rem:QSVnoncrossing}).  
-However,~\cite{GobetWilliams} does not explicitly state this result about bases, so the theorem is more easily deduced from Zinno's earlier work.
+Gobet's result builds on the work of Zinno~\cite{Zinno} in the spirit of Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto}. 
+Zinno~\cite[Theorem 2]{Zinno} showed that $\{\phi(\omega_0w\omega_0) \;|\; w \in \QSV_{n}\}$ a basis of $\TL_{n}(2)$ using a certain triangularity result, and Gobet and Williams~\cite{GobetWilliams} have proved a similar triangularity for the interval $[1, c]$ beneath an arbitrary Coxeter element $c \in S_{n}$ in the absolute order.  
+The full statement of~\cite[Theorem 7.21]{Gobet} proves that each of these intervals gives a basis of $\TL_{n}(2)$, and Theorem~\ref{thm:TLbasis} is the special case where $c = (n\,\ldots\,2\,1)$.
 \end{rem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1489,27 +1499,49 @@ We have $R_n\big/\langle \QSym_{n}^{+} \rangle \cong R_n\big/\mathbf{I}(\QSV_{n}
 \end{cor}
 
 \begin{rem}
-The Tamari lattice, defined on binary trees or any associated combinatorial objects, is a well-known order (see~\cite{Tamari}). It can also be defined on noncrossing partitions and has the following property: for any noncrossing partition $\lambda$, we define $\ell(\lambda)$ as the length of the shortest path from the identity to $\lambda$ in the Tamari lattice. In a subsequent paper, we will study the polynomial $m_\lambda$ of degree $\ell(\lambda)$, such that for any $Q_\mu\in \QSV_n$, we have
-  $$ m_\lambda(Q_\mu)=\begin{cases}1&\text{ if }\lambda=\mu,\\ 0 &\text{ if  } \mu<_w\lambda. \end{cases}$$
-Furthermore, the Hilbert series
+The Tamari lattice, defined on binary trees or any associated combinatorial objects, is a well-known order (see~\cite{Tamari}). 
+Write $\le_{T}$ for the Tamari order on noncrossing partitions, and for any noncrossing partition $\lambda$, define $\ell(\lambda)$ as the length of the shortest path from the minimal element to $\lambda$ in $\le_{T}$. 
+In a subsequent paper, we will study a family of polynomials $m_\lambda$ which have degree $\ell(\lambda)$ and moreover satisfy
+  $$ m_\lambda(Q_\mu)=\begin{cases}1&\text{ if }\lambda=\mu,\\ 0 &\text{ if  } \mu<_{T} \lambda \end{cases}$$
+for all $Q_\mu\in \QSV_n$.  Furthermore, the Hilbert series
 $$H_n(q) = \sum_{\lambda} q^{\ell(\lambda)}$$
 corresponds to the (graded) quotient $R_n\big/\langle \QSym_{n}^{+} \rangle$.
 \end{rem}
 
 \begin{rem}
-In light of Remark~\ref{rem:altECs}, one should expect the vanishing ideal of the set $\{\omega_{0} w \omega_{0} \;|\; w \in \QSV_{n}\}$ in Remark~\ref{rem:auto} to have similar properties to $\mathbf{I}(\QSV_{n})$, and this turns out to be the case.  In particular, the polynomials $P_\alpha$ can be modified to polynomials 
+Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto} describe the combinatorics of the conjugate sets $\{w \sigma w \;|\; \sigma \in \QSV_{n}\}$, each of which corresponds to a unique $n$-cycle $c \in S_{n}$.  
+It is natural to consider how Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} generalize to these sets as well, and we explain this below.
+\begin{enumerate}
+\item For the set $\{\omega_{0} \sigma \omega_{0} \;|\; \sigma \in \QSV_{n}\}$ corresponding to the Coxeter element $c = (1\,2\,\ldots\,n)$, our results generalize completely.  
+In particular, the polynomials $P_\alpha$ can be modified to polynomials 
 	$$\omega_0P_\alpha\omega_0=P_\alpha(-x_n+n+1,\ldots, -x_2+n+1,-x_1+n+1)$$
- that vanish on every permutation $\omega_{0} w \omega_{0}$ for $w \in \QSV_{n}$. The top homogeneous component of $\omega_0P_\alpha\omega_0$ is  
- 	$$M_{\alpha}(-x_n,\ldots,-x_2,-x_1)=(-1)^{|\alpha|} M_{\overleftarrow{\alpha}},$$ 
-where for $\alpha=(\alpha_1,\ldots,\alpha_k)$ we have $\overleftarrow{\alpha}=(\alpha_k,\ldots,\alpha_1)$, is again quasisymmetric.
-This leads to an analogue of Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} for this set.  
-This is closely related to the automorphisms of the ring of quasisymmetric functions (see, for example,~\cite{JWY}).
+ that vanish on every permutation $\omega_{0} \sigma \omega_{0}$ for $\sigma \in \QSV_{n}$. Moreover,
+ \[
+ \mathsf{h}\big(\omega_0P_\alpha\omega_0\big) = M_{\alpha}(-x_n,\ldots,-x_2,-x_1)=(-1)^{|\alpha|} M_{\overleftarrow{\alpha}},
+ \]
+where for a composition $\alpha=(\alpha_1,\ldots,\alpha_k)$,  $M_{\overleftarrow{\alpha}}$ denotes the monomial quasisymmetric function corresponding to the reverse $\overleftarrow{\alpha}=(\alpha_k,\ldots,\alpha_1)$.  This is closely related to the automorphisms of the ring of quasisymmetric functions (see, for example,~\cite{JWY}).
+
+\item For the sets corresponding to $n$-cycles other than $(1\,2\,\ldots\,n)$ and $(n\,\ldots\,2\,1)$, the vanishing ideal does not have top-degree homogeneous component $\langle \QSym_{n}^{+} \rangle$.  
+However, this ideal appears to be quite nice and may be the subject of future work.
+
+\end{enumerate}
 \end{rem}
 
-\begin{rem} As in Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto}, one may wonder what happen for a general coxeter element $c$. The interval $[1,c]$ in the absolute order also provides a basis of 
-the Temperley-Lieb algebra (see~\cite{GobetWilliams}). Any full cycle $c$ is conjugate to the cycle $(n\ldots 3\,2\,1)$ via a permutation $\omega$. One can show that $\omega P\omega^{-1}$ would  vanish on the set $[1,c]$ and give us the vanishing ideal. Unfortunately, the top homogeneous component of $\omega P\omega^{-1}$ would not be quasisymmetric in general. It would be some $\omega$-twisted
-vector space corresponding to $\QSym$. Only $c=(n\ldots 3\,2\,1)$ and $c=(1\,2\,3\ldots n)$ preserve $QSym$ in general. 
-\end{rem}
+
+%\begin{rem}
+%In light of Remark~\ref{rem:altECs}, one should expect the vanishing ideal of the set $\{\omega_{0} w \omega_{0} \;|\; w \in \QSV_{n}\}$ in Remark~\ref{rem:auto} to have similar properties to $\mathbf{I}(\QSV_{n})$, and this turns out to be the case.  In particular, the polynomials $P_\alpha$ can be modified to polynomials 
+%	$$\omega_0P_\alpha\omega_0=P_\alpha(-x_n+n+1,\ldots, -x_2+n+1,-x_1+n+1)$$
+% that vanish on every permutation $\omega_{0} w \omega_{0}$ for $w \in \QSV_{n}$. The top homogeneous component of $\omega_0P_\alpha\omega_0$ is  
+% 	$$M_{\alpha}(-x_n,\ldots,-x_2,-x_1)=(-1)^{|\alpha|} M_{\overleftarrow{\alpha}},$$ 
+%where for $\alpha=(\alpha_1,\ldots,\alpha_k)$ we have $\overleftarrow{\alpha}=(\alpha_k,\ldots,\alpha_1)$, is again quasisymmetric.
+%This leads to an analogue of Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} for this set.  
+%This is closely related to the automorphisms of the ring of quasisymmetric functions (see, for example,~\cite{JWY}).
+%\end{rem}
+
+%\begin{rem} As in Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto}, one may wonder what happen for a general coxeter element $c$. The interval $[1,c]$ in the absolute order also provides a basis of 
+%the Temperley-Lieb algebra (see~\cite{GobetWilliams}). Any full cycle $c$ is conjugate to the cycle $(n\ldots 3\,2\,1)$ via a permutation $\omega$. One can show that $\omega P\omega^{-1}$ would  vanish on the set $[1,c]$ and give us the vanishing ideal. Unfortunately, the top homogeneous component of $\omega P\omega^{-1}$ would not be quasisymmetric in general. It would be some $\omega$-twisted
+%vector space corresponding to $\QSym$. Only $c=(n\ldots 3\,2\,1)$ and $c=(1\,2\,3\ldots n)$ preserve $QSym$ in general. 
+%\end{rem}
 
 The remainder of the section fills in the gaps of the proof of Theorem~\ref{thm:vanishingQSV}.  Section~\ref{sec:QSymvanish} gives a complete account of the polynomials $P_{\alpha}$, and Section~\ref{sec:Grobner} describes the isomorphism $R_{n}/\mathsf{gr}(I_{n}) \cong R_{n}/I_{n}$ used in the proof.
 
@@ -2043,6 +2075,8 @@ Springer Science \& Business Media; 2013 Mar 9.
     
     
 \bibitem{GobetWilliams}  Thomas Gobet and Nathan Williams.  \textit{Noncrossing partitions and Bruhat order}. European Journal of Combinatorics {\bf 53} (2016) 8-34.
+
+\bibitem{Gobet}  Thomas Gobet.  \textit{Coxeter-Catalan Combinatorics and Temperley–Lieb Algebras}. Algebras and Representation Theory {\bf 24} (2021) 169–201.
 
 \bibitem{Grinberg} D.~Grinberg, 
  \textit{Studies on {Q}uasisymmetric {F}unctions},
