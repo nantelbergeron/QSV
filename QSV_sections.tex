@@ -278,7 +278,7 @@ However, $\QSV_{n}$ is not readily found: it took several years of computer expl
 We have now found it, along with a number of remarkable properties that should be of interest to the wider community.
 
 The set $\QSV_{n} \subseteq S_{n}$ is defined in Section~\ref{sec:QSV}.  
-After our initial discovery, we noticed that the cycle structures of these permutations determine a noncrossing partition, tying them to a more general story about noncrossing partitions and the symmetric group~\cite{Baine} (see also~\cite{McCammond}).  
+After our initial discovery, we noticed that the cycle structures of these permutations determine a noncrossing partition, tying them to a more general story of Coxeter--Catalan combinatorics for the symmetric groups~\cite{Baine} (see also~\cite{McCammond}).  
 For example, writing $Q_{\lambda}$ to denote the element of $\QSV_{n}$ indexed by the partition $\lambda$,
 \[
 \lambda = \begin{tikzpicture}[scale = 0.75, baseline = 0.75*-0.2]
@@ -288,7 +288,7 @@ For example, writing $Q_{\lambda}$ to denote the element of $\QSV_{n}$ indexed b
 \qquad\text{corresponds to}\qquad
 Q_{\lambda} = (1)(72)(653)(4).
 \]
-Through this connection,~\cite{GobetWilliams} and ~\cite{Zinno} have studied bases of general Temperley--Lieb algebras which specialize to $\phi(\QSV_{n})$ for $\TL_{n}(2)$, so only condition (iii) remains.
+Through this connection,~\cite{GobetWilliams, Gobet} and ~\cite{Zinno} have studied bases of general Temperley--Lieb algebras which specialize to $\phi(\QSV_{n})$ for $\TL_{n}(2)$, so only condition (iii) remains.
 
 Our initial attempts to prove condition (ii) led us to an exciting discovery about how $\QSV_{n}$ sits in $S_{n}$.  
 In Section~\ref{sec:excedance} we define an equivalence relation $\sim$ on $S_{n}$ using the weak excedance set of a permutation and its inverse.  
@@ -1512,10 +1512,9 @@ corresponds to the (graded) quotient $R_n\big/\langle \QSym_{n}^{+} \rangle$.
 Remarks~\ref{rem:QSVnoncrossing} and~\ref{rem:auto} describe the combinatorics of the conjugate sets $\{w \sigma w \;|\; \sigma \in \QSV_{n}\}$, each of which corresponds to a unique $n$-cycle $c \in S_{n}$.  
 It is natural to consider how Theorems~\ref{thm:vanishing} and~\ref{thm:vanishingQSV} generalize to these sets as well, and we explain this below.
 \begin{enumerate}
-\item For the set $\{\omega_{0} \sigma \omega_{0} \;|\; \sigma \in \QSV_{n}\}$ corresponding to the Coxeter element $c = (1\,2\,\ldots\,n)$, our results generalize completely.  
-In particular, the polynomials $P_\alpha$ can be modified to polynomials 
+\item For the set $\{\omega_{0} \sigma \omega_{0} \;|\; \sigma \in \QSV_{n}\}$ corresponding to the Coxeter element $c = (1\,2\,\ldots\,n)$, our results generalize completely.  In particular, the modified polynomials
 	$$\omega_0P_\alpha\omega_0=P_\alpha(-x_n+n+1,\ldots, -x_2+n+1,-x_1+n+1)$$
- that vanish on every permutation $\omega_{0} \sigma \omega_{0}$ for $\sigma \in \QSV_{n}$. Moreover,
+vanish on every permutation $\omega_{0} \sigma \omega_{0}$ for $\sigma \in \QSV_{n}$. Moreover,
  \[
  \mathsf{h}\big(\omega_0P_\alpha\omega_0\big) = M_{\alpha}(-x_n,\ldots,-x_2,-x_1)=(-1)^{|\alpha|} M_{\overleftarrow{\alpha}},
  \]
