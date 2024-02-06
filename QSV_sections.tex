@@ -246,8 +246,8 @@ Motivated by the discussion above, we revisit two modules which afford the left 
 \item the coordinate ring $R_{n} \big/ \mathbf{I}(S_{n})$ for the vertices of the regular permutohedron in $\QQ^{n}$, which are the points $(\sigma_{1}, \ldots, \sigma_{n})$ for each $\sigma \in S_{n}$.
 
 \end{enumerate}
-Module (1) is a famous case of Chevalley's theorem: the $S_{n}$-invariants of $R_{n}$ are the symmetric polynomials, and $R_{n}\big/\langle \Sym_{n}^{+} \rangle$ is the $S_{n}$ coinvariant ring.  
-On the other hand, module (2) comes from the left multiplicative action of $S_{n}$ on the permutahedron realized on the coordinate ring $R_{n} \big/ \mathbf{I}(S_{n})$  where $\mathbf{I}(S_{n})$ is the vanishing ideal. 
+Module (1) is a famous case of Chevalley's theorem: the $S_{n}$-invariants of $R_{n}$ are the symmetric polynomials and $R_{n}\big/\langle \Sym_{n}^{+} \rangle$ is the $S_{n}$ coinvariant ring.  
+On the other hand, module (2) comes from the left multiplicative action of $S_{n}$ on the permutahedron realized on the coordinate ring $R_{n} \big/ \mathbf{I}(S_{n})$ where $\mathbf{I}(S_{n})$ is the vanishing ideal. 
 However, as seen in the work of Garsia and Procesi~\cite{GP} and reference therein, a careful inspection reveals that these modules determine one another!  
 Consider the ideal
 \[
@@ -258,7 +258,7 @@ Then $\mathsf{gr}(I_{n}) \supseteq \langle \Sym_{n}^{+} \rangle$, and Gr\"{o}bne
 \[
 |S_{n}| = \dim\big(R_{n}\big/\langle \Sym_{n}^{+} \rangle\big) \ge \dim\big(R_{n}\big/\mathsf{gr}(I_{n})\big) = \dim\big(R_{n}\big/I_{n}) \ge \dim(R_{n}\big/\mathbf{I}(S_{n})\big) = |S_{n}|,
 \]
-so that $I_{n} = \mathbf{I}(S_{n})$ and $\mathsf{gr}(I_{n}) = \langle \Sym_{n}^{+} \rangle$, and $R_{n}\big/\langle \Sym_{n}^{+} \rangle \cong R_{n}\big/\mathbf{I}(S_{n})$ as vector spaces.  
+so that $I_{n} = \mathbf{I}(S_{n})$, $\mathsf{gr}(I_{n}) = \langle \Sym_{n}^{+} \rangle$, and $R_{n}\big/\langle \Sym_{n}^{+} \rangle \cong R_{n}\big/\mathbf{I}(S_{n})$ as vector spaces.  
 This isomorphism respects the $S_{n}$-action on each quotient: both $\mathbf{I}(S_{n})$ and $\langle \Sym_{n}^{+} \rangle$ are fixed spaces for the standard $S_{n}$-action on $R_{n}$, and this action coindices with the action on points for $R_{n}\big/\mathbf{I}(S_{n})$.  
 Thus, we have an $S_{n}$-module isomorphism $R_{n}\big/\langle \Sym_{n}^{+} \rangle \cong R_{n}\big/\mathbf{I}(S_{n})$, though the left hand side has a natural grading and the right hand side does not.
 
@@ -910,6 +910,17 @@ The authors of~\cite{ES} prove several enumerative and statistical results about
 \end{rem}
 %\Nantel{what you think of  remark above?}
 
+\begin{rem}
+In~\cite{Reading}, Reading defines a collection of quotients on the weak order of $S_{n}$.  
+The fibers of his map are intervals in the weak order with distinguished bottom and top elements---known as $c$-sortable and $c$-antisortable elements---which include as a special case the $312$-avoiding permutations.  
+While this work is a natural point of comparison for our results, there does not appear to be a direct connection between the two.  
+Nonetheless, the similarities are remarkable and warrant further investigation.
+\end{rem}
+
+\Lucas{What do you think of this remark?}
+
+%\Nantel{Add remark about: Reading paper, bijection, c-sortable element is a section. our equivalence relation show these bijection.}
+
 
 
 %%%%%%%%%%%%%%%
@@ -1120,8 +1131,6 @@ Let $i, j, k\in [n]$ and assume without loss of generality that $i < j < k$.  Si
 \begin{rem}
 Proposition~\ref{prop:Tlambda321} implicitly defines a bijection between $321$-avoiding permutations and noncrossing partitions.  Up to conjugation by $\omega_{0}$ (as in Remark~\ref{rem:auto}), this bijection is equivalent to one used by Zinno in~\cite{Zinno}.  An explicit description using reduced words has been given by Gobet; see~\cite{Gobet}.
 \end{rem}
-
-\Nantel{Add remark about: Reading paper, bijection, c-sortable element is a section. our equivalence relation show these bijection.}
 
 %%%%%%%%%%%%%%%
 \subsection{Comparing excedance classes}
@@ -2134,6 +2143,10 @@ Amer. Math. Monthly 113, {\bf 7} (2006), 598-610.
 %\bibitem{MacSchub} I. G. Macdonald,
 %\textit{Notes on Schubert polynomials}.
 %Publications LACIM, vol. 6, Universit\'e du Qu\'ebec \`a Montr\'eal,  (1991) [ISBN 978-2-89276-086-6].
+
+\bibitem{Reading}  N.~Reading, 
+\textit{Cambrian Lattices},
+Adv.~Math.~{\bf 205} (2006), 313–353.
 
 \bibitem{StanleyQSym}  R.~P.~Stanley, 
 \textit{Ordered structures and partitions},
