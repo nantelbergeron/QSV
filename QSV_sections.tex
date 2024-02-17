@@ -303,10 +303,10 @@ Writing $\le$ for the relation on excedance classes $S_{n}\big/\!\! \sim$ induce
 A similar result is given by~\cite{GobetWilliams} for the set $\QSV_{n}$ as a sub-poset of the Bruhat order (see Section~\ref{sec:bruhatballot}), which simplifies our proof of Theorem~\ref{thm:excedancequotient}.  This leads to a kind of duality between these sub- and quotient orders of the Bruhat poset.
 
 \begin{introcor}{\ref{cor:interval}}
-Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation
+Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation.
 \end{introcor}
 
-The combinatorics of excedance classes are very rich, and there is much left to explore.   
+These results are reminiscent of Reading's Cambrian congruences~\cite{Reading1, Reading2} but there is no direct connection between the two; see Remark~\ref{rem:reading}.  However, we expect the combinatorics of excedance classes to be similarly rich, and there is much left to explore.   
 %For example, in Section~\ref{sec:weakorder} we describe a well-behaved weak order on noncrossing partitions using excedance classes, but many properties of this order remain mysterious.  %are still up for discoveries.  
 
 In Section~\ref{sec:TLbasis}, we use excedance classes of $S_{n}$ to explore bases of $\TL_{n}(2)$.  Using results of~\cite{GobetWilliams} and~\cite{Zinno}, our Theorem~\ref{thm:TLbasis} restates the fact that $\QSV_{n}$ satisfies condition (ii) above.  However, we also prove more general (and novel) theorem about bases of $\TL_{n}(2)$ coming from the surjection $\phi: \CC S_{n} \to \TL_{n}(2)$.
@@ -336,7 +336,7 @@ Future work will explore the module structure on $R_{n}\big/\langle \QSym_{n}^{+
 \subsection{Acknowledgement} 
 We thank the participants of the Algebraic Combinatorics working seminar at the Fields Institute: K.~Chan, F.~G\'elinas, A.~Lao, A.~A.~Lazzeroni, C.~McConnell, Y.~Solomon, F.~Soltani,  N.~Wallace and 
 M.~ Zabrocki. We are especially grateful to K.~Chan for helping us understand some of our intermediate construction of $\QSV_n$ at an early stage.
-We are also grateful to R.~Gonz\'alez~D'L\'eon for his  inspiring discussions.% related to Section~\ref{sec:weakorder}. 
+We are also grateful to R.~Gonz\'alez~D'L\'eon for his inspiring discussions, and to N.~Reading for helping us to identify the disapointing result mentioned in Remark~\ref{rem:reading}.% related to Section~\ref{sec:weakorder}. 
 
 
 %\newpage
@@ -887,7 +887,7 @@ Writing $\le$ for the relation on excedance classes $S_{n}\big/\!\! \sim$ induce
 Two key intermediate results in the proof of Theorem~\ref{thm:excedancequotient} appear in Section~\ref{sec:ex2}: we show that each excedance class $\CCC_{\lambda}$ contains unique Bruhat-minimal and Bruhat-maximal elements, and moreover that these are respectively a $321$-avoiding permutation and the element $Q_{\lambda} \in \QSV_{n}$.  Combined with Theorem~\ref{thm:excedancequotient}, this implies the following corollary.  
 
 \begin{cor}\label{cor:interval}
-Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation
+Each excedance class $\CCC_{\lambda}$ is an interval in the Bruhat order, with upper bound $Q_{\lambda}\in \QSV_n$ and lower bound given by a $321$-avoiding permutation.
 \end{cor}
 
 %Finally, in Section~\ref{sec:weakorder} we use Theorem~\ref{thm:excedancequotient} and intermediate results to define another partial order on excedance classes which emulates the weak order on $S_{n}$.
@@ -900,7 +900,7 @@ Two alternative notions of ``excedance classes'' are worth mentioning.
 \item Our definition of excedance class is one of two obvious choices: one can instead consider the equivalence classes determined by sets $\EV'(w)$ and $\EP'(w)$ of values $i$ and positions $w_{i}$ for which $i < w_{i}$, known as strict excedances.  
 This choice is equally viable and would lead to results equivalent to the ones presented here.  This equivalence is directly  related to the automorphism described in Remark~\ref{rem:auto} (1).
 
-\item The excedance relation refines an equivalence relation defined in~\cite{ES}, for which permutations are related if they share the same excedance position set.  
+\item Our excedance relation refines an equivalence relation defined in~\cite{ES} in which permutations are related if they share the same excedance position set.  
 The authors of~\cite{ES} prove several enumerative and statistical results about their ``excedance classes,'' and it is worth considering how these results extend to our notion of excedance class.  
 %\end{rem}
 %
@@ -911,13 +911,43 @@ The authors of~\cite{ES} prove several enumerative and statistical results about
 %\Nantel{what you think of  remark above?}
 
 \begin{rem}
-In~\cite{Reading}, Reading defines a collection of quotients on the weak order of $S_{n}$.  
-The fibers of his map are intervals in the weak order with distinguished bottom and top elements---known as $c$-sortable and $c$-antisortable elements---which include as a special case the $312$-avoiding permutations.  
-While this work is a natural point of comparison for our results, there does not appear to be a direct connection between the two.  
-Nonetheless, the similarities are remarkable and warrant further investigation.
+\label{rem:reading}
+Our results are superficially similar to Reading's Cambrian congruences on the weak order~\cite{Reading1}.  
+These congruences partition $S_{n}$ into intervals in the weak order with distinguished maximum and minimum elements, and two of the most natural examples have minimum elements that respectively avoid the patterns $231$ and $312$~\cite{Reading2}. 
+Unfortunately there is no obvious one-to-one correspondence; by way of example the excedance class 
+\[
+\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+\foreach \x in {1, ..., 4}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+\foreach \x in {1, ..., 4}{\node[below] at (\x) {$\scriptstyle \x$};}
+\foreach \i\j in {1/4, 2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+\end{tikzpicture}} = \{ \stackrel{1}{3}\stackrel{2}{4}\color{red}\stackrel{3}{1}\stackrel{4}{2}\color{black}, \stackrel{1}{4}\stackrel{2}{3}\color{red}\stackrel{3}{1}\stackrel{4}{2}\color{black}, \stackrel{1}{3}\stackrel{2}{4}\color{red}\stackrel{3}{2}\stackrel{4}{1}\color{black}, \stackrel{1}{4}\stackrel{2}{3}\color{red}\stackrel{3}{2}\stackrel{4}{1}\color{black} \}
+\]
+contains two $312$-avoiding permutations and two $231$-avoiding permutations.  Nonetheless, there may be a more subtle connection, and this prospect warrants further investigation.
 \end{rem}
 
-\Lucas{What do you think of this remark?}
+%
+%
+%, and 
+%
+% in~\cite{Reading1} has a dis
+%
+%
+%is indexed by the 
+%
+%, Reading defines a family of quotients on the weak order of $S_{n}$ parametrized by Coxeter elements $c$.  
+%The equivalence classes are intervals in the weak order with distinguished bottom and top elements which for the most natural choices of $c$ are respectively the $312$-avoiding and $231$-avoiding permutations; see~\cite{Reading2}.  
+%Despite this remarkable similarity, there does not appear to be a direct connection between our results and Reading's: the excedance class 
+%\[
+%\mathcal{C}_{\begin{tikzpicture}[scale = 0.35, baseline = 0.35*-0.2]
+%\foreach \x in {1, ..., 4}{\draw[fill] (\x - 1, 0) circle (2pt) node[inner sep = 2pt] (\x) {};}
+%\foreach \x in {1, ..., 4}{\node[below] at (\x) {$\scriptstyle \x$};}
+%\foreach \i\j in {1/4, 2/3}{\draw[thick] (\i) to[out = 35, in = 145] (\j);}
+%\end{tikzpicture}} = \{ \stackrel{1}{3}\stackrel{2}{4}\color{red}\stackrel{3}{1}\stackrel{4}{2}\color{black}, \stackrel{1}{4}\stackrel{2}{3}\color{red}\stackrel{3}{1}\stackrel{4}{2}\color{black}, \stackrel{1}{3}\stackrel{2}{4}\color{red}\stackrel{3}{2}\stackrel{4}{1}\color{black}, \stackrel{1}{4}\stackrel{2}{3}\color{red}\stackrel{3}{2}\stackrel{4}{1}\color{black} \}
+%\]
+%contains two $312$-avoiding permutations and two $231$-avoiding permutations!  Nonetheless, there may be a more subtle connection, and this prospect warrants further investigation.
+%\end{rem}
+
+%\Lucas{What do you think of this remark?}
 
 %\Nantel{Add remark about: Reading paper, bijection, c-sortable element is a section. our equivalence relation show these bijection.}
 
@@ -1587,7 +1617,7 @@ While this formula appears to be quite dense, expanding it reveals an intuitive 
 \begin{align*}
 P_{(1, 2, 1)}(x_{1}, \ldots, x_{4}) =& (x_{1} - 1)(x_{2}^{2} - 2^{2})(x_{3} - 3) + (x_{1} - 1)(x_{2}^{2} - 2^{2})(x_{4} - 4) \\
 &+ (x_{1} - 1)(x_{3}^{2} - 3^{2})(x_{4} - 4) + (x_{2} - 2)(x_{3}^{2} - 3^{2})(x_{4} - 4) \\[1ex]
-&\hspace{1.2em} -  (x_{1} - 1)(x_{2}^{2} - 2^{2})2 -  (x_{1} - 1)(x_{3}^{2} - 3^{3})3 -  (x_{1} - 1)(x_{4}^{2} - 4^{2})4  \\
+&\hspace{1.2em} -  (x_{1} - 1)(x_{2}^{2} - 2^{2})2 -  (x_{1} - 1)(x_{3}^{2} - 3^{2})3 -  (x_{1} - 1)(x_{4}^{2} - 4^{2})4  \\
 &\hspace{1.2em} -  (x_{2} - 2)(x_{3}^{2} - 3^{3})3 -  (x_{2} - 2)(x_{4}^{2} - 4^{2})4 -  (x_{3} - 3)(x_{4}^{2} - 4^{2})4 \\[1ex]
 &\hspace{2.4em} -  (x_{1} - 1)1^{2}(x_{2} - 2) -  (x_{1} - 1)1^{2}(x_{3} - 3) -  (x_{1} - 1)1^{2}(x_{4} - 4) \\
 &\hspace{2.4em} -  (x_{2} - 2)2^{2}(x_{3} - 3) -  (x_{2} - 2)2^{2}(x_{4} - 4) -  (x_{3} - 3)3^{2}(x_{4} - 4) \\[1ex]
@@ -2144,9 +2174,13 @@ Amer. Math. Monthly 113, {\bf 7} (2006), 598-610.
 %\textit{Notes on Schubert polynomials}.
 %Publications LACIM, vol. 6, Universit\'e du Qu\'ebec \`a Montr\'eal,  (1991) [ISBN 978-2-89276-086-6].
 
-\bibitem{Reading}  N.~Reading, 
+\bibitem{Reading1}  N.~Reading, 
 \textit{Cambrian Lattices},
 Adv.~Math.~{\bf 205} (2006), 313–353.
+
+\bibitem{Reading2}  N.~Reading, 
+\textit{Clusters, Coxeter-Sortable elements and noncrossing partitions},
+Trans.~Amer.~Math.~Soc.~{\bf 35} (2007), no.~12, 5931–5958.
 
 \bibitem{StanleyQSym}  R.~P.~Stanley, 
 \textit{Ordered structures and partitions},
